@@ -7,7 +7,7 @@ nav_order: 5
 # Records & Leaderboards
 {: .no_toc }
 
-Track top times, community records, and personal milestones in Trackmania Galaxy.
+Track top times, community records, and personal milestones in ManiaPlanet.
 {: .fs-6 .fw-300 }
 
 ## Table of Contents
@@ -42,7 +42,7 @@ Each campaign map has four medal targets:
 
 ## Community Records
 
-Trackmania Galaxy maintains community records for:
+ManiaPlanet maintains community records for:
 
 - Featured map collections
 - Map hunting events
@@ -58,7 +58,7 @@ Use the following tools to track your times:
 
 ## Record Submission
 
-To submit a record to the Trackmania Galaxy community leaderboard:
+To submit a record to the ManiaPlanet community leaderboard:
 
 1. Achieve your time and **save the replay** immediately.
 2. Verify the replay is correct by watching it back.

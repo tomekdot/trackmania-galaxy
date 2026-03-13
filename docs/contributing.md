@@ -20,7 +20,7 @@ This wiki is maintained by the community. Everyone is welcome to contribute!
 
 ## How to Contribute
 
-The Trackmania Galaxy Wiki is open source and hosted on GitHub. There are several ways you can help:
+The ManiaPlanet Wiki is open source and hosted on GitHub. There are several ways you can help:
 
 ### Editing Existing Pages
 
@@ -89,4 +89,4 @@ When writing wiki pages, please follow these guidelines:
 All contributors are expected to be respectful and constructive. Harmful, misleading, or disruptive contributions will be removed.
 
 {: .highlight }
-> Thank you for helping make the Trackmania Galaxy Wiki better for everyone!
+> Thank you for helping make the ManiaPlanet Wiki better for everyone!
