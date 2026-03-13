@@ -28,30 +28,20 @@ Before jumping in, make sure you have the following:
 
 ## Creating an Account
 
-1. Visit [Ubisoft Connect](https://connect.ubisoft.com/) and create a free account.
-2. Download and install **Ubisoft Connect**.
+1. Visit [ManiaPlanet website](https://www.maniaplanet.com/) and create a free account.
+2. Download and install **ManiaPlanet**.
 3. Search for **ManiaPlanet** in your library or the store.
 4. Launch the game and log in with your Ubisoft credentials.
 
 ## Joining the Galaxy Community
 
-1. Join our community on Discord (link coming soon).
-2. Explore the featured maps in the [Maps & Tracks](maps) section.
-3. Check your times against the community on the [Records & Leaderboards](records) page.
+1. Join our community on [Discord] (https://discord.me/pursuit)
+2. Explore the maps in the [ManiaExchange] (htttps://tm.mania.exchange)
 
-## Your First Drive
-
-Once you're in ManiaPlanet:
-
-1. Head to the **Solo** campaign for a guided introduction to the game's mechanics.
-2. Practice on beginner-friendly community maps.
-3. Use the [Gameplay Guides](gameplay) to learn advanced techniques like **steer-tapping**, **bug slides**, and **reactor boosts**.
 
 ## Next Steps
 
 {: .highlight }
 > Once you feel comfortable with the basics, check out our [Gameplay Guides](gameplay) for tips on improving your times.
 
-- 🗺️ [Explore Maps & Tracks](maps)
-- 🏆 [Check Records & Leaderboards](records)
 - 🤝 [How to Contribute](contributing)
