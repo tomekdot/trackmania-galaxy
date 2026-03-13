@@ -27,7 +27,7 @@ This section showcases maps highlighted by the ManiaPlanet community. Maps are r
 
 ## Campaign Maps
 
-The official Trackmania campaigns offer a structured progression from beginner to expert. Each season introduces a new campaign with 25 maps across 5 difficulty levels:
+The official ManiaPlanet campaigns offer a structured progression from beginner to expert. Each season introduces a new campaign with 25 maps across 5 difficulty levels:
 
 | Difficulty | Color | Description |
 |------------|-------|-------------|
@@ -49,7 +49,7 @@ Community maps come in many styles:
 
 ## How to Find Maps
 
-1. Open **Trackmania** and go to **My Campaigns** → **Discover Maps**
+1. Open **ManiaPlanet** and go to **My Campaigns** → **Discover Maps**
 2. Browse **MX** (ManiaExchange) at [trackmania.exchange](https://trackmania.exchange/)
 3. Check community recommendations in our Discord
 

@@ -81,7 +81,7 @@ When writing wiki pages, please follow these guidelines:
 - **Use headings** — Structure content with `##` and `###` headings.
 - **Add a TOC** — For longer pages, include a table of contents.
 - **Link related pages** — Cross-reference other relevant wiki pages.
-- **Cite sources** — Link to official Trackmania resources where applicable.
+- **Cite sources** — Link to official ManiaPlanet resources where applicable.
 - **Use callouts** — Use `{: .note }`, `{: .warning }`, etc. for important information.
 
 ## Code of Conduct
