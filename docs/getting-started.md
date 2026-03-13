@@ -22,13 +22,13 @@ New to ManiaPlanet? This guide will walk you through everything you need to know
 
 Before jumping in, make sure you have the following:
 
-- **ManiaPlanet** (Free or Club Access) — available on the [ManiaPlanet website](https://www.maniaplanet.com/)
+- **ManiaPlanet** (Free or Club Access) — available on the [ManiaPlanet website](https://www.maniaplanet.com)
 - A **Ubisoft account**
 - A stable internet connection for online play
 
 ## Creating an Account
 
-1. Visit [ManiaPlanet website](https://www.maniaplanet.com/) and create a free account.
+1. Visit [ManiaPlanet website](https://www.maniaplanet.com) and create a free account.
 2. Download and install **ManiaPlanet**.
 3. Search for **ManiaPlanet** in your library or the store.
 4. Launch the game and log in with your Ubisoft credentials.
