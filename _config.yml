@@ -1,7 +1,7 @@
 title: Trackmania Galaxy Wiki
 description: A comprehensive wiki for Trackmania Galaxy — maps, records, guides, and more.
-baseurl: ""
-url: "https://trackmania-galaxy.github.io"
+baseurl: "/trackmania-galaxy.github.io"
+url: "https://tomekdot.github.io"
 
 remote_theme: just-the-docs/just-the-docs@v0.10.0
 

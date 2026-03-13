@@ -50,7 +50,7 @@ Once you're in Trackmania:
 ## Next Steps
 
 {: .highlight }
-Once you feel comfortable with the basics, check out our [Gameplay Guides](gameplay) for tips on improving your times.
+> Once you feel comfortable with the basics, check out our [Gameplay Guides](gameplay) for tips on improving your times.
 
 - 🗺️ [Explore Maps & Tracks](maps)
 - 🏆 [Check Records & Leaderboards](records)
