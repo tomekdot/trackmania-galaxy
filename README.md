@@ -2,7 +2,7 @@
 
 A community-maintained wiki for Trackmania Galaxy — maps, records, guides, and more.
 
-🌐 **Live site:** [trackmania-galaxy.github.io](https://trackmania-galaxy.github.io)
+🌐 **Live site:** [tomekdot.github.io/trackmania-galaxy.github.io](https://tomekdot.github.io/trackmania-galaxy.github.io/)
 
 ## About
 

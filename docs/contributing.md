@@ -24,10 +24,11 @@ The Trackmania Galaxy Wiki is open source and hosted on GitHub. There are severa
 
 ### Editing Existing Pages
 
-1. Navigate to any page on the wiki.
-2. Scroll to the bottom and click **"Edit this page on GitHub"**.
-3. Make your changes in the GitHub editor.
-4. Submit a **Pull Request** with a clear description of your changes.
+1. Navigate to the page on the wiki that you want to edit.
+2. Open the [GitHub repository](https://github.com/tomekdot/trackmania-galaxy.github.io) in a new tab.
+3. In GitHub, browse to the corresponding file under the `docs/` directory (matching the page URL).
+4. Click the pencil icon in GitHub to edit the file, make your changes, and add a clear commit message.
+5. Submit a **Pull Request** with a clear description of your changes.
 
 ### Adding New Pages
 

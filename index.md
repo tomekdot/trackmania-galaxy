@@ -24,7 +24,7 @@ Trackmania Galaxy is a community-driven hub dedicated to tracking and celebratin
 
 ## Community
 
-This wiki is maintained by the Trackmania Galaxy community. Feel free to contribute by opening a pull request on [GitHub](https://github.com/tomekdot/trackmania-galaxy.github.io).
+This wiki is maintained by the Trackmania Galaxy community. Feel free to contribute by opening a pull request on [GitHub](https://github.com/trackmania-galaxy/trackmania-galaxy.github.io).
 
 {: .note }
 > This wiki is a community project and is not officially affiliated with Ubisoft or Nadeo.
