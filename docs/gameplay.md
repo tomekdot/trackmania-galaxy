@@ -55,7 +55,6 @@ Trackmania features several surface types that require different techniques:
 
 - **Road** — Standard surface with predictable grip
 - **Dirt** — Lower grip, requires smooth inputs
-- **Ice** — Very low grip, momentum-based driving
 - **Grass** — Varies by map; typically slower
 - **Platform** — Elevated sections requiring precise jumps
 
