@@ -7,7 +7,7 @@ nav_order: 4
 # Maps & Tracks
 {: .no_toc }
 
-Explore the maps and campaigns featured in Trackmania Galaxy.
+Explore the maps and campaigns featured in ManiaPlanet.
 {: .fs-6 .fw-300 }
 
 ## Table of Contents
@@ -20,7 +20,7 @@ Explore the maps and campaigns featured in Trackmania Galaxy.
 
 ## Featured Maps
 
-This section showcases maps highlighted by the Trackmania Galaxy community. Maps are reviewed for quality, creativity, and replayability.
+This section showcases maps highlighted by the ManiaPlanet community. Maps are reviewed for quality, creativity, and replayability.
 
 {: .highlight }
 > Want your map featured here? Share it in our community Discord!
@@ -62,4 +62,4 @@ Map hunting is the practice of achieving the best possible time on every map in 
 - Collaborate with other hunters in the community
 
 {: .note }
-> A curated list of Galaxy community maps will be added here soon!
+> A curated list of ManiaPlanet community maps will be added here soon!

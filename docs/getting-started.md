@@ -7,7 +7,7 @@ nav_order: 2
 # Getting Started
 {: .no_toc }
 
-New to Trackmania Galaxy? This guide will walk you through everything you need to know to get started.
+New to ManiaPlanet? This guide will walk you through everything you need to know to get started.
 {: .fs-6 .fw-300 }
 
 ## Table of Contents
