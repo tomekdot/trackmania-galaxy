@@ -7,7 +7,7 @@ nav_order: 3
 # Gameplay Guides
 {: .no_toc }
 
-Master the mechanics of Trackmania with these in-depth guides.
+Master the mechanics of ManiaPlanet with these in-depth guides.
 {: .fs-6 .fw-300 }
 
 ## Table of Contents
@@ -20,7 +20,7 @@ Master the mechanics of Trackmania with these in-depth guides.
 
 ## Basic Controls
 
-Trackmania uses a simple control scheme:
+ManiaPlanet uses a simple control scheme:
 
 | Action | Default Key |
 |--------|-------------|
@@ -43,7 +43,7 @@ Reactor boosts are environmental speed boosts found on certain maps. Learning to
 
 ### Bug Slides
 
-Some surfaces in Trackmania allow for physics-based slides. Mastering bug slides can shave significant time off your runs.
+Some surfaces in ManiaPlanet allow for physics-based slides. Mastering bug slides can shave significant time off your runs.
 
 ### Full Speed (FS) Driving
 
@@ -51,7 +51,7 @@ Full speed driving means completing a track without braking or releasing the acc
 
 ## Map Types
 
-Trackmania features several surface types that require different techniques:
+ManiaPlanet features several surface types that require different techniques:
 
 - **Road** — Standard surface with predictable grip
 - **Dirt** — Lower grip, requires smooth inputs

@@ -22,7 +22,7 @@ New to ManiaPlanet? This guide will walk you through everything you need to know
 
 Before jumping in, make sure you have the following:
 
-- **Trackmania** (Free or Club Access) — available on the [Ubisoft Store](https://www.ubisoft.com/en-us/game/trackmania/trackmania)
+- **ManiaPlanet** (Free or Club Access) — available on the [ManiaPlanet website](https://www.maniaplanet.com/)
 - A **Ubisoft account**
 - A stable internet connection for online play
 
@@ -30,7 +30,7 @@ Before jumping in, make sure you have the following:
 
 1. Visit [Ubisoft Connect](https://connect.ubisoft.com/) and create a free account.
 2. Download and install **Ubisoft Connect**.
-3. Search for **Trackmania** in your library or the store.
+3. Search for **ManiaPlanet** in your library or the store.
 4. Launch the game and log in with your Ubisoft credentials.
 
 ## Joining the Galaxy Community
@@ -41,7 +41,7 @@ Before jumping in, make sure you have the following:
 
 ## Your First Drive
 
-Once you're in Trackmania:
+Once you're in ManiaPlanet:
 
 1. Head to the **Solo** campaign for a guided introduction to the game's mechanics.
 2. Practice on beginner-friendly community maps.

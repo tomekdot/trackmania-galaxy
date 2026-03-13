@@ -20,14 +20,14 @@ Track top times, community records, and personal milestones in ManiaPlanet.
 
 ## World Records
 
-World records in Trackmania are the absolute best times achieved on any given map. These are tracked by the community and verified through replay files.
+World records in ManiaPlanet are the absolute best times achieved on any given map. These are tracked by the community and verified through replay files.
 
 {: .important }
 > Always save your replay files when achieving a notable time — they are required for record verification.
 
 ## Campaign Records
 
-The official Trackmania leaderboards are accessible in-game and on [Trackmania.io](https://trackmania.io/). Rankings reset each season, but legacy times are preserved.
+The official ManiaPlanet leaderboards are accessible in-game and on [ManiaPlanet](https://www.maniaplanet.com/). Rankings reset each season, but legacy times are preserved.
 
 ### Medal Thresholds
 
@@ -53,8 +53,7 @@ ManiaPlanet maintains community records for:
 Use the following tools to track your times:
 
 - **In-game leaderboards** — Press `Scores` on any map
-- **[Trackmania.io](https://trackmania.io/)** — Comprehensive stats and progression tracking
-- **[ManiaPlanet](https://www.maniaplanet.com/)** — For older game versions
+- **[ManiaPlanet](https://www.maniaplanet.com/)** — Comprehensive stats and progression tracking
 
 ## Record Submission
 
