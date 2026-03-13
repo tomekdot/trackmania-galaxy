@@ -35,7 +35,7 @@ Trackmania uses a simple control scheme:
 
 ### Steer Tapping
 
-Steer tapping involves rapidly tapping the steering key to maintain control around tight corners without losing speed. This technique is particularly useful on icy surfaces and sharp bends.
+Steer tapping involves rapidly tapping the steering key to maintain control around tight corners without losing speed. This technique is particularly useful on slippery surfaces and sharp bends.
 
 ### Reactor Boosts
 
