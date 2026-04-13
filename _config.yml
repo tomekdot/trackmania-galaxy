@@ -1,6 +1,6 @@
-title: ManiaPlanet Wiki
-description: A comprehensive wiki for ManiaPlanet — maps, records, guides, and more.
-baseurl: "/trackmania-galaxy.github.io"
+title: Trackmania Galaxy Wiki
+description: A community-maintained wiki for Trackmania Galaxy — maps, records, guides, and more.
+baseurl: "/trackmania-galaxy"
 url: "https://tomekdot.github.io"
 
 remote_theme: just-the-docs/just-the-docs@v0.10.0

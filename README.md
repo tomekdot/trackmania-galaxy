@@ -1,13 +1,13 @@
-# ManiaPlanet Wiki
+# Trackmania Galaxy Wiki
 
-A community-maintained wiki for ManiaPlanet — maps, records, guides, and more.
+A community-maintained wiki for Trackmania Galaxy — maps, records, guides, and more.
 
-🌐 **Live site:** [tomekdot.github.io/trackmania-galaxy.github.io](https://tomekdot.github.io/trackmania-galaxy.github.io/)
-> **Note:** The repository and URL retain the legacy `trackmania-galaxy` name. The wiki content and branding have been updated to ManiaPlanet.
+🌐 **Live site:** [tomekdot.github.io/trackmania-galaxy](https://tomekdot.github.io/trackmania-galaxy/)
+> **Note:** The repository and URL were updated to focus on Trackmania Galaxy. Update `baseurl` in `_config.yml` if needed.
 
 ## About
 
-This repository powers the ManiaPlanet Wiki, a documentation site built with [Jekyll](https://jekyllrb.com/) and the [Just the Docs](https://just-the-docs.com/) theme, hosted via GitHub Pages.
+This repository powers the Trackmania Galaxy Wiki, a documentation site built with [Jekyll](https://jekyllrb.com/) and the [Just the Docs](https://just-the-docs.com/) theme, hosted via GitHub Pages.
 
 ## Running Locally
 
