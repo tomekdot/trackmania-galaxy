@@ -1,4 +1,4 @@
-# Trackmania Galaxy
+# Trackmania Galaxy Wiki
 
 A community-maintained wiki for Trackmania Galaxy — maps, records, guides, and more.
 
