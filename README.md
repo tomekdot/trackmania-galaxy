@@ -2,7 +2,7 @@
 
 A community-maintained wiki for ManiaPlanet — maps, records, guides, and more.
 
-🌐 **Live site:** [tomekdot.github.io/trackmania-galaxy.github.io](https://tomekdot.github.io/trackmania-galaxy.github.io/)
+🌐 **Live site:** [trackmania-galaxy.github.io](https://trackmania-galaxy.github.io/)
 > **Note:** The repository and URL retain the legacy `trackmania-galaxy` name. The wiki content and branding have been updated to ManiaPlanet.
 
 ## About
