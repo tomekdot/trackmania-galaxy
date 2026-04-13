@@ -6,13 +6,18 @@ nav_order: 5
 
 # Gallery
 
-Showcase of Trackmania Galaxy screenshots and map previews. This page uses a tiny JavaScript helper to turn a Markdown list of images into a gallery.
+Showcase of Trackmania Galaxy screenshots and map previews. Use the buttons below to open a map page or jump to its GitHub comments thread.
 
 ## Map Museum
 
 Use this section for map folders, historical screenshots, and track archives.
 
 ### Canyon maps
+
+<p>
+	<a class="btn btn-primary" href="{{ '/maps/canyon/' | relative_url }}">Open page</a>
+	<a class="btn" href="https://github.com/tomekdot/trackmania-galaxy.github.io/issues/new?title=Canyon%20map%20feedback&labels=map-feedback&body=Comment%20on%20the%20Canyon%20map%20here.">Comment on GitHub</a>
+</p>
 
 * ![Canyon map - overview]({{ "/assets/images/maps/canyon/overview.svg" | relative_url }})
 * ![Canyon map - start zone]({{ "/assets/images/maps/canyon/start-zone.svg" | relative_url }})
@@ -21,6 +26,11 @@ Use this section for map folders, historical screenshots, and track archives.
 {: .md-gallery }
 
 ### Desert maps
+
+<p>
+	<a class="btn btn-primary" href="{{ '/maps/desert/' | relative_url }}">Open page</a>
+	<a class="btn" href="https://github.com/tomekdot/trackmania-galaxy.github.io/issues/new?title=Desert%20map%20feedback&labels=map-feedback&body=Comment%20on%20the%20Desert%20map%20here.">Comment on GitHub</a>
+</p>
 
 * ![Desert map - overview]({{ "/assets/images/maps/desert/overview.svg" | relative_url }})
 * ![Desert map - wall ride]({{ "/assets/images/maps/desert/wall-ride.svg" | relative_url }})
@@ -31,6 +41,11 @@ Use this section for map folders, historical screenshots, and track archives.
 ## Example gallery
 
 If you want a second gallery for general screenshots, add another list like this:
+
+<p>
+	<a class="btn btn-primary" href="{{ '/maps/' | relative_url }}">Open page</a>
+	<a class="btn" href="https://github.com/tomekdot/trackmania-galaxy.github.io/issues/new?title=Gallery%20feedback&labels=gallery-feedback&body=Comment%20on%20the%20gallery%20here.">Comment on GitHub</a>
+</p>
 
 * ![Trackmania Galaxy logo]({{ "/assets/images/logo16x9.jpg" | relative_url }})
 * ![Trackmania Galaxy race shot]({{ "/assets/images/logo16x9.jpg" | relative_url }})
