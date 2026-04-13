@@ -1,6 +1,6 @@
-# Contributing to ManiaPlanet Wiki
+# Contributing to Trackmania Galaxy Wiki
 
-Thank you for your interest in contributing to the ManiaPlanet Wiki! This project is community-driven and open-source.
+Thank you for your interest in contributing to the Trackmania Galaxy Wiki! This project is community-driven and open-source.
 
 ## How to edit pages
 

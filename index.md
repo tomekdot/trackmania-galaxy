@@ -4,27 +4,27 @@ title: Home
 nav_order: 1
 ---
 
-# Welcome to the ManiaPlanet Wiki
+# Welcome to the Trackmania Galaxy Wiki
 
-ManiaPlanet is the ultimate community resource for everything related to the ManiaPlanet ecosystem — maps, records, guides, and community tools.
+Trackmania Galaxy is the community resource for maps, records, guides, gallery pages, and project history.
 
-## What is ManiaPlanet?
+## What is Trackmania Galaxy?
 
-ManiaPlanet is a community-driven hub dedicated to tracking and celebrating achievements across the Mania game series. Whether you're a seasoned driver or just getting started, this wiki has everything you need.
+Trackmania Galaxy is a community-driven wiki focused on documenting gameplay, maps, images, and the history of changes in the project. It started with a ManiaPlanet-oriented structure and has been adjusted to focus on Trackmania Galaxy.
 
 ## Quick Navigation
 
 | Section | Description |
 |---------|-------------|
-| [Getting Started](docs/getting-started) | New to ManiaPlanet? Start here. |
+| [Getting Started](docs/getting-started) | New to Trackmania Galaxy? Start here. |
 | [Gameplay Guides](docs/gameplay) | In-depth guides on mechanics and techniques. |
-| [Maps & Tracks](docs/maps) | Browse and learn about featured maps and campaigns. |
-| [Records & Leaderboards](docs/records) | Top records and how to track your progress. |
+| [Gallery](docs/gallery) | Example image gallery for screenshots and maps. |
+| [Project History](docs/history) | Timeline of documentation and name changes. |
 | [Contributing](docs/contributing) | Help improve this wiki. |
 
 ## Community
 
-This wiki is maintained by the ManiaPlanet community. Feel free to contribute by opening a pull request on [GitHub](https://github.com/tomekdot/trackmania-galaxy.github.io).
+This wiki is maintained by the Trackmania Galaxy community. Feel free to contribute by opening a pull request on [GitHub](https://github.com/tomekdot/trackmania-galaxy.github.io).
 
 {: .note }
 > This wiki is a community project and is not officially affiliated with Ubisoft or Nadeo.

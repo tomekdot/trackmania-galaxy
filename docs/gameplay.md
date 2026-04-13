@@ -7,7 +7,7 @@ nav_order: 3
 # Gameplay Guides
 {: .no_toc }
 
-Master the mechanics of ManiaPlanet with these in-depth guides.
+Master the mechanics of Trackmania Galaxy with these in-depth guides.
 {: .fs-6 .fw-300 }
 
 ## Table of Contents
@@ -20,7 +20,7 @@ Master the mechanics of ManiaPlanet with these in-depth guides.
 
 ## Basic Controls
 
-ManiaPlanet uses a simple control scheme:
+Trackmania Galaxy uses a simple control scheme:
 
 | Action | Default Key |
 |--------|-------------|
@@ -51,7 +51,7 @@ Full speed driving means completing a track without braking or releasing the acc
 
 ## Map Types
 
-ManiaPlanet features several surface types that require different techniques:
+Trackmania Galaxy features several surface types that require different techniques:
 
 - **Road** — Standard surface with predictable grip
 - **Dirt** — Lower grip, requires smooth inputs

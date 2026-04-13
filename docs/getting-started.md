@@ -7,7 +7,7 @@ nav_order: 2
 # Getting Started
 {: .no_toc }
 
-New to ManiaPlanet? This guide will walk you through everything you need to know to get started.
+New to Trackmania Galaxy? This guide will walk you through everything you need to know to get started.
 {: .fs-6 .fw-300 }
 
 ## Table of Contents
@@ -23,6 +23,7 @@ New to ManiaPlanet? This guide will walk you through everything you need to know
 Before jumping in, make sure you have the following:
 
 - **ManiaPlanet**  — available on the [ManiaPlanet website](https://www.maniaplanet.com)
+ - **Trackmania Galaxy / ManiaPlanet**  — available on the [ManiaPlanet website](https://www.maniaplanet.com)
 - A stable internet connection for online play
 
 ## Creating an Account
@@ -34,8 +35,8 @@ Before jumping in, make sure you have the following:
 
 ## Joining the Galaxy Community
 
-1. Join our community on [Discord] (https://discord.me/pursuit)
-2. Explore the maps in the [ManiaExchange] (htttps://tm.mania.exchange)
+1. Join our community on [Discord](https://discord.me/pursuit)
+2. Explore maps and community content on [ManiaExchange](https://tm.mania.exchange)
 
 
 ## Next Steps
