@@ -22,8 +22,7 @@ New to ManiaPlanet? This guide will walk you through everything you need to know
 
 Before jumping in, make sure you have the following:
 
-- **ManiaPlanet** (Free or Club Access) — available on the [ManiaPlanet website](https://www.maniaplanet.com)
-- A **Ubisoft account**
+- **ManiaPlanet**  — available on the [ManiaPlanet website](https://www.maniaplanet.com)
 - A stable internet connection for online play
 
 ## Creating an Account
