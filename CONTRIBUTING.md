@@ -1,30 +1,54 @@
-# Jak wspomóc projekt (Contributing)
+# Contributing to ManiaPlanet Wiki
 
-Dziękujemy za zainteresowanie rozwojem ManiaPlanet Wiki! Ten projekt jest otwarty i tworzony przez społeczność.
+Thank you for your interest in contributing to the ManiaPlanet Wiki! This project is community-driven and open-source.
 
-## Jak zacząć
+## How to edit pages
 
-1. Zaloguj się na swoje konto GitHub.
-2. Wejdź do wybranego artykułu lub strony, którą chcesz edytować.
-3. W prawym górnym rogu podglądu dokumentu znajdziesz ikonę **ołówka** lub przycisk **"Edit on GitHub"**. Otworzy to wbudowany edytor GitHuba.
-4. Wpisz swoje zmiany w formacie pliku Markdown (`.md`).
-5. U dołu strony pojawi się formularz, w którym możesz zaproponować **Commit** z krótkim opisem tego, co i dlaczego zmieniałeś.
-6. Zatwierdź swoje zmiany klikając **"Propose changes"**, co utworzy tzw. `Pull Request`. Twoje zgłoszenie zostanie sprawdzone i po akceptacji (Merge) pojawi się niezwłocznie na oficjalnej stronie Wiki!
+1. Log in to your GitHub account.
+2. Navigate to the page or article you want to edit.
+3. Click the **pencil icon** or the **"Edit on GitHub"** button in the top right corner to open the GitHub web editor.
+4. Make your changes in Markdown (`.md`) format.
+5. At the bottom of the page, add a short commit message explaining your changes.
+6. Click **"Propose changes"** to create a Pull Request. Once approved and merged, your changes will be live!
 
-## Formatowanie
-- Projekt oparty jest o narzędzie Just The Docs z użyciem plików `.md` (Markdown).
-- Zachowaj ogólny styl i pisz jak najbardziej czytelnie, unikaj wulgaryzmów.
-- Na początku nowych plików pamiętaj o dodaniu odpowiedniego nagłówka (tzw. "Front Matter"). Np:
+## How to add images and galleries
+
+We encourage you to add images such as screenshots to enrich the documentation.
+
+### Step 1: Upload the image to the repository
+1. Go to the `assets/images/` folder on GitHub.
+2. Click **"Add file"** -> **"Upload files"** in the top right corner.
+3. Select your images (`.jpg`, `.png`, `.gif`) and commit the changes to create a Pull Request.
+
+### Step 2: Add the image to an article
+1. Open the `.md` file where you want the image to appear and click edit.
+2. Use this Markdown syntax:
+`![Image description](../assets/images/your_image_name.jpg)`
+
+### Creating a Gallery
+If you want to display multiple images side by side (e.g. for track screenshots), paste this HTML code directly into your Markdown file:
+
+```html
+<div style="display: flex; flex-wrap: wrap; gap: 10px;">
+  <img src="../assets/images/image1.jpg" alt="Description" style="width: 30%; border-radius: 5px;">
+  <img src="../assets/images/image2.jpg" alt="Description" style="width: 30%; border-radius: 5px;">
+  <img src="../assets/images/image3.jpg" alt="Description" style="width: 30%; border-radius: 5px;">
+</div>
+```
+
+## Formatting Guidelines
+- Our site is built using Markdown (`.md`) and the Just The Docs theme.
+- When creating a completely new page, remember to include the "Front Matter" at the very top of the file:
 
 ```yml
 ---
 layout: default
-title: Mój nowy artykuł
+title: Your Page Title
 nav_order: 10
 ---
 ```
 
-## Automatyczne budowanie
-Przy każdym wprowadzonym Pull Requestcie lub bezpośredniej zmianie na gałęzi `main`, GitHub Actions zadba o to, by przebudować i pokazać nową wersję strony. Strona aktualizuje się zazwyczaj do około 2 minut na: `https://[TwojaNazwa].github.io/[Repozytorium]` (zmieni się zgodnie z aktualnie ustawionym `baseurl` dla adresu repozytorium GitHub.io).
+## Automated Builds
+Every time you merge a Pull Request, GitHub Actions will automatically rebuild the pages behind the scenes. Updates usually appear online within 1-2 minutes.
 
-Dziękujemy za twój wkład!
+Happy editing!
