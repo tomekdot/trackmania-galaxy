@@ -6,64 +6,12 @@ nav_order: 5
 
 # Gallery
 
-Showcase of Trackmania Galaxy screenshots and map previews. Use the buttons below to open a map page or jump to its GitHub comments thread.
-
-## Map Museum
-
-Use this section for map folders, historical screenshots, and track archives.
-
-### Canyon maps
-
-<p>
-	<a class="btn btn-primary" href="{{ '/maps/canyon/' | relative_url }}">Open page</a>
-	<a class="btn" href="https://github.com/tomekdot/trackmania-galaxy.github.io/issues/new?title=Canyon%20map%20feedback&labels=map-feedback&body=Comment%20on%20the%20Canyon%20map%20here.">Comment on GitHub</a>
-</p>
-
-* ![Canyon map - overview]({{ "/assets/images/maps/canyon/overview.svg" | relative_url }})
-* ![Canyon map - start zone]({{ "/assets/images/maps/canyon/start-zone.svg" | relative_url }})
-* ![Canyon map - finish line]({{ "/assets/images/maps/canyon/finish-line.svg" | relative_url }})
-
-{: .md-gallery }
-
-### Desert maps
-
-<p>
-	<a class="btn btn-primary" href="{{ '/maps/desert/' | relative_url }}">Open page</a>
-	<a class="btn" href="https://github.com/tomekdot/trackmania-galaxy.github.io/issues/new?title=Desert%20map%20feedback&labels=map-feedback&body=Comment%20on%20the%20Desert%20map%20here.">Comment on GitHub</a>
-</p>
-
-* ![Desert map - overview]({{ "/assets/images/maps/desert/overview.svg" | relative_url }})
-* ![Desert map - wall ride]({{ "/assets/images/maps/desert/wall-ride.svg" | relative_url }})
-* ![Desert map - checkpoint]({{ "/assets/images/maps/desert/checkpoint.svg" | relative_url }})
-
-{: .md-gallery }
+Showcase of Trackmania Galaxy screenshots and map previews.
 
 ## Example gallery
 
-If you want a second gallery for general screenshots, add another list like this:
+<div style="display: flex; flex-wrap: wrap; gap: 10px;">
+  <img src="../assets/images/logo16x9.jpg" alt="Trackmania Galaxy Logo" style="width: 100%; border-radius: 10px; margin-bottom: 20px; margin-top: 20px;">
+</div>
 
-<p>
-	<a class="btn btn-primary" href="{{ '/maps/' | relative_url }}">Open page</a>
-	<a class="btn" href="https://github.com/tomekdot/trackmania-galaxy.github.io/issues/new?title=Gallery%20feedback&labels=gallery-feedback&body=Comment%20on%20the%20gallery%20here.">Comment on GitHub</a>
-</p>
-
-* ![Trackmania Galaxy logo]({{ "/assets/images/logo16x9.jpg" | relative_url }})
-* ![Trackmania Galaxy race shot]({{ "/assets/images/logo16x9.jpg" | relative_url }})
-* ![Trackmania Galaxy track preview]({{ "/assets/images/logo16x9.jpg" | relative_url }})
-
-{: .md-gallery }
-
-<script src="{{ '/assets/js/md-gallery.js' | relative_url }}"></script>
-
-You can upload images to `assets/images/` and reference them here. If you want linked thumbnails, wrap the image in a link before the script runs.
-
-## How it works
-
-1. Write a list that contains only images.
-2. Add the `md-gallery` class to the list container.
-3. Load `assets/js/md-gallery.js` on the page.
-4. The script replaces each list with a gallery of `figure` elements.
-
-## Example output
-
-The generated gallery uses semantic HTML, so you can style it with CSS later without changing the Markdown source.
+You can upload images to `assets/images/` and reference them here.
