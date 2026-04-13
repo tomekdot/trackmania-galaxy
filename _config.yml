@@ -1,4 +1,4 @@
-title: Trackmania Galaxy Wiki
+title: Trackmania Galaxy
 description: A community-maintained wiki for Trackmania Galaxy — maps, records, guides, and more.
 baseurl: "/trackmania-galaxy"
 url: "https://tomekdot.github.io"
@@ -29,7 +29,7 @@ heading_anchors: true
 nav_sort: case_insensitive
 
 # Footer
-footer_content: "ManiaPlanet Wiki — Community maintained."
+footer_content: "Trackmania Galaxy Wiki — Community maintained."
 
 color_scheme: dark
 

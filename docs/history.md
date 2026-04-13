@@ -20,9 +20,6 @@ This page collects the main documentation changes and naming updates for Trackma
 
 ## Name Timeline
 
-### ManiaPlanet Wiki
-The project originally started as a ManiaPlanet-focused wiki with pages for getting started, gameplay, maps, and records.
-
 ### Trackmania Galaxy Wiki
 The documentation was later updated to focus on Trackmania Galaxy while keeping the same community-driven structure and GitHub Pages hosting.
 
