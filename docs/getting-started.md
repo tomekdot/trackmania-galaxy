@@ -23,8 +23,6 @@ New to Trackmania Galaxy? This guide will walk you through everything you need t
 Before jumping in, make sure you have the following:
 
 - **ManiaPlanet**  — available on the [ManiaPlanet website](https://www.maniaplanet.com)
- - **Trackmania Galaxy / ManiaPlanet**  — available on the [ManiaPlanet website](https://www.maniaplanet.com)
-- A stable internet connection for online play
 
 ## Creating an Account
 
