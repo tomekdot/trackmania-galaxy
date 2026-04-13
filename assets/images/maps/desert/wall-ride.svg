@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <rect width="1600" height="900" fill="#3f1d0b"/>
+  <rect x="80" y="80" width="1440" height="740" rx="32" fill="#9a3412" stroke="#facc15" stroke-width="8"/>
+  <text x="800" y="410" fill="#fff7ed" font-family="Arial, sans-serif" font-size="72" text-anchor="middle">Wall ride</text>
+  <text x="800" y="500" fill="#fed7aa" font-family="Arial, sans-serif" font-size="40" text-anchor="middle">Desert map placeholder</text>
+</svg>

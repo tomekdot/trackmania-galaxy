@@ -6,27 +6,37 @@ nav_order: 5
 
 # Gallery
 
-Showcase of Trackmania Galaxy screenshots and map previews. This page uses a tiny JavaScript helper to turn a list of image items into a gallery, similar to the open-source example you shared.
+Showcase of Trackmania Galaxy screenshots and map previews. This page uses a tiny JavaScript helper to turn a Markdown list of images into a gallery.
 
 ## Map Museum
 
-Use this section as a small map museum for featured tracks, community screenshots, and discovered layouts.
+Use this section for map folders, historical screenshots, and track archives.
 
-<ul class="md-gallery">
-	<li>![Map Museum - Track overview]({{ "/assets/images/logo16x9.jpg" | relative_url }})</li>
-	<li>![Map Museum - Canyon section]({{ "/assets/images/logo16x9.jpg" | relative_url }})</li>
-	<li>![Map Museum - Desert run]({{ "/assets/images/logo16x9.jpg" | relative_url }})</li>
-</ul>
+### Canyon maps
+
+* ![Canyon map - overview]({{ "/assets/images/maps/canyon/overview.svg" | relative_url }})
+* ![Canyon map - start zone]({{ "/assets/images/maps/canyon/start-zone.svg" | relative_url }})
+* ![Canyon map - finish line]({{ "/assets/images/maps/canyon/finish-line.svg" | relative_url }})
+
+{: .md-gallery }
+
+### Desert maps
+
+* ![Desert map - overview]({{ "/assets/images/maps/desert/overview.svg" | relative_url }})
+* ![Desert map - wall ride]({{ "/assets/images/maps/desert/wall-ride.svg" | relative_url }})
+* ![Desert map - checkpoint]({{ "/assets/images/maps/desert/checkpoint.svg" | relative_url }})
+
+{: .md-gallery }
 
 ## Example gallery
 
-If you want a second gallery for general screenshots, add another image list like this:
+If you want a second gallery for general screenshots, add another list like this:
 
-<ul class="md-gallery">
-	<li>![Trackmania Galaxy logo]({{ "/assets/images/logo16x9.jpg" | relative_url }})</li>
-	<li>![Trackmania Galaxy race shot]({{ "/assets/images/logo16x9.jpg" | relative_url }})</li>
-	<li>![Trackmania Galaxy track preview]({{ "/assets/images/logo16x9.jpg" | relative_url }})</li>
-</ul>
+* ![Trackmania Galaxy logo]({{ "/assets/images/logo16x9.jpg" | relative_url }})
+* ![Trackmania Galaxy race shot]({{ "/assets/images/logo16x9.jpg" | relative_url }})
+* ![Trackmania Galaxy track preview]({{ "/assets/images/logo16x9.jpg" | relative_url }})
+
+{: .md-gallery }
 
 <script src="{{ '/assets/js/md-gallery.js' | relative_url }}"></script>
 
