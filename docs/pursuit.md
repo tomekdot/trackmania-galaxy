@@ -1,13 +1,13 @@
 ---
 layout: default
-title: TrackMania² Pursuit
+title: Trackmania Galaxy
 nav_order: 7
 ---
 
-# TrackMania² Pursuit: Multi-environment & Stadium
+# Trackmania Galaxy: Pursuit Mode
 {: .no_toc }
 
-Documentation of the **TrackMania² Pursuit** title pack — updates, zones, vehicles, and gameplay mechanics — sourced from the [official ManiaPlanet forum thread](https://forum.maniaplanet.com/viewtopic.php?t=44555).
+Documentation of the **Trackmania Galaxy** (formerly TrackMania² Pursuit) title pack — updates, zones, vehicles, and gameplay mechanics.
 {: .fs-6 .fw-300 }
 
 ## Table of Contents
@@ -24,6 +24,30 @@ TrackMania² Pursuit is a title pack for ManiaPlanet that introduces a cops-and-
 
 ![TrackMania² Pursuit gameplay HUD](../assets/images/pursuit/3-gameplay-hud.png)
 *Third-person gameplay view showing the Pursuit HUD: minimap, timer, target indicator, and team status.*
+
+---
+
+## Title Update 1.2 — "Enhanced Points System" (January 2018)
+
+This update introduced a completely overhauled, dynamic scoring system designed to balance the matches between the Police and the Thieves. It rewards late-game clutch play and ensures active participation until the final seconds of a round.
+
+![Enhanced Points System Infographic](../assets/images/pursuit/7-points-system.png)
+*Enhanced points system chart detailing the dynamic scaling of capture points for officers and survival points for the last remaining thief.*
+
+### Capture Points Scaling (Police)
+
+To reward more challenging captures in the late-game when fewer thieves are left on the track, the point value of each capture increases progressively:
+
+- **Early-Game:** Standard captures are worth **1 point** (Captures 1 to 10).
+- **Late-Game:** As the number of remaining thieves decreases, the value of subsequent captures scales up by +1 point per stage, up to a maximum of **5 points** per capture (e.g., Capture 11 is worth 2 points, Capture 12 is worth 3 points, etc.).
+- **Last Thief Capture:** Safely securing the final surviving thief awards up to **5 bonus points** to the capturing officer, scaling dynamically based on the total number of active police officers currently on the server.
+
+### Survival Points (Thieves)
+
+Thieves are rewarded for their evasion skills and durability:
+
+- **Elimination Points:** Every active thief receives **1 survival point** whenever another thief is caught by the police, provided they remain uncaptured themselves.
+- **Last Thief Wins:** If the final remaining thief evades the police until the round timer expires, they receive a massive **+5 point bonus** on top of their accumulated survival points (e.g., reaching 25 total points instead of 20).
 
 ---
 
@@ -249,7 +273,6 @@ TrackMania² Pursuit supports multiple environments:
 
 ## Related Links
 
-- [Official Forum Thread](https://forum.maniaplanet.com/viewtopic.php?t=44555)
 - [ManiaExchange](https://tm.mania.exchange)
 - [Pursuit Discord](https://discord.me/pursuit)
 - [Openplanet](https://openplanet.nl)
@@ -257,4 +280,4 @@ TrackMania² Pursuit supports multiple environments:
 ---
 
 {: .note }
-> This page is based on forum posts from 2018–2019. For the latest information, check the official ManiaPlanet forums or the Pursuit Discord.
+> This page is based on archived project discussions. For the latest information, check the official Openplanet resources or the Pursuit Discord.
