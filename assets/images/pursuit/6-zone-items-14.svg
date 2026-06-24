@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="400" viewBox="0 0 800 400">
+  <rect width="800" height="400" fill="#1a1a2e"/>
+  <rect x="80" y="80" width="180" height="180" fill="none" stroke="#00ff88" stroke-width="3" opacity="0.8"/>
+  <text x="170" y="180" text-anchor="middle" fill="#00ff88" font-size="16" font-family="monospace">SPEEDBOMB ZONE</text>
+  <rect x="310" y="80" width="180" height="180" fill="none" stroke="#ff8800" stroke-width="3" opacity="0.8"/>
+  <text x="400" y="180" text-anchor="middle" fill="#ff8800" font-size="16" font-family="monospace">THIEF ZONE</text>
+  <rect x="540" y="80" width="180" height="180" fill="none" stroke="#00ccff" stroke-width="3" opacity="0.8"/>
+  <text x="630" y="180" text-anchor="middle" fill="#00ccff" font-size="16" font-family="monospace">POLICE DANGER</text>
+  <text x="400" y="350" text-anchor="middle" fill="#888" font-size="14" font-family="monospace">Placeholder — update 1.4 zone indicators (green/orange/cyan)</text>
+</svg>

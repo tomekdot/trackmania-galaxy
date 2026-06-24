@@ -22,7 +22,7 @@ Documentation of the **Trackmania Galaxy** (formerly TrackMania² Pursuit) title
 
 TrackMania² Pursuit is a title pack for ManiaPlanet that introduces a cops-and-thieves gameplay mode. Players are divided into two teams: **Police** (who chase and capture thieves) and **Thieves** (who survive and score points by evading capture). The mode supports multiple environments including Canyon, Stadium, Lagoon, and more.
 
-![TrackMania² Pursuit gameplay HUD](../assets/images/pursuit/3-gameplay-hud.png)
+![Trackmania Galaxy gameplay HUD](../assets/images/pursuit/3-gameplay-hud.svg)
 *Third-person gameplay view showing the Pursuit HUD: minimap, timer, target indicator, and team status.*
 
 ---
@@ -174,7 +174,7 @@ A new mechanic that "equips" your car with a bomb ignited by driving at **slow s
 - A **combo zone** created by placing both Danger Zone and Police Zone in the same area.
 - Combines both effects: police-only access with the 8-second escape timer for thieves.
 
-![New zones from update 1.4](../assets/images/pursuit/6-zone-items-14.png)
+![New zones from update 1.4](../assets/images/pursuit/6-zone-items-14.svg)
 *New zone indicators: green (Speedbomb Zone), orange (Thief Zone), blue/cyan (Police Danger Zone).*
 
 ### Fuel & Charging Stations ⛽
