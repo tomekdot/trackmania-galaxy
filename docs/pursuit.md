@@ -22,6 +22,9 @@ Documentation of the **TrackMania² Pursuit** title pack — updates, zones, veh
 
 TrackMania² Pursuit is a title pack for ManiaPlanet that introduces a cops-and-thieves gameplay mode. Players are divided into two teams: **Police** (who chase and capture thieves) and **Thieves** (who survive and score points by evading capture). The mode supports multiple environments including Canyon, Stadium, Lagoon, and more.
 
+![TrackMania² Pursuit gameplay HUD](../assets/images/pursuit/3-gameplay-hud.png)
+*Third-person gameplay view showing the Pursuit HUD: minimap, timer, target indicator, and team status.*
+
 ---
 
 ## Title Update 1.3 — "Construction Update" (June 2018)
@@ -29,6 +32,9 @@ TrackMania² Pursuit is a title pack for ManiaPlanet that introduces a cops-and-
 ### Vehicle Selection Screen
 
 The vehicle selection screen now shows a picture of each car, a brief summary of pros and cons, and properly measured stats. Stats are displayed as a percentage score compared to the best car in every category.
+
+![Vehicle selection screen - Valley Car](../assets/images/pursuit/4-vehicle-selection.png)
+*New vehicle selection screen showing the Valley Car with stats, pros & cons.*
 
 ### Map-Specific Gameplay Options
 
@@ -63,6 +69,9 @@ Decorative items used to indicate the location of all three zone types:
 - **OffZone** border indicators
 - **Danger Zone** warning indicators
 - **Police Zone** boundary indicators
+
+![Zone items from update 1.3.1](../assets/images/pursuit/5-zone-items-131.png)
+*Neon zone indicators by florenzius: yellow (Danger Zone), red (OffZone), blue (Police Zone).*
 
 {: .warning }
 > These items are **only decorations** — they do not act as zones. You must place the zone manually using the Pursuit OffZone plugin, then use these decorations for visual feedback.
@@ -141,6 +150,9 @@ A new mechanic that "equips" your car with a bomb ignited by driving at **slow s
 - A **combo zone** created by placing both Danger Zone and Police Zone in the same area.
 - Combines both effects: police-only access with the 8-second escape timer for thieves.
 
+![New zones from update 1.4](../assets/images/pursuit/6-zone-items-14.png)
+*New zone indicators: green (Speedbomb Zone), orange (Thief Zone), blue/cyan (Police Danger Zone).*
+
 ### Fuel & Charging Stations ⛽
 
 Maps can feature **Charging Stations** that enable a fuel mechanic:
@@ -149,6 +161,9 @@ Maps can feature **Charging Stations** that enable a fuel mechanic:
 - **Full tank**: 3 minutes of driving OR 12 minutes of standing still.
 - Refilling is almost immediate upon entering a station.
 - When fuel is enabled, **policemen must wait 15 seconds** for respawn (same as thieves) to maintain balance.
+
+![Charging Station object on a map](../assets/images/pursuit/2-charging-station.png)
+*The Charging Station object placed on a map — players refuel here to keep driving.*
 
 ### Race Objectives 🎯
 
@@ -181,6 +196,9 @@ To enable these items on your map:
 
 1. Edit the anchor data of the item.
 2. Set the tag to `GasStation` or `RaceObjective` accordingly.
+
+![Map editor with anchor data configuration](../assets/images/pursuit/1-editor-anchor-data.jpg)
+*Map editor showing anchor data configuration with GasStation and RaceObjective tags.*
 
 {: .warning }
 > **Both items must be placed:**
