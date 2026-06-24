@@ -254,9 +254,32 @@ Manual placement has an advantage — the mapper marks only the entrance, while 
 
 ---
 
+## Galaxy Rebase — TMAll Update (November 2024)
+
+TrackMania² Galaxy has been **rebased on the latest version of TMAll**, bringing all the newest TMAll features directly into Galaxy. This is a major milestone unifying the codebase.
+
+### 🎉 New Features
+
+- **MP Store integration** — access the ManiaPlanet Store directly from Galaxy
+- **Trailer skins for TM2 cars in Stadium** — custom skins now available for thieves in Stadium environment
+- **Persistent Storage Crash Fix** — the notorious "29.9 bug" is now resolved
+- **Goal Hunt Maps** — all Goal Hunt maps (including new ones) are now properly detected and automatically switch the mode to Goal Hunt Pursuit
+- **TrafficCar playable in Pursuit** — available if the currently played map explicitly enables it (to keep ValleyCar relevant)
+- **LagoonCar in Map Editor** — now fully accessible inside the editor
+- **Map Voting Screen update** — now correctly suggests 6 least-played maps of the currently playing players, instead of being effectively random
+- **Galaxy Stadium fresh look** — new Stadium-themed image replacing the old colour-shifted version
+- **Car model fixes** — Bay Car, Coast Car, and Rally Car no longer turn white on dirt surfaces
+
+### ⚠️ Known Limitations
+
+- **TMU car models** remain unchanged for now
+- **Galaxy Stadium** currently does not allow creating maps with different vehicles (may or may not be fixed in the future)
+
+---
+
 ## Environments
 
-TrackMania² Pursuit supports multiple environments:
+Trackmania Galaxy supports multiple environments:
 
 - **Canyon**
 - **Stadium**
