@@ -22,6 +22,7 @@ Trackmania Galaxy is a community-driven wiki focused on documenting gameplay, ma
 | [Project History](docs/history) | Timeline of documentation and name changes. |
 | [Contributing](docs/contributing) | Help improve this wiki. |
 | [TrackMania² Pursuit](docs/pursuit) | Pursuit title pack — updates, zones, vehicles, mechanics. |
+| [Companion Plugins](docs/companion-plugins) | Community plugins — Moon Calendar, utilities. |
 
 ## Community
 
