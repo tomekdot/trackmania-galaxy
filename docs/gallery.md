@@ -11,10 +11,10 @@ Showcase of Trackmania Galaxy screenshots and map previews.
 ## TrackMania² Pursuit
 
 <div style="display: flex; flex-wrap: wrap; gap: 10px;">
-  <img src="../assets/images/pursuit/3-gameplay-hud.svg" alt="Pursuit gameplay HUD" style="width: 48%; border-radius: 8px;">
+  <img src="../assets/images/pursuit/3-gameplay-hud.png" alt="Pursuit gameplay HUD" style="width: 48%; border-radius: 8px;">
   <img src="../assets/images/pursuit/4-vehicle-selection.png" alt="Vehicle selection screen" style="width: 48%; border-radius: 8px;">
   <img src="../assets/images/pursuit/5-zone-items-131.jpg" alt="Zone items 1.3.1" style="width: 48%; border-radius: 8px;">
-  <img src="../assets/images/pursuit/6-zone-items-14.svg" alt="Zone items 1.4" style="width: 48%; border-radius: 8px;">
+  <img src="../assets/images/pursuit/6-zone-items-14.png" alt="Zone items 1.4" style="width: 48%; border-radius: 8px;">
   <img src="../assets/images/pursuit/2-charging-station.png" alt="Charging station" style="width: 48%; border-radius: 8px;">
   <img src="../assets/images/pursuit/1-editor-anchor-data.png" alt="Editor anchor data" style="width: 48%; border-radius: 8px;">
 </div>
