@@ -174,8 +174,8 @@ A new mechanic that "equips" your car with a bomb ignited by driving at **slow s
 - A **combo zone** created by placing both Danger Zone and Police Zone in the same area.
 - Combines both effects: police-only access with the 8-second escape timer for thieves.
 
-![New zones from update 1.4](../assets/images/pursuit/6-zone-items-14.png)
-*New zone indicators: green (Speedbomb Zone), orange (Thief Zone), blue/cyan (Police Danger Zone).*
+![New zones from update 1.4](../assets/images/pursuit/6-zone-items-14.jpg)
+*New zone indicators: green (), orange (Thief Zone), blue/cyan (Police Danger Zone).*
 
 ### Fuel & Charging Stations ⛽
 
