@@ -1,13 +1,13 @@
 ---
 layout: default
-title: Trackmania Galaxy
+title: Trackmania² Galaxy
 nav_order: 7
 ---
 
-# Trackmania Galaxy: Pursuit Mode
+# Trackmania² Galaxy: Pursuit Mode
 {: .no_toc }
 
-Documentation of the **Trackmania Galaxy** (formerly TrackMania² Pursuit) title pack — updates, zones, vehicles, and gameplay mechanics.
+Documentation of the **TrackMania² Galaxy** (formerly TrackMania² Pursuit) title pack — updates, zones, vehicles, and gameplay mechanics.
 {: .fs-6 .fw-300 }
 
 ## Table of Contents
@@ -175,7 +175,7 @@ A new mechanic that "equips" your car with a bomb ignited by driving at **slow s
 - Combines both effects: police-only access with the 8-second escape timer for thieves.
 
 ![New zones from update 1.4](../assets/images/pursuit/6-zone-items-14.jpg)
-*New zone indicators: green (), orange (Thief Zone), blue/cyan (Police Danger Zone).*
+*New zone indicators: green (Speedbomb Zone), orange (Thief Zone), blue/cyan (Police Danger Zone).*
 
 ### Fuel & Charging Stations ⛽
 
@@ -221,7 +221,7 @@ To enable these items on your map:
 1. Edit the anchor data of the item.
 2. Set the tag to `GasStation` or `RaceObjective` accordingly.
 
-![Map editor with anchor data configuration](../assets/images/pursuit/1-editor-anchor-data.jpg)
+![Map editor with anchor data configuration](../assets/images/pursuit/1-editor-anchor-data.png)
 *Map editor showing anchor data configuration with GasStation and RaceObjective tags.*
 
 {: .warning }
@@ -279,18 +279,28 @@ TrackMania² Galaxy has been **rebased on the latest version of TMAll**, bringin
 
 ## Environments
 
-Trackmania Galaxy supports multiple environments:
+| Environment | Game |
+|---|---|
+| **Canyon** | TrackMania² Canyon |
+| **Stadium** | TrackMania² Stadium |
+| **Valley** | TrackMania² Valley |
+| **Lagoon** | TrackMania² Lagoon |
 
-- **Canyon**
-- **Stadium**
-- **Lagoon**
-- **Island**
-- **Desert**
-- **Snow**
-- **Bay**
-- **Coast**
-- **Alpine**
-- **Speed**
+## Vehicles
+
+| Vehicle | Game |
+|---|---|
+| **CanyonCar** | TrackMania² Canyon |
+| **StadiumCar** | TrackMania² Stadium |
+| **ValleyCar** | TrackMania² Valley |
+| **LagoonCar** | TrackMania² Lagoon |
+| **IslandCar** (redesigned by Purification) | TrackMania² Island |
+| **BayCar** | TrackMania United Forever |
+| **CoastCar** | TrackMania United Forever |
+| **SpeedCar** (known as *DesertCar*) | TrackMania² Speed |
+| **AlpineCar** (known as *SnowCar*) | TrackMania² Alpine |
+| **RallyCar** | TrackMania United Forever |
+| **TrafficCar** | TrackMania² All |
 
 ---
 
@@ -298,7 +308,7 @@ Trackmania Galaxy supports multiple environments:
 
 - [ManiaExchange](https://tm.mania.exchange)
 - [Pursuit Discord](https://discord.me/pursuit)
-- [Openplanet](https://openplanet.nl)
+- [Openplanet](https://openplanet.dev)
 
 ---
 
