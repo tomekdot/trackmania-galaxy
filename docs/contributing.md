@@ -20,7 +20,13 @@ This wiki is maintained by the community. Everyone is welcome to contribute!
 
 ## How to Contribute
 
-The ManiaPlanet Wiki is open source and hosted on GitHub. There are several ways you can help:
+The Trackmania Galaxy Wiki is open source and hosted on GitHub. There are several ways you can help:
+
+- **Fix typos or broken links** — small edits are welcome!
+- **Add new screenshots** — enrich pages with visuals
+- **Write new guides** — share your expertise on game modes, techniques, or map making
+- **Update existing pages** — keep information current with the latest title updates
+- **Translate content** — help make the wiki accessible to more players
 
 ### Editing Existing Pages
 
@@ -46,6 +52,8 @@ nav_order: 7
 
 4. Write your content in Markdown.
 5. Submit a Pull Request.
+
+---
 
 ## Running Locally
 
@@ -73,6 +81,8 @@ bundle exec jekyll serve
 # http://localhost:4000
 ```
 
+---
+
 ## Style Guide
 
 When writing wiki pages, please follow these guidelines:
@@ -83,10 +93,18 @@ When writing wiki pages, please follow these guidelines:
 - **Link related pages** — Cross-reference other relevant wiki pages.
 - **Cite sources** — Link to official ManiaPlanet resources where applicable.
 - **Use callouts** — Use `{: .note }`, `{: .warning }`, etc. for important information.
+- **Images** — Use `![Description](../assets/images/image.jpg)` for screenshots.
+- **Be neutral** — Present facts objectively; avoid opinions or bias.
+- **Respect others** — No offensive language, harassment, or personal attacks.
+
+{: .note }
+> This wiki uses the [Just the Docs](https://just-the-docs.com/) theme. Refer to their documentation for advanced formatting options like tables, callouts, and search configuration.
+
+---
 
 ## Code of Conduct
 
 All contributors are expected to be respectful and constructive. Harmful, misleading, or disruptive contributions will be removed.
 
 {: .highlight }
-> Thank you for helping make the ManiaPlanet Wiki better for everyone!
+> Thank you for helping make the Trackmania Galaxy Wiki better for everyone!
