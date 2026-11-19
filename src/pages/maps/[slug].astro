@@ -79,7 +79,7 @@ const mapJsonLd = {
       <dl class="facts">
         <dt>Mapper</dt><dd>{m.mapper || 'unknown'}</dd>
         {m.uploaded && (<><dt>Uploaded</dt><dd>{m.uploaded}</dd></>)}
-        {m.mx_url && (<><dt>ManiaExchange</dt><dd><a href={m.mx_url} target="_blank" rel="noopener">map #{m.mx_id}</a></dd></>)}
+        {m.mx_url && (<><dt>ManiaExchange</dt><dd><a href={m.mx_url} target="_blank" rel="noopener">#{m.mx_id}</a></dd></>)}
         {m.stars_avg != null && (
           <>
             <dt>Community rating</dt>
