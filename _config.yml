@@ -3,7 +3,7 @@ description: A community-maintained wiki for Trackmania Galaxy — maps, records
 baseurl: "/trackmania-galaxy"
 url: "https://tomekdot.github.io"
 
-remote_theme: just-the-docs/just-the-docs@v0.10.0
+remote_theme: just-the-docs/just-the-docs@v0.12.0
 
 plugins:
   - jekyll-remote-theme

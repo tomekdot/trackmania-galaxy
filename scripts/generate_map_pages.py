@@ -137,6 +137,23 @@ def yaml_str(value: str) -> str:
     return '"' + value.replace("\\", "\\\\").replace('"', '\\"') + '"'
 
 
+def wr_record(mx: dict) -> str | None:
+    """Seed the record table with the ManiaExchange world-record replay, when present."""
+    if not mx.get("ReplayWRTime") or not mx.get("ReplayWRID"):
+        return None
+    ms = int(mx["ReplayWRTime"])
+    time_str = f"{ms // 60000}:{(ms % 60000) // 1000:02d}.{ms % 1000:03d}"
+    player = json.dumps(mx.get("ReplayWRUsername") or "unknown")
+    return (
+        "records:\n"
+        f"  - player: {player}\n"
+        f"    time: {json.dumps(time_str)}\n"
+        '    mode: ""\n'
+        f"    replay: \"https://tm.mania.exchange/replays/{mx['ReplayWRID']}\"\n"
+        '    note: "World record on ManiaExchange (date not published)"\n'
+    )
+
+
 def page_front_matter(m: dict, slug: str) -> str:
     mx = m.get("mx") or {}
     name = clean_name(m.get("name") or mx.get("Name") or m["uid"])
@@ -168,7 +185,7 @@ def page_front_matter(m: dict, slug: str) -> str:
         "",
         "# Community content below — a generator re-run never overwrites these.",
         "screenshots: []",
-        "records: []",
+        wr_record(mx) or "records: []",
         "---",
         "",
     ]

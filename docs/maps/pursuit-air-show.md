@@ -23,7 +23,13 @@ feedback:
 
 # Community content below — a generator re-run never overwrites these.
 screenshots: []
-records: []
+records:
+  - player: "Julius"
+    time: "0:12.489"
+    mode: ""
+    replay: "https://tm.mania.exchange/replays/665828"
+    note: "World record on ManiaExchange (date not published)"
+
 ---
 # {{ page.map_name | escape }}
 {: .no_toc }
