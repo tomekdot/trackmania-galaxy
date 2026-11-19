@@ -31,14 +31,14 @@ The Trackmania Galaxy Wiki is open source and hosted on GitHub. There are severa
 ### Editing Existing Pages
 
 1. Navigate to the page on the wiki that you want to edit.
-2. Open the [GitHub repository](https://github.com/tomekdot/trackmania-galaxy.github.io) in a new tab.
+2. Open the [GitHub repository](https://github.com/tomekdot/trackmania-galaxy) in a new tab.
 3. In GitHub, browse to the corresponding file under the `docs/` directory (matching the page URL).
 4. Click the pencil icon in GitHub to edit the file, make your changes, and add a clear commit message.
 5. Submit a **Pull Request** with a clear description of your changes.
 
 ### Adding New Pages
 
-1. Fork the [repository](https://github.com/tomekdot/trackmania-galaxy.github.io) on GitHub.
+1. Fork the [repository](https://github.com/tomekdot/trackmania-galaxy) on GitHub.
 2. Create a new `.md` file in the `docs/` folder.
 3. Add the required **front matter** at the top of the file:
 
@@ -52,6 +52,22 @@ nav_order: 7
 
 4. Write your content in Markdown.
 5. Submit a Pull Request.
+
+### Map screenshots and records
+
+Map pages live in `docs/maps/` and are data-driven: screenshots and records are YAML entries in the page's front matter, and the gallery plus record table render automatically.
+
+Two ways to contribute:
+
+1. **Issue form (easiest)** — use the [Map screenshot or record](https://github.com/tomekdot/trackmania-galaxy/issues/new?template=map-record.yml&labels=map-record) template. A maintainer adds the entry to the map page.
+2. **Pull request** — edit the map page on GitHub (every page has an "Edit this page on GitHub" link), add a `screenshots:` or `records:` entry, and open a PR.
+
+Rules:
+
+- Replays are **links only** (ManiaExchange replay page, video, or file host). Never commit `.replay.gbx` files.
+- Screenshots go to `assets/images/maps/` in a PR, or stay as external URLs.
+- Records need a player name, a time in `m:ss.mmm` format and a date; a replay link makes them verifiable.
+- New map pages start from [`docs/maps/TEMPLATE.md`](https://github.com/tomekdot/trackmania-galaxy/blob/main/docs/maps/TEMPLATE.md) and must keep `map: true` to be listed on the [Maps](maps) index.
 
 ---
 
@@ -68,7 +84,7 @@ To preview the wiki on your local machine:
 
 ```bash
 # Clone the repository
-git clone https://github.com/tomekdot/trackmania-galaxy.github.io.git
+git clone https://github.com/tomekdot/trackmania-galaxy.git
 cd trackmania-galaxy.github.io
 
 # Install dependencies

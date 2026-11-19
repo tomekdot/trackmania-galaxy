@@ -23,12 +23,13 @@ TrackMania² Galaxy is a free title pack for ManiaPlanet featuring multiple game
 | [Project History](docs/history) | Timeline of documentation and name changes. |
 | [TrackMania² Pursuit](docs/pursuit) | Pursuit title pack — updates, zones, vehicles, mechanics. |
 | [Companion Plugins](docs/companion-plugins) | Community plugins — Moon Calendar, utilities. |
+| [Maps](docs/maps) | Per-map pages: community screenshots and record histories. |
 | [Gallery](docs/gallery) | Example image gallery for screenshots and maps. |
 | [Contributing](docs/contributing) | Help improve this wiki. |
 
 ## Community
 
-This wiki is maintained by the Trackmania Galaxy community. Feel free to contribute by opening a pull request on [GitHub](https://github.com/tomekdot/trackmania-galaxy.github.io).
+This wiki is maintained by the Trackmania Galaxy community. Feel free to contribute by opening a pull request on [GitHub](https://github.com/tomekdot/trackmania-galaxy).
 
 {: .note }
 > This wiki is a community project and is not officially affiliated with Ubisoft or Nadeo.

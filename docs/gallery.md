@@ -8,6 +8,8 @@ nav_order: 7
 
 Showcase of Trackmania Galaxy screenshots and map previews.
 
+Looking for a specific map? See [Maps](maps) for per-map galleries and record histories — anyone can submit a screenshot or a time.
+
 ---
 
 ## TrackMania² Pursuit

@@ -1,0 +1,95 @@
+name: Map screenshot or record
+description: Add a screenshot or a record time to a map page (replays as links only)
+labels: [map-record]
+title: "[Map] <map name>"
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for contributing! Entries are added to the map page by a maintainer.
+        Replays are shared as **links only** — never attach `.replay.gbx` files.
+  - type: input
+    id: map-name
+    attributes:
+      label: Map name
+      description: Exact in-game name. If the map has no page yet, say so — we will create one.
+      placeholder: e.g. HuntersArena example map
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What are you adding?
+      options:
+        - Screenshot
+        - Record time
+        - Both
+    validations:
+      required: true
+  - type: dropdown
+    id: mode
+    attributes:
+      label: Game mode
+      options:
+        - Pursuit
+        - Goal Hunt
+        - Goal Hunt Pursuit
+        - Hunters
+        - Pursuit SWAP
+    validations:
+      required: false
+  - type: input
+    id: player
+    attributes:
+      label: Player name
+      description: Who drove the run / took the screenshot.
+      placeholder: Nickname
+    validations:
+      required: false
+  - type: input
+    id: time
+    attributes:
+      label: Record time
+      description: "Format m:ss.mmm — for example 0:42.123. Leave empty for screenshots."
+      placeholder: 0:42.123
+    validations:
+      required: false
+  - type: input
+    id: date
+    attributes:
+      label: Date
+      description: When the run or screenshot happened (YYYY-MM-DD).
+      placeholder: "2026-11-19"
+    validations:
+      required: false
+  - type: textarea
+    id: screenshot-links
+    attributes:
+      label: Screenshot links
+      description: External image URLs (ManiaExchange, Imgur, Discord CDN). One per line, with an optional caption after a comma.
+      placeholder: |
+        https://... , start area from the thief spawn
+    validations:
+      required: false
+  - type: textarea
+    id: replay-links
+    attributes:
+      label: Replay or video links
+      description: ManiaExchange replay page, YouTube/Twitch video, or a file-host link. Links only — no file uploads.
+      placeholder: https://tm.mania.exchange/replays/...
+    validations:
+      required: false
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes
+      description: Vehicle used, shortcuts, zone usage, or anything else worth documenting.
+    validations:
+      required: false
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Confirmation
+      options:
+        - label: I understand that submitted content is published under CC BY-SA 4.0 and that replays are linked, not uploaded.
+          required: true

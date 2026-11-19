@@ -25,6 +25,13 @@ search:
 
 heading_anchors: true
 
+# "Edit this page on GitHub" links (community contributions)
+gh_edit_link: true
+gh_edit_link_text: "Edit this page on GitHub"
+gh_edit_repository: "https://github.com/tomekdot/trackmania-galaxy"
+gh_edit_branch: "main"
+gh_edit_view_mode: "edit"
+
 # Navigation
 nav_sort: case_insensitive
 
