@@ -11,6 +11,12 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const issueUrl =
   'https://github.com/tomekdot/trackmania-galaxy/issues/new?template=map-record.yml&labels=map-record&title=' +
   encodeURIComponent(`[Map] ${m.name}`);
+const historyUrl =
+  'https://github.com/tomekdot/trackmania-galaxy/issues/new?template=map-history.yml&labels=map-history&title=' +
+  encodeURIComponent(`[Map history] ${m.name}`);
+const editUrl = 'https://github.com/tomekdot/trackmania-galaxy/edit/main/src/data/maps.json';
+const events = m.events || [];
+const memories = m.memories || [];
 const fullStars = Math.round(m.stars_avg || 0);
 const starRow = '★'.repeat(fullStars) + '☆'.repeat(Math.max(0, 5 - fullStars));
 
@@ -54,7 +60,7 @@ const mapJsonLd = {
     : {}),
 };
 ---
-<Layout title={`${m.name} — Trackmania Galaxy`} description={`${m.name} by ${m.mapper} — ${m.mode} map in ${m.environment}. Records, screenshots and community content.`} image={m.thumbnail} jsonLd={mapJsonLd}>
+<Layout title={`${m.name} — Trackmania Galaxy`} description={`${m.name} by ${m.mapper} — ${m.mode} map in ${m.environment}. Records, screenshots, history and community memories.`} image={m.thumbnail} jsonLd={mapJsonLd}>
   <a class="back" href={`${base}/`}>← All maps</a>
 
   <div class="map-hero">
@@ -73,7 +79,7 @@ const mapJsonLd = {
       <dl class="facts">
         <dt>Mapper</dt><dd>{m.mapper || 'unknown'}</dd>
         {m.uploaded && (<><dt>Uploaded</dt><dd>{m.uploaded}</dd></>)}
-        {m.mx_url && (<><dt>ManiaExchange</dt><dd><a href={m.mx_url}>map #{m.mx_id}</a></dd></>)}
+        {m.mx_url && (<><dt>ManiaExchange</dt><dd><a href={m.mx_url} target="_blank" rel="noopener">map #{m.mx_id}</a></dd></>)}
         {m.stars_avg != null && (
           <>
             <dt>Community rating</dt>
@@ -88,8 +94,10 @@ const mapJsonLd = {
         )}
       </dl>
       <div class="cta">
-        {m.mx_url && <a class="btn primary" href={m.mx_url}>View on ManiaExchange</a>}
-        <a class="btn" href={issueUrl}>Submit record / screenshot</a>
+        {m.mx_url && <a class="btn primary" href={m.mx_url} target="_blank" rel="noopener">View on ManiaExchange</a>}
+        <a class="btn" href={issueUrl} target="_blank" rel="noopener">Submit record / screenshot</a>
+        <a class="btn" href={historyUrl} target="_blank" rel="noopener">Submit history / memory</a>
+        <a class="btn ghost" href={editUrl} target="_blank" rel="noopener">Edit on GitHub</a>
       </div>
     </div>
   </div>
@@ -104,14 +112,16 @@ const mapJsonLd = {
     {m.screenshots.length > 0 ? (
       <div class="shot-grid">
         {m.screenshots.map((s) => (
-          <figure>
-            <img src={s.url} alt={s.caption || m.name} loading="lazy" />
-            <figcaption>{s.caption}{s.author ? ` — ${s.author}` : ''}</figcaption>
+          <figure class="shot">
+            <button class="shot-btn" type="button" data-full={s.url} data-caption={`${s.caption || m.name}${s.author ? ' — ' + s.author : ''}`} aria-label={`Enlarge screenshot: ${s.caption || m.name}`}>
+              <img src={s.url} alt={s.caption || m.name} loading="lazy" />
+            </button>
+            <figcaption>{s.caption}{s.author ? ` — ${s.author}` : ''}{s.date ? ` (${s.date})` : ''}</figcaption>
           </figure>
         ))}
       </div>
     ) : (
-      <p class="muted">No screenshots yet. Add yours with the button above — a link to an image is enough.</p>
+      <p class="muted">No screenshots yet. Add yours with the button above — a link to an image is enough. Click any screenshot to enlarge it.</p>
     )}
   </section>
 
@@ -128,8 +138,8 @@ const mapJsonLd = {
               <td>{r.player}</td>
               <td><code>{r.time}</code></td>
               <td>{r.date}</td>
-              <td>{r.replay ? <a href={r.replay}>link</a> : '—'}</td>
-              <td>{r.clip ? <a href={r.clip}>clip</a> : '—'}</td>
+              <td>{r.replay ? <a href={r.replay} target="_blank" rel="noopener">replay</a> : '—'}</td>
+              <td>{r.clip ? <a href={r.clip} target="_blank" rel="noopener">clip</a> : '—'}</td>
               <td>{r.note || ''}</td>
             </tr>
           ))}
@@ -139,4 +149,70 @@ const mapJsonLd = {
       <p class="muted">{mc.recordHint}</p>
     )}
   </section>
+
+  <section class="panel">
+    <h2>Map history</h2>
+    {events.length > 0 ? (
+      <ol class="timeline">
+        {events.map((e) => (
+          <li>
+            <span class="tl-date">{e.date}</span>
+            <span class="tl-text">{e.text}{e.author ? <em> — {e.author}</em> : null}{e.link ? <> · <a href={e.link} target="_blank" rel="noopener">link</a></> : null}</span>
+          </li>
+        ))}
+      </ol>
+    ) : (
+      <p class="muted">No history yet. Submit a timestamped note about what happened on this map — a match, a record, a community event.</p>
+    )}
+  </section>
+
+  <section class="panel">
+    <h2>Memories</h2>
+    {memories.length > 0 ? (
+      <div class="memories">
+        {memories.map((mem) => (
+          <blockquote class="memory">
+            <p>{mem.text}</p>
+            <div class="mem-meta">{mem.author ? `— ${mem.author}` : ''}{mem.date ? ` (${mem.date})` : ''}{mem.url ? <> · <a href={mem.url} target="_blank" rel="noopener">link</a></> : null}</div>
+          </blockquote>
+        ))}
+      </div>
+    ) : (
+      <p class="muted">No memories yet. Share a story, screenshot or meme from this map — what happened, and who was there.</p>
+    )}
+  </section>
+
+  <div id="lightbox" class="lightbox" hidden role="dialog" aria-modal="true" aria-label="Screenshot preview">
+    <button class="lb-close" type="button" aria-label="Close preview">×</button>
+    <img class="lb-img" src="" alt="" />
+    <p class="lb-caption"></p>
+  </div>
+
+  <script is:inline>
+    (function () {
+      var lb = document.getElementById('lightbox');
+      if (!lb) return;
+      var img = lb.querySelector('.lb-img');
+      var cap = lb.querySelector('.lb-caption');
+      function open(src, caption) {
+        img.src = src; img.alt = caption || '';
+        cap.textContent = caption || '';
+        lb.hidden = false;
+        document.body.style.overflow = 'hidden';
+      }
+      function close() {
+        lb.hidden = true; img.src = '';
+        document.body.style.overflow = '';
+      }
+      document.querySelectorAll('.shot-btn').forEach(function (b) {
+        b.addEventListener('click', function () { open(b.dataset.full, b.dataset.caption); });
+      });
+      lb.addEventListener('click', function (e) {
+        if (e.target === lb || e.target.classList.contains('lb-close')) close();
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && !lb.hidden) close();
+      });
+    })();
+  </script>
 </Layout>
