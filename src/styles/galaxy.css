@@ -23,6 +23,7 @@
   --blue: #6f86ff;
   --cyan: #4dd0e1;
   --gold: #ffbf00;
+  --amber: #f0a800; /* selected-card frame: solid amber outline in game */
   --font-display: 'Orbitron', 'Segoe UI', sans-serif;
   --font-cond: 'Oswald', 'Roboto Condensed', 'Segoe UI', sans-serif;
 }
@@ -221,11 +222,10 @@ main {
 }
 .thumb { position: relative; aspect-ratio: 16 / 9; overflow: hidden; background: #0d1118; }
 .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s; }
-/* Game-style thumbnail shading (Quad_ThumbnailShading) on hover */
-.thumb::after { content: ''; position: absolute; inset: 0; background: #0a1430; opacity: 0; transition: opacity 0.25s; pointer-events: none; }
 .card:hover .thumb img { transform: scale(1.04); }
-.card:hover .thumb::after { opacity: 0.22; }
-.card:hover { transform: translateY(-2px); box-shadow: 0 0 0 2px var(--gold), 0 8px 24px rgba(4, 8, 20, 0.5); }
+/* Selected-card frame from the game: solid amber outline, sharp corners,
+   no glow/shadow, small offset gap showing the blue background through. */
+.card:hover { outline: 2px solid var(--amber); outline-offset: 2px; }
 .card-body {
   padding: 8px 12px 10px;
   background: rgba(45, 45, 45, 0.6);
