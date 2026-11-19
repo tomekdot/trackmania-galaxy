@@ -184,8 +184,11 @@ def page_front_matter(m: dict, slug: str) -> str:
         f"  stars_total: {m.get('stars_total') if m.get('stars_total') is not None else 'null'}",
         "",
         "# Community content below — a generator re-run never overwrites these.",
+        "# events = timestamped map history, memories = community stories/memes.",
         "screenshots: []",
         wr_record(mx) or "records: []",
+        "events: []",
+        "memories: []",
         "---",
         "",
     ]
@@ -258,8 +261,41 @@ _No description yet — add layout notes, routes, zones and tactics here._
 
 ---
 
+## Map history
+
+{% if page.events and page.events.size > 0 %}
+| Date | What happened | Who | Link |
+|------|---------------|-----|------|
+{% for e in page.events %}| {{ e.date | default: "—" }} | {{ e.text }} | {{ e.author | default: "—" }} | {% if e.link %}{% if e.link contains 'http' %}[link]({{ e.link }}){% else %}[file]({{ e.link | relative_url }}){% endif %}{% else %}—{% endif %} |
+{% endfor %}
+
+{: .note }
+> Timestamped notes about this map: notable matches, record runs, map updates and community moments.
+{% else %}
+{: .highlight }
+> No events yet. Add the first timestamped note about what happened on this map.
+{% endif %}
+
+---
+
+## Memories
+
+{% if page.memories and page.memories.size > 0 %}
+{% for mem in page.memories %}
+> {{ mem.text }}
+> — {{ mem.author | default: "anonymous" }}{% if mem.date %}, {{ mem.date }}{% endif %}{% if mem.url %} · {% if mem.url contains 'http' %}[link]({{ mem.url }}){% else %}[file]({{ mem.url | relative_url }}){% endif %}{% endif %}
+
+{% endfor %}
+{% else %}
+{: .highlight }
+> No memories yet. Share a story, a screenshot or a meme from this map.
+{% endif %}
+
+---
+
 ## Add your screenshot or record
 
+[Submit map history or memory](https://github.com/tomekdot/trackmania-galaxy/issues/new?template=map-history.yml&labels=map-history&title=%5BMap%20history%5D%20{{ page.map_name | url_encode }}){: .btn }
 [Submit a screenshot or record](https://github.com/tomekdot/trackmania-galaxy/issues/new?template=map-record.yml&labels=map-record&title=%5BMap%5D%20{{ page.map_name | url_encode }}){: .btn .btn-primary }
 [Edit this page on GitHub](https://github.com/tomekdot/trackmania-galaxy/edit/main/{{ page.path }}){: .btn }
 

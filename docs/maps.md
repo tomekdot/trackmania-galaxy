@@ -20,7 +20,7 @@ Per-map pages with a community screenshot gallery and a record history. Every ma
 
 ## How it works
 
-- **One page per map** — screenshots, route notes and the record history live together on a dedicated map page under `docs/maps/`.
+- **One page per map** — screenshots, route notes, the record history, a timestamped **map history** (what happened on the map) and community **memories** all live on a dedicated map page under `docs/maps/`.
 - **Anyone can contribute** — open a pre-filled issue (no Git knowledge needed) or edit the map page directly on GitHub and send a pull request.
 - **Screenshots** are either uploaded to `assets/images/maps/` in a pull request, or linked from an external host (ManiaExchange, Imgur, Discord CDN).
 - **Replays and clips: link or attach** — paste a ManiaExchange replay page or a YouTube/Twitch clip, or attach the `.replay.gbx` file to the issue. Files can also be committed under `assets/replays/` in a pull request.
@@ -78,6 +78,7 @@ python3 scripts/generate_map_pages.py --offline  # regenerate from data/maps.jso
 ## Add a screenshot or a record
 
 [Submit a screenshot or record](https://github.com/tomekdot/trackmania-galaxy/issues/new?template=map-record.yml&labels=map-record&title=%5BMap%5D%20%3Cmap%20name%3E){: .btn .btn-primary }
+[Submit map history or a memory](https://github.com/tomekdot/trackmania-galaxy/issues/new?template=map-history.yml&labels=map-history&title=%5BMap%20history%5D%20%3Cmap%20name%3E){: .btn }
 [Open the map feedback form](https://github.com/tomekdot/trackmania-galaxy/issues/new?template=map-feedback.yml&labels=map-feedback&title=%5BMap%5D%20%3Cmap%20name%3E){: .btn }
 
 The form asks for:
@@ -96,7 +97,7 @@ A maintainer then adds the entry to the map page and it goes live with the next 
 
 1. Copy [`docs/maps/TEMPLATE.md`](https://github.com/tomekdot/trackmania-galaxy/blob/main/docs/maps/TEMPLATE.md) into a new file `docs/maps/<map-name>.md` (lowercase, hyphens instead of spaces).
 2. Fill in the front matter: `map_name`, `mode`, `environment`, `mapper`, `mx_url`.
-3. Add screenshots and records as YAML entries — the page renders the gallery and the record table automatically.
+3. Add `screenshots:`, `records:`, `events:` (timestamped map history) and `memories:` entries as YAML — the page renders the gallery, record table, timeline and memories automatically.
 4. Keep `map: true` so the page is listed above, and `parent: Maps` for the breadcrumb.
 5. Open a pull request. The map appears in the table as soon as it is merged.
 

@@ -1,0 +1,181 @@
+// ─────────────────────────────────────────────────────────────
+// Galaxy skin for Just the Docs (dark scheme)
+// Pure CSS: starfield + nebula + violet/cyan accents.
+// No JavaScript, no images — loaded last by the theme.
+// ─────────────────────────────────────────────────────────────
+
+$g-bg: #0a0c1c;
+$g-panel: rgba(16, 18, 40, 0.88);
+$g-violet: #a78bfa;
+$g-cyan: #7dd3fc;
+$g-text: #d8dcf5;
+$g-heading: #eef0ff;
+
+html {
+  background-color: $g-bg !important;
+}
+
+body {
+  background-color: transparent !important;
+  color: $g-text;
+}
+
+// ── Nebula (fixed, behind everything) ──
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 60% 40% at 15% 8%, rgba(124, 58, 237, 0.16), transparent 60%),
+    radial-gradient(ellipse 50% 45% at 88% 92%, rgba(34, 211, 238, 0.10), transparent 60%),
+    radial-gradient(ellipse 40% 35% at 72% 18%, rgba(236, 72, 153, 0.07), transparent 60%);
+}
+
+// ── Starfield: two tiled layers, slow twinkle + drift ──
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    radial-gradient(1px 1px at 12% 22%, rgba(255, 255, 255, 0.9), transparent),
+    radial-gradient(1px 1px at 38% 64%, rgba(255, 255, 255, 0.7), transparent),
+    radial-gradient(1.5px 1.5px at 56% 18%, rgba(199, 210, 254, 0.9), transparent),
+    radial-gradient(1px 1px at 71% 47%, rgba(255, 255, 255, 0.6), transparent),
+    radial-gradient(1px 1px at 89% 76%, rgba(255, 255, 255, 0.8), transparent),
+    radial-gradient(1.5px 1.5px at 24% 88%, rgba(125, 211, 252, 0.8), transparent),
+    radial-gradient(1px 1px at 64% 92%, rgba(255, 255, 255, 0.5), transparent),
+    radial-gradient(1px 1px at 45% 35%, rgba(255, 255, 255, 0.65), transparent),
+    radial-gradient(2px 2px at 82% 12%, rgba(167, 139, 250, 0.9), transparent),
+    radial-gradient(1px 1px at 8% 55%, rgba(255, 255, 255, 0.55), transparent);
+  background-repeat: repeat;
+  background-size: 420px 420px;
+  animation: galaxy-twinkle 7s ease-in-out infinite alternate,
+             galaxy-drift 180s linear infinite;
+}
+
+@keyframes galaxy-twinkle {
+  from { opacity: 0.55; }
+  to   { opacity: 1; }
+}
+
+@keyframes galaxy-drift {
+  from { background-position: 0 0; }
+  to   { background-position: -420px 210px; }
+}
+
+// ── Sidebar ──
+.side-bar {
+  background: $g-panel;
+  border-right: 1px solid rgba(167, 139, 250, 0.15);
+}
+
+.site-title {
+  background: linear-gradient(90deg, $g-cyan, $g-violet);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent !important;
+  font-weight: 700;
+}
+
+.nav-list-link {
+  color: $g-text;
+
+  &:hover {
+    color: $g-cyan;
+  }
+
+  &.active {
+    color: $g-violet;
+    font-weight: 600;
+  }
+}
+
+// ── Top bar / search ──
+.main-header {
+  background: rgba(10, 12, 28, 0.85);
+  border-bottom: 1px solid rgba(167, 139, 250, 0.12);
+}
+
+.search-input {
+  background: rgba(255, 255, 255, 0.05);
+  color: $g-text;
+  border: 1px solid rgba(167, 139, 250, 0.25);
+
+  &:focus {
+    border-color: $g-violet;
+    box-shadow: 0 0 12px rgba(167, 139, 250, 0.3);
+  }
+}
+
+// ── Content ──
+.main-content {
+  h1, h2, h3, h4, h5, h6 {
+    color: $g-heading;
+  }
+
+  h1 {
+    text-shadow: 0 0 24px rgba(125, 211, 252, 0.25);
+  }
+
+  a {
+    color: $g-cyan;
+
+    &:hover {
+      color: $g-violet;
+      text-shadow: 0 0 12px rgba(167, 139, 250, 0.55);
+    }
+  }
+
+  blockquote {
+    border-left: 3px solid $g-violet;
+    background: rgba(124, 58, 237, 0.08);
+    color: $g-text;
+  }
+
+  table {
+    background: rgba(16, 18, 40, 0.6);
+
+    th {
+      background: rgba(124, 58, 237, 0.18);
+      color: $g-heading;
+    }
+
+    td, th {
+      border-color: rgba(167, 139, 250, 0.15);
+    }
+  }
+
+  hr {
+    border-color: rgba(167, 139, 250, 0.2);
+  }
+}
+
+// ── Code blocks ──
+.highlighter-rouge .highlight,
+pre.highlight {
+  background: rgba(13, 15, 35, 0.9);
+  border: 1px solid rgba(167, 139, 250, 0.12);
+}
+
+// ── Buttons ──
+.btn {
+  background: linear-gradient(135deg, #7c3aed, #4f46e5) !important;
+  border: none !important;
+  color: #fff !important;
+
+  &:hover {
+    box-shadow: 0 0 18px rgba(124, 58, 237, 0.5);
+  }
+}
+
+// ── Accessibility: no motion for users who opt out ──
+@media (prefers-reduced-motion: reduce) {
+  body::before,
+  body::after {
+    animation: none;
+  }
+}

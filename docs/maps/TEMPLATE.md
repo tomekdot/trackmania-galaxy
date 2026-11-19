@@ -21,6 +21,8 @@ screenshots: []
 #    date: 2026-11-19
 
 # Record history: newest entries first. Replay/clip = link OR a file committed under assets/replays/.
+# events = timestamped map history (what happened on this map).
+# memories = community stories, screenshots and memes.
 records: []
 #  - player: "Nickname"
 #    time: "0:42.123"
@@ -29,6 +31,20 @@ records: []
 #    replay: "https://tm.mania.exchange/replays/..."   # or "assets/replays/<file>.replay.gbx"
 #    clip: "https://youtu.be/..."
 #    note: "Lagoon Car, no shortcuts"
+
+# Map history: timestamped notes about what happened on this map.
+events: []
+#  - date: 2026-11-19
+#    text: "First 100-point match on this map"
+#    author: "Nickname"
+#    link: "https://..."
+
+# Memories: community stories, screenshots and memes.
+memories: []
+#  - date: 2026-11-19
+#    text: "The whole server hid in the same barn for one round"
+#    author: "Nickname"
+#    url: "https://..."
 ---
 
 # {{ page.map_name | escape }}
@@ -91,8 +107,41 @@ Short description: layout, size, notable routes, zones used, and what makes the 
 
 ---
 
+## Map history
+
+{% if page.events and page.events.size > 0 %}
+| Date | What happened | Who | Link |
+|------|---------------|-----|------|
+{% for e in page.events %}| {{ e.date | default: "—" }} | {{ e.text }} | {{ e.author | default: "—" }} | {% if e.link %}{% if e.link contains 'http' %}[link]({{ e.link }}){% else %}[file]({{ e.link | relative_url }}){% endif %}{% else %}—{% endif %} |
+{% endfor %}
+
+{: .note }
+> Timestamped notes about this map: notable matches, record runs, map updates and community moments.
+{% else %}
+{: .highlight }
+> No events yet. Add the first timestamped note about what happened on this map.
+{% endif %}
+
+---
+
+## Memories
+
+{% if page.memories and page.memories.size > 0 %}
+{% for mem in page.memories %}
+> {{ mem.text }}
+> — {{ mem.author | default: "anonymous" }}{% if mem.date %}, {{ mem.date }}{% endif %}{% if mem.url %} · {% if mem.url contains 'http' %}[link]({{ mem.url }}){% else %}[file]({{ mem.url | relative_url }}){% endif %}{% endif %}
+
+{% endfor %}
+{% else %}
+{: .highlight }
+> No memories yet. Share a story, a screenshot or a meme from this map.
+{% endif %}
+
+---
+
 ## Add your screenshot or record
 
+[Submit map history or memory](https://github.com/tomekdot/trackmania-galaxy/issues/new?template=map-history.yml&labels=map-history&title=%5BMap%20history%5D%20{{ page.map_name | url_encode }}){: .btn }
 [Submit a screenshot or record](https://github.com/tomekdot/trackmania-galaxy/issues/new?template=map-record.yml&labels=map-record&title=%5BMap%5D%20{{ page.map_name | url_encode }}){: .btn .btn-primary }
 [Edit this page on GitHub](https://github.com/tomekdot/trackmania-galaxy/edit/main/{{ page.path }}){: .btn }
 

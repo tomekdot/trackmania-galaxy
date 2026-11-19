@@ -55,11 +55,11 @@ nav_order: 7
 
 ### Map screenshots and records
 
-Map pages live in `docs/maps/` and are data-driven: screenshots and records are YAML entries in the page's front matter, and the gallery plus record table render automatically.
+Map pages live in `docs/maps/` and are data-driven: `screenshots`, `records`, `events` (timestamped map history) and `memories` are YAML entries in the page's front matter, and the gallery, record table, timeline and memories render automatically.
 
 Two ways to contribute:
 
-1. **Issue form (easiest)** — use the [Map screenshot or record](https://github.com/tomekdot/trackmania-galaxy/issues/new?template=map-record.yml&labels=map-record) template. A maintainer adds the entry to the map page.
+1. **Issue form (easiest)** — use the [Map screenshot or record](https://github.com/tomekdot/trackmania-galaxy/issues/new?template=map-record.yml&labels=map-record) or [Map history or memory](https://github.com/tomekdot/trackmania-galaxy/issues/new?template=map-history.yml&labels=map-history) template. A maintainer adds the entry to the map page.
 2. **Pull request** — edit the map page on GitHub (every page has an "Edit this page on GitHub" link), add a `screenshots:` or `records:` entry, and open a PR.
 
 Rules:
