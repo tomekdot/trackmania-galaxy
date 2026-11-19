@@ -5,9 +5,32 @@ import maps from '../data/maps.json';
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const envs = [...new Set(maps.map((m) => m.environment))].filter(Boolean).sort();
 const pursuitCount = maps.filter((m) => m.mode === 'Pursuit').length;
-// Maps render in batches of 10 — never all 262 at once.
+// Maps render in batches of 10. The first batch is server-rendered below so the
+// grid has content immediately (no layout shift) and the LCP image is in the HTML.
 const BATCH = 10;
-const json = JSON.stringify(maps).replace(/</g, '\\u003c');
+
+// Precompute the display caption (dedup a mode prefix already in the name) and
+// the local optimized WebP thumbnail path. Shared by SSR and the client renderer.
+const cards = maps.map((m) => {
+  const modeLabel = m.mode || 'Map';
+  const rawName = m.name || '';
+  let displayName = rawName;
+  let showMode = true;
+  if (rawName.toLowerCase().startsWith(modeLabel.toLowerCase())) {
+    const rest = rawName.slice(modeLabel.length).replace(/^\s*[-–—:]\s*/, '').trim();
+    if (rest) displayName = rest; else showMode = false;
+  }
+  return { ...m, modeLabel, displayName, showMode, thumb: `${base}/thumbs/${m.slug}.webp` };
+});
+const firstBatch = cards.slice(0, BATCH);
+// Embed only the fields the gallery client needs — a smaller JSON parses faster
+// on slow mobile CPUs (lower Total Blocking Time). Map detail pages read the full
+// maps.json server-side, so the extra fields aren't needed here.
+const slim = cards.map((m) => ({
+  slug: m.slug, name: m.name, mapper: m.mapper, mode: m.mode, environment: m.environment,
+  thumbnail: m.thumbnail, modeLabel: m.modeLabel, displayName: m.displayName, showMode: m.showMode, thumb: m.thumb,
+}));
+const json = JSON.stringify(slim).replace(/</g, '\\u003c');
 ---
 <Layout title="Trackmania Galaxy — 262 Pursuit & Goal Hunt maps" description="Community wiki for TrackMania² Galaxy: 262 Pursuit and Goal Hunt maps with thumbnails, ratings, records and screenshots. Search, filter by environment, submit your own.">
   <section class="hero">
@@ -21,7 +44,7 @@ const json = JSON.stringify(maps).replace(/</g, '\\u003c');
   </section>
 
   <section class="controls">
-    <input id="q" type="search" placeholder="Search maps or mappers…" autocomplete="off" />
+    <input id="q" type="search" placeholder="Search maps or mappers…" autocomplete="off" aria-label="Search maps or mappers" />
     <div class="chips" id="chips">
       <button class="chip active" data-env="">All</button>
       {envs.map((e) => <button class="chip" data-env={e}>{e}</button>)}
@@ -30,10 +53,34 @@ const json = JSON.stringify(maps).replace(/</g, '\\u003c');
     </div>
   </section>
 
-  <section class="grid" id="grid"></section>
+  <section class="grid" id="grid" aria-label="Map gallery">
+    {firstBatch.map((m, i) => (
+      <a class="card" href={`${base}/maps/${m.slug}/`} data-env={m.environment || ''} data-mode={m.mode || ''}>
+        <div class="thumb">
+          <img
+            src={m.thumb}
+            alt={`${m.name} thumbnail`}
+            width="512"
+            height="512"
+            loading={i === 0 ? 'eager' : 'lazy'}
+            decoding={i === 0 ? 'sync' : 'async'}
+            fetchpriority={i === 0 ? 'high' : 'auto'}
+            data-fallback={m.thumbnail}
+          />
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">
+            {m.showMode && <><span class="mode">{m.modeLabel}</span>{' - '}</>}
+            <span class="name">{m.displayName}</span>
+          </h2>
+          <p class="mapper">{m.mapper || 'unknown'}</p>
+        </div>
+      </a>
+    ))}
+  </section>
 
   <div class="load-row">
-    <p id="counter" class="counter"></p>
+    <p id="counter" class="counter">Showing {firstBatch.length} / {cards.length}</p>
     <button id="more" class="btn" type="button">Load more</button>
   </div>
   <div id="sentinel"></div>
@@ -42,6 +89,9 @@ const json = JSON.stringify(maps).replace(/</g, '\\u003c');
   <script type="application/json" id="map-data" set:html={json} />
 
   <script is:inline define:vars={{ base, BATCH }}>
+    // Defer interactive setup to idle time so parsing the map JSON doesn't block
+    // first paint (lower Total Blocking Time). The first cards are server-rendered.
+    function init() {
     const DATA = JSON.parse(document.getElementById('map-data').textContent);
     const grid = document.getElementById('grid');
     const q = document.getElementById('q');
@@ -54,7 +104,7 @@ const json = JSON.stringify(maps).replace(/</g, '\\u003c');
     let env = '';
     let mode = '';
     let filtered = DATA;
-    let shown = 0;
+    let shown = BATCH; // first batch is already server-rendered in the grid
 
     function el(tag, cls, text) {
       const n = document.createElement(tag);
@@ -71,28 +121,21 @@ const json = JSON.stringify(maps).replace(/</g, '\\u003c');
 
       const thumb = el('div', 'thumb');
       const img = el('img');
-      img.src = m.thumbnail;
+      img.src = m.thumb;
       img.alt = m.name + ' thumbnail';
+      img.width = 512; img.height = 512;
       img.loading = 'lazy';
+      img.decoding = 'async';
+      img.dataset.fallback = m.thumbnail;
       thumb.appendChild(img);
 
       const body = el('div', 'card-body');
-      // Voting-screen caption: "Mode - Map name" + creator, centered italic.
-      // If the map name already starts with the mode, don't duplicate it.
-      const modeLabel = m.mode || 'Map';
-      const rawName = m.name || '';
-      let displayName = rawName;
-      let showMode = true;
-      if (rawName.toLowerCase().startsWith(modeLabel.toLowerCase())) {
-        const rest = rawName.slice(modeLabel.length).replace(/^\s*[-–—:]\s*/, '').trim();
-        if (rest) { displayName = rest; } else { showMode = false; }
-      }
-      const title = el('h3', 'card-title');
-      if (showMode) {
-        title.appendChild(el('span', 'mode', modeLabel));
+      const title = el('h2', 'card-title');
+      if (m.showMode) {
+        title.appendChild(el('span', 'mode', m.modeLabel));
         title.appendChild(document.createTextNode(' - '));
       }
-      title.appendChild(el('span', 'name', displayName));
+      title.appendChild(el('span', 'name', m.displayName));
       body.appendChild(title);
       body.appendChild(el('p', 'mapper', m.mapper || 'unknown'));
 
@@ -119,7 +162,7 @@ const json = JSON.stringify(maps).replace(/</g, '\\u003c');
         (!env || m.environment === env) &&
         (!mode || m.mode === mode)
       );
-      grid.innerHTML = ''; // safe: clearing only; all card content is built via textContent below
+      grid.innerHTML = ''; // safe: clearing only; card content is built via textContent
       shown = 0;
       renderBatch();
     }
@@ -135,7 +178,6 @@ const json = JSON.stringify(maps).replace(/</g, '\\u003c');
     for (const chip of chips) {
       chip.addEventListener('click', () => {
         if (chip.dataset.mode !== undefined) {
-          // Mode chip: toggle off if already active, otherwise switch to it.
           const wasActive = chip.classList.contains('active');
           modeChips.forEach((c) => c.classList.remove('active'));
           mode = wasActive ? '' : chip.dataset.mode;
@@ -162,7 +204,8 @@ const json = JSON.stringify(maps).replace(/</g, '\\u003c');
         q.focus();
       }
     });
-
-    apply();
+    }
+    if ('requestIdleCallback' in window) requestIdleCallback(init, { timeout: 1500 });
+    else setTimeout(init, 100);
   </script>
 </Layout>

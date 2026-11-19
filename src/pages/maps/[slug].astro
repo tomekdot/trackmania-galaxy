@@ -59,7 +59,7 @@ const mapJsonLd = {
 
   <div class="map-hero">
     <div class="hero-thumb">
-      <img src={m.thumbnail} alt={`${m.name} thumbnail`} />
+      <img src={`${base}/thumbs/${m.slug}.webp`} alt={`${m.name} thumbnail`} width="512" height="512" fetchpriority="high" decoding="sync" data-fallback={m.thumbnail} />
     </div>
     <div class="hero-info">
       <h1>{m.name}</h1>

@@ -58,12 +58,9 @@ const ld = JSON.stringify(jsonLd || defaultJsonLd).replace(/</g, '\\u003c');
 
     <script type="application/ld+json" set:html={ld} />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800;900&family=Oswald:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="preload" href={`${base}/fonts/orbitron-0.woff2`} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={`${base}/fonts/oswald-5.woff2`} as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href={`${base}/fonts.css`} />
   </head>
   <body>
     <div class="bg-base" aria-hidden="true"></div>
@@ -84,5 +81,16 @@ const ld = JSON.stringify(jsonLd || defaultJsonLd).replace(/</g, '\\u003c');
       <slot />
     </main>
     <footer>Trackmania Galaxy — community maintained · static &amp; free on GitHub Pages</footer>
+    <script is:inline>
+      // Fall back to the original remote thumbnail if a local WebP is missing.
+      // Error events don't bubble, so listen in the capture phase.
+      document.addEventListener('error', function (e) {
+        var t = e.target;
+        if (t && t.tagName === 'IMG' && t.dataset && t.dataset.fallback) {
+          t.src = t.dataset.fallback;
+          t.removeAttribute('data-fallback');
+        }
+      }, true);
+    </script>
   </body>
 </html>
