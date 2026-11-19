@@ -485,6 +485,36 @@ footer {
 .panel:nth-of-type(4) { border-right-color: var(--cyan); }
 .panel:nth-of-type(5) { border-right-color: var(--gold); }
 
+/* ── "Preview how it looks" toggle + example demo block ── */
+.preview-toggle {
+  margin-top: 14px;
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 7px 16px;
+  color: var(--cyan);
+  background: rgba(77, 208, 225, 0.08);
+  border: 1px solid rgba(77, 208, 225, 0.4);
+  cursor: pointer;
+  transition: all 0.18s;
+}
+.preview-toggle:hover { color: #fff; border-color: var(--cyan); box-shadow: 0 0 14px rgba(77, 208, 225, 0.3); }
+.preview-block { margin-top: 4px; }
+.preview-badge {
+  display: inline-block;
+  margin-bottom: 12px;
+  padding: 3px 10px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--gold);
+  background: rgba(255, 191, 0, 0.12);
+  border: 1px solid rgba(255, 191, 0, 0.4);
+}
+
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; }
 }

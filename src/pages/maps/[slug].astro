@@ -20,6 +20,13 @@ const memories = m.memories || [];
 const fullStars = Math.round(m.stars_avg || 0);
 const starRow = '★'.repeat(fullStars) + '☆'.repeat(Math.max(0, 5 - fullStars));
 
+// Example data used only by the "Preview" toggle to show how a section looks
+// once a player submits content. Clearly labelled, never mixed with real data.
+const demoShot = { url: m.thumbnail, caption: 'Preview example — start area', author: 'Example', date: '2026-11-19' };
+const demoRecord = { player: 'ExamplePlayer', time: '0:42.123', date: '2026-11-19', replay: m.mx_url, clip: '', note: 'Preview example' };
+const demoEvent = { date: '2026-11-19', text: 'Preview example — a community match on this map', author: 'Example', link: m.mx_url };
+const demoMemory = { date: '2026-11-19', text: 'Preview example — a funny moment everyone on the server remembers.', author: 'Example', url: m.mx_url };
+
 // Mode-aware copy — grounded in the actual Galaxy game modes, not generic filler.
 const MODES = {
   'Pursuit': {
@@ -122,18 +129,32 @@ const mapJsonLd = {
       </div>
     ) : (
       <>
-        <div class="shot-grid">
-          <a class="shot-placeholder" href={issueUrl} target="_blank" rel="noopener" aria-label="Add your screenshot">
-            <svg class="ph-icon" viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-              <rect x="3" y="4" width="18" height="16" rx="1.5" />
-              <circle cx="8.5" cy="9.5" r="1.8" />
-              <path d="M3.5 17.5l5-5 4 4 3-3 5 5" />
-            </svg>
-            <span class="ph-title">Screenshot preview</span>
-            <span class="ph-sub">Your screenshot will appear here — click to add yours</span>
-          </a>
+        <div id="shots-empty">
+          <div class="shot-grid">
+            <a class="shot-placeholder" href={issueUrl} target="_blank" rel="noopener" aria-label="Add your screenshot">
+              <svg class="ph-icon" viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                <rect x="3" y="4" width="18" height="16" rx="1.5" />
+                <circle cx="8.5" cy="9.5" r="1.8" />
+                <path d="M3.5 17.5l5-5 4 4 3-3 5 5" />
+              </svg>
+              <span class="ph-title">Screenshot preview</span>
+              <span class="ph-sub">Your screenshot will appear here — click to add yours</span>
+            </a>
+          </div>
+          <p class="muted">No screenshots yet. A link to an image is enough — it shows up as a thumbnail you can click to enlarge.</p>
         </div>
-        <p class="muted">No screenshots yet. A link to an image is enough — it shows up as a thumbnail you can click to enlarge.</p>
+        <div id="shots-demo" class="preview-block" hidden>
+          <span class="preview-badge">Preview — example data</span>
+          <div class="shot-grid">
+            <figure class="shot">
+              <button class="shot-btn" type="button" data-full={demoShot.url} data-caption={`${demoShot.caption} — ${demoShot.author}`} aria-label="Enlarge preview screenshot">
+                <img src={demoShot.url} alt={demoShot.caption} loading="lazy" />
+              </button>
+              <figcaption>{demoShot.caption} — {demoShot.author} ({demoShot.date})</figcaption>
+            </figure>
+          </div>
+        </div>
+        <button class="preview-toggle" type="button" data-target="shots-demo" data-empty="shots-empty">Preview how it looks</button>
       </>
     )}
   </section>
@@ -159,7 +180,23 @@ const mapJsonLd = {
         </tbody>
       </table>
     ) : (
-      <p class="muted">{mc.recordHint}</p>
+      <>
+        <div id="rec-empty"><p class="muted">{mc.recordHint}</p></div>
+        <div id="rec-demo" class="preview-block" hidden>
+          <span class="preview-badge">Preview — example data</span>
+          <table>
+            <thead><tr><th>Player</th><th>Time</th><th>Date</th><th>Replay</th><th>Clip</th><th>Note</th></tr></thead>
+            <tbody>
+              <tr>
+                <td>{demoRecord.player}</td><td><code>{demoRecord.time}</code></td><td>{demoRecord.date}</td>
+                <td>{demoRecord.replay ? <a href={demoRecord.replay} target="_blank" rel="noopener">replay</a> : '—'}</td>
+                <td>—</td><td>{demoRecord.note}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <button class="preview-toggle" type="button" data-target="rec-demo" data-empty="rec-empty">Preview how it looks</button>
+      </>
     )}
   </section>
 
@@ -175,7 +212,19 @@ const mapJsonLd = {
         ))}
       </ol>
     ) : (
-      <p class="muted">No history yet. Submit a timestamped note about what happened on this map — a match, a record, a community event.</p>
+      <>
+        <div id="hist-empty"><p class="muted">No history yet. Submit a timestamped note about what happened on this map — a match, a record, a community event.</p></div>
+        <div id="hist-demo" class="preview-block" hidden>
+          <span class="preview-badge">Preview — example data</span>
+          <ol class="timeline">
+            <li>
+              <span class="tl-date">{demoEvent.date}</span>
+              <span class="tl-text">{demoEvent.text}<em> — {demoEvent.author}</em> · <a href={demoEvent.link} target="_blank" rel="noopener">link</a></span>
+            </li>
+          </ol>
+        </div>
+        <button class="preview-toggle" type="button" data-target="hist-demo" data-empty="hist-empty">Preview how it looks</button>
+      </>
     )}
   </section>
 
@@ -191,7 +240,19 @@ const mapJsonLd = {
         ))}
       </div>
     ) : (
-      <p class="muted">No memories yet. Share a story, screenshot or meme from this map — what happened, and who was there.</p>
+      <>
+        <div id="mem-empty"><p class="muted">No memories yet. Share a story, screenshot or meme from this map — what happened, and who was there.</p></div>
+        <div id="mem-demo" class="preview-block" hidden>
+          <span class="preview-badge">Preview — example data</span>
+          <div class="memories">
+            <blockquote class="memory">
+              <p>{demoMemory.text}</p>
+              <div class="mem-meta">— {demoMemory.author} ({demoMemory.date}) · <a href={demoMemory.url} target="_blank" rel="noopener">link</a></div>
+            </blockquote>
+          </div>
+        </div>
+        <button class="preview-toggle" type="button" data-target="mem-demo" data-empty="mem-empty">Preview how it looks</button>
+      </>
     )}
   </section>
 
@@ -203,6 +264,19 @@ const mapJsonLd = {
 
   <script is:inline>
     (function () {
+      // "Preview how it looks" toggles: swap empty state <-> example demo block.
+      document.querySelectorAll('.preview-toggle').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var demo = document.getElementById(btn.dataset.target);
+          var empty = document.getElementById(btn.dataset.empty);
+          var show = demo.hidden;
+          demo.hidden = !show;
+          if (empty) empty.hidden = show;
+          btn.textContent = show ? 'Hide preview' : 'Preview how it looks';
+        });
+      });
+
+      // Screenshot lightbox (works for real and preview screenshots).
       var lb = document.getElementById('lightbox');
       if (!lb) return;
       var img = lb.querySelector('.lb-img');
