@@ -7,7 +7,7 @@ nav_order: 5
 # Maps
 {: .no_toc }
 
-Per-map pages with a community screenshot gallery and a record history. Every map gets its own page; replays are shared as links only.
+Per-map pages with a community screenshot gallery and a record history. Every map gets its own page; replays and clips can be linked or attached.
 {: .fs-6 .fw-300 }
 
 ## Table of Contents
@@ -23,8 +23,8 @@ Per-map pages with a community screenshot gallery and a record history. Every ma
 - **One page per map** — screenshots, route notes and the record history live together on a dedicated map page under `docs/maps/`.
 - **Anyone can contribute** — open a pre-filled issue (no Git knowledge needed) or edit the map page directly on GitHub and send a pull request.
 - **Screenshots** are either uploaded to `assets/images/maps/` in a pull request, or linked from an external host (ManiaExchange, Imgur, Discord CDN).
-- **Replays are links only** — paste a ManiaExchange replay page or a file-host link. Replay files are never committed to this repository.
-- **Times need a date and a player name** so the history stays verifiable. A replay or video link is strongly recommended for record claims.
+- **Replays and clips: link or attach** — paste a ManiaExchange replay page or a YouTube/Twitch clip, or attach the `.replay.gbx` file to the issue. Files can also be committed under `assets/replays/` in a pull request.
+- **Times need a date and a player name** so the history stays verifiable. A replay, a clip or an attached replay file is strongly recommended for record claims.
 
 {: .note }
 > This is a static site: there is no upload form or database. Contributions land through GitHub issues and pull requests, and a maintainer merges them into the map page.
@@ -86,7 +86,7 @@ The form asks for:
 2. **What you are adding** — screenshot, record, or both.
 3. **Player name and time** — for records, in `m:ss.mmm` format (for example `0:42.123`).
 4. **Date** — when the run or screenshot happened (`YYYY-MM-DD`).
-5. **Links** — screenshot URL and replay URL. Links only, no file uploads.
+5. **Links or files** — screenshot URL, replay URL and/or a video clip URL. You can also drag a `.replay.gbx` replay or a screenshot straight into the issue; GitHub hosts the attachment.
 
 A maintainer then adds the entry to the map page and it goes live with the next deploy.
 
@@ -103,7 +103,7 @@ A maintainer then adds the entry to the map page and it goes live with the next 
 [Create a map page on GitHub](https://github.com/tomekdot/trackmania-galaxy/new/main/docs/maps?filename=docs/maps/new-map.md&value=Copy%20the%20contents%20of%20docs/maps/TEMPLATE.md%20here){: .btn }
 
 {: .warning }
-> Do not commit replay files (`.replay.gbx`) or other binaries. Link to ManiaExchange or a file host instead. Keep screenshots reasonably sized (under ~1 MB each) and prefer WebP/JPG for photos.
+> Keep uploads small: replay files (`.replay.gbx`, usually tens of kB) belong in `assets/replays/`, screenshots (under ~1 MB, prefer WebP/JPG) in `assets/images/maps/`. Long videos stay as links (YouTube/Twitch) — never commit video files.
 
 ---
 

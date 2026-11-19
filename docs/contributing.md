@@ -64,9 +64,9 @@ Two ways to contribute:
 
 Rules:
 
-- Replays are **links only** (ManiaExchange replay page, video, or file host). Never commit `.replay.gbx` files.
+- Replays can be **linked or attached** (ManiaExchange page, video clip, or the `.replay.gbx` file). Committed replay files go to `assets/replays/`; videos stay as links.
 - Screenshots go to `assets/images/maps/` in a PR, or stay as external URLs.
-- Records need a player name, a time in `m:ss.mmm` format and a date; a replay link makes them verifiable.
+- Records need a player name, a time in `m:ss.mmm` format and a date; a replay **or clip** link (or an attached replay file) makes them verifiable.
 - New map pages start from [`docs/maps/TEMPLATE.md`](https://github.com/tomekdot/trackmania-galaxy/blob/main/docs/maps/TEMPLATE.md) and must keep `map: true` to be listed on the [Maps](maps) index.
 
 ---

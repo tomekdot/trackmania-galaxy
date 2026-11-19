@@ -7,7 +7,7 @@ body:
     attributes:
       value: |
         Thanks for contributing! Entries are added to the map page by a maintainer.
-        Replays are shared as **links only** — never attach `.replay.gbx` files.
+        Paste links (ManiaExchange, YouTube/Twitch clips) **or attach files** — drag a `.replay.gbx` replay or a screenshot into any field below; GitHub hosts the attachment.
   - type: input
     id: map-name
     attributes:
@@ -66,7 +66,7 @@ body:
     id: screenshot-links
     attributes:
       label: Screenshot links
-      description: External image URLs (ManiaExchange, Imgur, Discord CDN). One per line, with an optional caption after a comma.
+      description: Image URLs (ManiaExchange, Imgur, Discord CDN) or drag screenshots into this field to attach them. One per line, optional caption after a comma.
       placeholder: |
         https://... , start area from the thief spawn
     validations:
@@ -74,9 +74,17 @@ body:
   - type: textarea
     id: replay-links
     attributes:
-      label: Replay or video links
-      description: ManiaExchange replay page, YouTube/Twitch video, or a file-host link. Links only — no file uploads.
+      label: Replay link
+      description: ManiaExchange replay page or a file-host link — or drag the .replay.gbx file into this field to attach it.
       placeholder: https://tm.mania.exchange/replays/...
+    validations:
+      required: false
+  - type: textarea
+    id: clip-links
+    attributes:
+      label: Video / clip link
+      description: YouTube, Twitch clip, Medal, Discord attachment link — anything that shows the run. A clip is enough to verify a record.
+      placeholder: https://youtu.be/... or https://clips.twitch.tv/...
     validations:
       required: false
   - type: textarea

@@ -15,18 +15,19 @@ mx_url: ""                 # https://tm.mania.exchange/maps/...
 
 # Screenshots: repo path (../assets/images/maps/...) or an external https URL.
 screenshots: []
-#  - url: "../assets/images/maps/example.jpg"
+#  - url: "assets/images/maps/example.jpg"   # repo path (site-root relative) or an external https URL
 #    caption: "Start area seen from the thief spawn"
 #    author: "Nickname"
 #    date: 2026-11-19
 
-# Record history: newest entries first. Replays are LINKS ONLY.
+# Record history: newest entries first. Replay/clip = link OR a file committed under assets/replays/.
 records: []
 #  - player: "Nickname"
 #    time: "0:42.123"
 #    date: 2026-11-19
 #    mode: "Pursuit"
-#    replay: "https://tm.mania.exchange/replays/..."
+#    replay: "https://tm.mania.exchange/replays/..."   # or "assets/replays/<file>.replay.gbx"
+#    clip: "https://youtu.be/..."
 #    note: "Lagoon Car, no shortcuts"
 ---
 
@@ -61,7 +62,7 @@ Short description: layout, size, notable routes, zones used, and what makes the 
 <div style="display: flex; flex-wrap: wrap; gap: 12px;">
 {% for s in page.screenshots %}
   <figure style="width: 48%; margin: 0;">
-    <img src="{{ s.url }}" alt="{{ s.caption | default: page.map_name }}" style="width: 100%; border-radius: 8px;">
+    <img src="{% if s.url contains 'http' %}{{ s.url }}{% else %}{{ s.url | relative_url }}{% endif %}" alt="{{ s.caption | default: page.map_name }}" style="width: 100%; border-radius: 8px;">
     <figcaption style="font-size: 0.85rem; opacity: 0.8;">{{ s.caption }}{% if s.author %} — {{ s.author }}{% endif %}{% if s.date %} ({{ s.date }}){% endif %}</figcaption>
   </figure>
 {% endfor %}
@@ -76,13 +77,13 @@ Short description: layout, size, notable routes, zones used, and what makes the 
 ## Record history
 
 {% if page.records and page.records.size > 0 %}
-| Player | Time | Date | Mode | Replay | Note |
-|--------|------|------|------|--------|------|
-{% for r in page.records %}| {{ r.player }} | `{{ r.time }}` | {{ r.date }} | {{ r.mode | default: page.mode }} | {% if r.replay %}[link]({{ r.replay }}){% else %}—{% endif %} | {{ r.note | default: "" }} |
+| Player | Time | Date | Mode | Replay | Clip | Note |
+|--------|------|------|------|--------|------|------|
+{% for r in page.records %}| {{ r.player }} | `{{ r.time }}` | {{ r.date }} | {{ r.mode | default: page.mode }} | {% if r.replay %}{% if r.replay contains 'http' %}[link]({{ r.replay }}){% else %}[file]({{ r.replay | relative_url }}){% endif %}{% else %}—{% endif %} | {% if r.clip %}{% if r.clip contains 'http' %}[clip]({{ r.clip }}){% else %}[file]({{ r.clip | relative_url }}){% endif %}{% else %}—{% endif %} | {{ r.note | default: "" }} |
 {% endfor %}
 
 {: .note }
-> Entries are added by maintainers from community submissions. A replay or video link makes a record verifiable; unlinked times may be marked as unverified.
+> Entries are added by maintainers from community submissions. A replay or clip link makes a record verifiable; unlinked times may be marked as unverified.
 {% else %}
 {: .highlight }
 > No records yet. Be the first to submit a time.
@@ -95,4 +96,4 @@ Short description: layout, size, notable routes, zones used, and what makes the 
 [Submit a screenshot or record](https://github.com/tomekdot/trackmania-galaxy/issues/new?template=map-record.yml&labels=map-record&title=%5BMap%5D%20{{ page.map_name | url_encode }}){: .btn .btn-primary }
 [Edit this page on GitHub](https://github.com/tomekdot/trackmania-galaxy/edit/main/{{ page.path }}){: .btn }
 
-Replays are shared as **links only** — ManiaExchange replay pages or file hosts. Never upload `.replay.gbx` files to this repository.
+Replays and clips can be **linked or attached** — a ManiaExchange replay page, a YouTube/Twitch clip, or the `.replay.gbx` file itself (attach it to the issue, or add it under `assets/replays/` in a pull request).

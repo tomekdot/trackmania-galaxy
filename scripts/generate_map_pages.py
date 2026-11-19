@@ -34,6 +34,7 @@ import os
 import re
 import sys
 import time
+import unicodedata
 import urllib.error
 import urllib.request
 
@@ -111,9 +112,15 @@ def mx_info(uid: str, retries: int = 3) -> dict:
     return {}
 
 
+def sanitize(raw: str) -> str:
+    """Drop control characters (MX usernames can carry them) — they break YAML front matter."""
+    return "".join(ch for ch in raw if unicodedata.category(ch)[0] != "C")
+
+
 def clean_name(raw: str) -> str:
     """Strip ManiaPlanet formatting codes ($s, $fff, $i, $z, ...) and tidy spaces."""
-    name = re.sub(r"\$[0-9a-fA-F]{3}", "", raw)
+    name = sanitize(raw)
+    name = re.sub(r"\$[0-9a-fA-F]{3}", "", name)
     name = re.sub(r"\$[a-zA-Z]", "", name)
     name = name.replace("''", "'")
     return re.sub(r"\s+", " ", name).strip()
@@ -126,7 +133,8 @@ def slugify(name: str, uid: str) -> str:
 
 
 def yaml_str(value: str) -> str:
-    return '"' + str(value).replace("\\", "\\\\").replace('"', '\\"') + '"'
+    value = sanitize(str(value))
+    return '"' + value.replace("\\", "\\\\").replace('"', '\\"') + '"'
 
 
 def page_front_matter(m: dict, slug: str) -> str:
@@ -204,7 +212,7 @@ _No description yet — add layout notes, routes, zones and tactics here._
 <div style="display: flex; flex-wrap: wrap; gap: 12px;">
 {% for s in page.screenshots %}
   <figure style="width: 48%; margin: 0;">
-    <img src="{{ s.url }}" alt="{{ s.caption | default: page.map_name }}" style="width: 100%; border-radius: 8px;">
+    <img src="{% if s.url contains 'http' %}{{ s.url }}{% else %}{{ s.url | relative_url }}{% endif %}" alt="{{ s.caption | default: page.map_name }}" style="width: 100%; border-radius: 8px;">
     <figcaption style="font-size: 0.85rem; opacity: 0.8;">{{ s.caption }}{% if s.author %} — {{ s.author }}{% endif %}{% if s.date %} ({{ s.date }}){% endif %}</figcaption>
   </figure>
 {% endfor %}
@@ -219,13 +227,13 @@ _No description yet — add layout notes, routes, zones and tactics here._
 ## Record history
 
 {% if page.records and page.records.size > 0 %}
-| Player | Time | Date | Mode | Replay | Note |
-|--------|------|------|------|--------|------|
-{% for r in page.records %}| {{ r.player }} | `{{ r.time }}` | {{ r.date }} | {{ r.mode | default: page.mode }} | {% if r.replay %}[link]({{ r.replay }}){% else %}—{% endif %} | {{ r.note | default: "" }} |
+| Player | Time | Date | Mode | Replay | Clip | Note |
+|--------|------|------|------|--------|------|------|
+{% for r in page.records %}| {{ r.player }} | `{{ r.time }}` | {{ r.date }} | {{ r.mode | default: page.mode }} | {% if r.replay %}{% if r.replay contains 'http' %}[link]({{ r.replay }}){% else %}[file]({{ r.replay | relative_url }}){% endif %}{% else %}—{% endif %} | {% if r.clip %}{% if r.clip contains 'http' %}[clip]({{ r.clip }}){% else %}[file]({{ r.clip | relative_url }}){% endif %}{% else %}—{% endif %} | {{ r.note | default: "" }} |
 {% endfor %}
 
 {: .note }
-> A replay or video link makes a record verifiable; unlinked times may be marked as unverified.
+> A replay or clip link makes a record verifiable; unlinked times may be marked as unverified.
 {% else %}
 {: .highlight }
 > No records yet. Be the first to submit a time.
@@ -238,7 +246,7 @@ _No description yet — add layout notes, routes, zones and tactics here._
 [Submit a screenshot or record](https://github.com/tomekdot/trackmania-galaxy/issues/new?template=map-record.yml&labels=map-record&title=%5BMap%5D%20{{ page.map_name | url_encode }}){: .btn .btn-primary }
 [Edit this page on GitHub](https://github.com/tomekdot/trackmania-galaxy/edit/main/{{ page.path }}){: .btn }
 
-Replays are shared as **links only** — ManiaExchange replay pages or file hosts. Never upload `.replay.gbx` files to this repository.
+Replays and clips can be **linked or attached** — a ManiaExchange replay page, a YouTube/Twitch clip, or the `.replay.gbx` file itself (attach it to the issue, or add it under `assets/replays/` in a pull request).
 """
 
 
