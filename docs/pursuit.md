@@ -473,9 +473,12 @@ Dommy added that OffZone is an old mechanic players already expect in obvious pl
 
 ---
 
-## Galaxy Rebase — TMAll Update (November 2024)
+## Galaxy Rebase — TMAll Update (27 November 2024)
 
 TrackMania² Galaxy has been **rebased on the latest version of TMAll**, bringing all the newest TMAll features directly into Galaxy. This is a major milestone unifying the codebase.
+
+{: .note }
+> Announced by Dommy on the Galaxy Discord on **27 November 2024, 20:02**: "The most unexpected news of the year, for Galaxy: TrackMania² Galaxy (Multienvironment & Stadium) have been updated! Galaxy has been rebased on the latest version of TMAll, meaning that all the newest TMAll features are available directly inside Galaxy! This includes MP Store and trailer skins for TM2 cars in Stadium for thieves!"
 
 ### 🎉 New Features
 

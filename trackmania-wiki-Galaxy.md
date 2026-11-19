@@ -9,7 +9,7 @@ The title pack is available for free — no Planets payment required.
 | image = 
 | author = Dommy (domino54)
 | initial_release = 2014 (as Pursuit), 2019 (as Galaxy)
-| latest_release = November 2024 (Galaxy Rebase)
+| latest_release = 27 November 2024 (Galaxy Rebase)
 | environments = [[Canyon]], [[Stadium]], [[Valley]], [[Lagoon]]
 | game_modes = Pursuit (Survival, Goal Hunt, SWAP), Goal Hunt, Hunters
 | type = Multi-environment title pack
@@ -215,9 +215,9 @@ The ranking page was fully rewritten by Dommy and no longer relies on the outdat
 
 * Removed discontinued server manager ("Players list"), obsolete code and obsolete buttons from the pause menu.
 
-=== Galaxy Rebase — TMAll Update (November 2024) ===
+=== Galaxy Rebase — TMAll Update (27 November 2024) ===
 
-TrackMania² Galaxy was '''rebased on the latest version of TMAll''', bringing all the newest TMAll features directly into Galaxy and unifying the codebase.
+TrackMania² Galaxy was '''rebased on the latest version of TMAll''', bringing all the newest TMAll features directly into Galaxy and unifying the codebase. Announced by Dommy on the Galaxy Discord on '''27 November 2024''' ("The most unexpected news of the year, for Galaxy"), covering both the Multienvironment and Stadium titles.
 
 * '''MP Store integration''' — access the ManiaPlanet Store directly from Galaxy.
 * Trailer skins for TM2 cars in Stadium; custom skins for thieves in Stadium.

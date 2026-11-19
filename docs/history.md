@@ -50,7 +50,7 @@ The documentation was later updated to focus on Trackmania Galaxy while keeping 
 | — | Small updates | 12 July 2019 | 6 least-played map votes, redesigned car menu, elimination icons, progressive respawn, balanced cop points |
 | 1.5 | Pursuit SWAP | 22 July 2019 | 30-second role swaps, overtime, Stadium red turbos, spectator exploit fixed |
 | 1.6 | Galaxy Rebrand | 17 October 2019 | Title renamed to TrackMania² Galaxy, free of Planets, new ranking screen, Canary branch |
-| — | Galaxy Rebase | November 2024 | Rebased on latest TMAll, MP Store integration, 29.9 bug fix, map voting fix, new car skins |
+| — | Galaxy Rebase | 27 November 2024 | Rebased on latest TMAll, MP Store integration, 29.9 bug fix, map voting fix, new car skins |
 
 ---
 
