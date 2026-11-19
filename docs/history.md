@@ -41,13 +41,16 @@ The documentation was later updated to focus on Trackmania Galaxy while keeping 
 
 | Version | Name | Date | Key Changes |
 |---------|------|------|-------------|
-| 1.2 | Enhanced Points System | January 2018 | Dynamic scoring, late-game scaling, survival points |
-| 1.3 | Construction Update | June 2018 | Vehicle selection screen, Danger Zone, Police Zone |
-| 1.3.1 | Zone Items | July 2018 | Decorative zone indicators by florenzius |
-| 1.4 | 4 Years of Pursuing | February 2019 | Capture Assists, TM Forever vehicles, Goal Hunt, Speedbomb, 3 new zones, Fuel mechanic |
-| 1.4.1 | Week-one patch | February 2019 | Bug fixes for 1.4 |
-| 1.6 | Galaxy Rebrand | 2019 | Title renamed to TrackMania² Galaxy, free of Planets |
-| — | Galaxy Rebase | November 2024 | Rebased on latest TMAll, MP Store integration, new features |
+| 1.1 | Split Screen & Minimap | 14 January 2018 | 4-player split screen, ShootMania Galaxy minimap, Police CanyonCar skin, Lagoon Car lock |
+| 1.2 | Enhanced Points System | 29 January 2018 | Dynamic scoring, killstreaks and dominations, minimap zoom, vehicles in ranking |
+| 1.3 | Construction Update | 25 June 2018 | Vehicle selection screen, Danger Zone, Police Zone |
+| 1.3.1 | Zone Items | 2 July 2018 | Decorative zone indicators by florenzius |
+| 1.4 | 4 Years of Pursuing | 19 February 2019 | Capture Assists, TM Forever vehicles, Goal Hunt, Speedbomb, 3 new zones, Fuel mechanic |
+| 1.4.1 | Week-one patch | 25 February 2019 | Car settings and vehicle rotation, looser chase assists, zone timer fixes, balanced Goal Hunt points |
+| — | Small updates | 12 July 2019 | 6 least-played map votes, redesigned car menu, elimination icons, progressive respawn, balanced cop points |
+| 1.5 | Pursuit SWAP | 22 July 2019 | 30-second role swaps, overtime, Stadium red turbos, spectator exploit fixed |
+| 1.6 | Galaxy Rebrand | 17 October 2019 | Title renamed to TrackMania² Galaxy, free of Planets, new ranking screen, Canary branch |
+| — | Galaxy Rebase | November 2024 | Rebased on latest TMAll, MP Store integration, 29.9 bug fix, map voting fix, new car skins |
 
 ---
 

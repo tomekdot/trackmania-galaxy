@@ -27,7 +27,42 @@ TrackMania² Pursuit is a title pack for ManiaPlanet that introduces a cops-and-
 
 ---
 
-## Title Update 1.2 — "Enhanced Points System" (January 2018)
+## Title Update 1.1 (14 January 2018)
+
+The first official title update after the packs premiered, focused on local play, the minimap and vehicle access.
+
+### Split Screen Mode
+
+Pursuit became playable in split screen — connect up to **4 gamepads** for up to 4 players on a single computer. Collisions are on.
+
+{: .note }
+> Keyboard is not available as an input device in split screen, and controllers are assigned randomly to the players.
+
+### Minimap from ShootMania Galaxy
+
+The ShootMania Galaxy minimap was rewritten to support TrackMania, so opponents and teammates appear on the radar. Players are shown as cars, with icons representing the vehicle they are currently driving. Appearance and behavior are tweakable via **Pause > Pursuit Settings > Minimap**.
+
+{: .note }
+> Thieves are hidden from the minimap if names are set to be not visible through walls.
+
+### Police Skin for Canyon Car
+
+If you drive the Canyon Car and become a policeman, a Police skin is applied to your car the next time you spawn. Skins for other cars were planned to follow.
+
+### Lagoon Car Access
+
+The Lagoon Car was locked to Lagoon maps only, after nearly everyone used it on other environments because it was overpowered. A new mechanic in the vehicle selection screen was implemented to unlock it on any environment for **30 minutes** by spending **15 Planets** — this option was unavailable at the time and still to be discussed with players.
+
+### Other Cars on Stadium
+
+Thanks to Openplanet, Canyon Car, Valley Car and Lagoon Car could be unlocked and used in the Stadium environment; once the game was patched they became selectable in the vehicle selection menu.
+
+{: .note }
+> Openplanet was not a public tool yet — players who had it were asked to contact Dommy on the Galaxy & Pursuit Discord for instructions.
+
+---
+
+## Title Update 1.2 — "Enhanced Points System" (29 January 2018)
 
 This update introduced a completely overhauled, dynamic scoring system designed to balance the matches between the Police and the Thieves. It rewards late-game clutch play and ensures active participation until the final seconds of a round.
 
@@ -48,10 +83,29 @@ Thieves are rewarded for their evasion skills and durability:
 
 - **Elimination Points:** Every active thief receives **1 survival point** whenever another thief is caught by the police, provided they remain uncaptured themselves.
 - **Last Thief Wins:** If the final remaining thief evades the police until the round timer expires, they receive a massive **+5 point bonus** on top of their accumulated survival points (e.g., reaching 25 total points instead of 20).
+- **Capture streak:** each capture during a round grows your streak, increasing points per capture by 1, capped at 5.
+
+### Killstreaks & Dominations
+
+Brought over from ShootMania Galaxy:
+
+- **Killstreaks** — a PENTAKILL note appears when you end the career of 5 thieves at the same time.
+- **Dominations** — being captured by the same player 2 times in a row marks you as dominated, even across different maps, hours or days.
+
+### Adjustable Minimap Zoom
+
+Zoom level is set in **Pause > Pursuit Settings > Minimap**, with 4 options: **6x6**, **8x8** (default), **10x10**, **12x12**.
+
+{: .note }
+> A zoomed-out minimap gives no advantage to either team — opponents disappear from the map at the same distance regardless of zoom.
+
+### Vehicles Shown in the Ranking
+
+The scores table now shows each player's vehicle choice, making it easy to spot who bought Lagoon Car access on a Canyon map.
 
 ---
 
-## Title Update 1.3 — "Construction Update" (June 2018)
+## Title Update 1.3 — "Construction Update" (25 June 2018)
 
 ### Vehicle Selection Screen
 
@@ -84,11 +138,11 @@ Marks routes available only for the Police team. Any thief who enters is instant
 
 ---
 
-## Title Update 1.3.1 (July 2018)
+## Title Update 1.3.1 (2 July 2018)
 
 ### Zone Items by florenzius
 
-Decorative items used to indicate the location of all three zone types:
+Designed by Dommy and crafted by florenzius, these decorative items indicate the location of all three zone types:
 
 - **OffZone** border indicators
 - **Danger Zone** warning indicators
@@ -108,9 +162,9 @@ Decorative items used to indicate the location of all three zone types:
 
 ---
 
-## Title Update 1.4 — "4 Years of Pursuing" (February 2019)
+## Title Update 1.4 — "4 Years of Pursuing" (19 February 2019)
 
-Released on the 4th anniversary of the mode's first release.
+Released on the 4th anniversary of the mode's first release, together with florenzius.
 
 ### Capture Assists 👮‍+👮‍
 
@@ -208,9 +262,9 @@ Points placed on tall or climbing-heavy maps:
 
 | Change | Details |
 |--------|---------|
-| **Thieves buffed** | Up to 4 survival points (instead of 1), scaling with remaining thieves |
-| **Lagoon Car bonus** | +1 point for capturing a Lagoon Car thief in a different car |
-| **Lagoon Car time** | 2 hours (instead of 30 min), timer only ticks when spawned with the car |
+| **Thieves buffed** | Up to 4 survival points (instead of 1): doubled once half the thieves are gone, 3 points when a quarter remains, 4 points for the last 1/8 |
+| **Lagoon Car bonus** | +1 point for capturing a Lagoon Car thief in a different car (also applies to assists) |
+| **Lagoon Car time** | 2 hours (instead of 30 min); timer ticks only while spawned with the car, and only if the map doesn't force Lagoon Car for everyone |
 | **No spawn multi-kills** | AFK players at spawn become policemen when the round starts |
 | **Spawn delay** | First spawn has a 1.5s delay to prevent game-hang desync |
 
@@ -229,6 +283,169 @@ To enable these items on your map:
 > - Level horizontally (no rotation on any axis)
 > - Aligned to cardinal directions
 > - Can be placed off-grid at arbitrary X/Y/Z coordinates
+
+### Mapper Notice: Customized Gas Stations & Race Objectives
+
+On 15 March 2019, Dommy clarified that **customized** Gas Stations and Race Objectives made by mashing the items with blocks via Mesh Modeller are **not allowed and unsupported**:
+
+- The shape of their triggers is hardcoded in the game mode.
+- Modified variants are very likely to break player detection — distorted items may detect players incorrectly or not detect them at all.
+- Support is not planned, both because of the trigger-shape complications and to keep easily recognizable landmarks with specific functions consistent across maps.
+
+---
+
+## Title Update 1.4.1 (25 February 2019)
+
+A small week-one patch for both the Multienvironment and Stadium titles:
+
+- TrackMania 2 cars were unlocked again.
+- Added a setting to override the list of cars forced by the map.
+- Added a setting to enable **vehicle rotation**: randomly selected cars become the only ones available, in the number specified by the setting.
+- Made "chase" assist detection less strict, allowing assists to happen more often.
+- Fixed Danger Zone and Thief Zone icons remaining on screen after unspawning.
+- Danger Zone and Thief Zone timers now start only after the player has started.
+- Speedbomb is no longer active in the "Waiting for players" sequence if the previous map enabled it globally.
+- The map type now saves `-0:00.001` as the author time instead of `0:00.001`.
+- Capture combo points are now present in Goal Hunt Pursuit to balance out the teams.
+- Removed last-thief and surviving-to-the-end point awards in Goal Hunt Pursuit. The only way to earn points as a thief in this mode is through capturing checkpoints.
+
+---
+
+## Several Small Updates (12 July 2019)
+
+Over the weeks following 1.4.1, several changes were deployed gradually to both Pursuit packs.
+
+### Improved Next Map Selection Screen
+
+The redesign aims to expose players to a wider variety of maps and make every vote individual:
+
+- Replaying the just finished map is no longer available (at least for now).
+- Vote counts for each map are shown only after voting is complete, so players are not influenced by others' choices.
+- The game remembers which maps you recently played and shares this with the server, which shows the **6 maps played least often** by currently connected players.
+
+{: .note }
+> In case of a tie, the **first map to receive a vote wins**. If you change your mind after voting for a map and that first pick ties with anything else, your initial pick still wins.
+
+**Voting algorithm in detail:** playing at least one full round on a map adds it to the beginning of your recently played list (or moves it back to the start if already there). When voting begins, the server collects a list of 15 maps from all players. Based on a map's position in each list, it gets between 1 and 15 points — more recently played maps get more points. Maps are then ordered by points ascending, and the first 6 (least points) appear as voting options.
+
+### Redesigned Vehicle Selection Menu
+
+- All 10 car buttons fit on the whole screen, spaced out more evenly.
+- Skins are featured in the buttons as well.
+- UI elements behind the menu are hidden to prevent blending.
+- The new menu supports an experimental live car preview at the start of a map.
+
+### More Elimination Icons
+
+New icons replace the "drowning car" symbol shown on environmental captures, reducing text bloat on screen.
+
+### Enviromixing Soundtracks
+
+The music player received its first playlist: a full mix of all 27 tracks heard in Canyon, Stadium, Valley and Lagoon. Available in the Multienvironment pack only. Shuffle is on by default, and repeat one was added.
+
+{: .note }
+> A future music player rewrite was planned to let all players on the server listen to the same track at the same time, with admins controlling the currently played track.
+
+### Progressive Respawn Time
+
+For years, thieves had to wait 15 seconds to respawn. This became progressive:
+
+- At the start of a round, retrying takes only **5 seconds**.
+- As the round progresses and more thieves are caught, the time gradually extends up to **15 seconds** for the last thief remaining.
+- The game informs everyone if a captured player was about to respawn.
+- Respawn always takes 5 seconds in the Goal Hunt variation.
+
+### Balanced Cop Points
+
+Capturing a thief in the late game could be worth only 1 point while survivors got up to 3, discouraging captures for point-focused players. Cop points are now based on thieves' points, giving up to 3 for a regular capture and up to **8 points in total**:
+
+- 1–3 base points, up to 5 for the last thief.
+- 0–4 capture streak points (if not the last thief).
+- +1 for catching a Lagoon Car with any other car.
+
+---
+
+## Title Update 1.5 — "Pursuit SWAP" (22 July 2019)
+
+### Pursuit SWAP
+
+A mutation of regular Survival Pursuit: half the players start as cops and half as thieves. Catch thieves to score 5 points or survive to gain 1 point. The twist is that **all players swap roles every 30 seconds** — cops become thieves and vice versa — with 10 swaps during the match. The player with the highest score wins.
+
+- Played on **HuntersArena** maps, within the same game mode script as other Pursuit variants.
+- SWAP was played on channels for one week, after which its maps were merged into the regular Pursuit playlist.
+
+### Overtime
+
+When the timer hits the limit but a thief is still being chased, the game continues until they lose their tail or get captured. Overtime applies only to Survival and Goal Hunt variants.
+
+### Other Changes
+
+- **Stadium red turbos** can now be used to construct more extreme maps.
+- The exploit allowing thieves to switch to spectator mode without consequences (denying remaining survivors their survival points) was fixed. Any policeman who could have got an assist on such a thief now receives points for capturing them.
+
+---
+
+## Title Update 1.6 — "Galaxy" (17 October 2019)
+
+The title packs were rebranded from **TrackMania² Pursuit** to **TrackMania² Galaxy** (the Pursuit mode kept its name), and became free — no Planets required. The update also brought a new ranking page, exclusive player badges, interface tweaks and a large set of technical changes.
+
+Dommy's goal behind the rename is a unified ecosystem housing both his TrackMania and ShootMania titles with a shared profile, stats, achievements and unlockables. ShootMania Galaxy is planned to be revived on the new Pursuit codebase, which is compatible with both TM and SM.
+
+### Additions
+
+- New, redesigned ranking screen with detailed player info, gamepad navigation, match info in the header, per-player stats in the footer, and separate round/match points.
+- Exclusive badges next to player names for important contributors (models, translations, long-time mappers, competition winners); most Nadeo members have one.
+- Points are split into round points and match points — green PTS are added to the Total at the end of the round, like in ShootMania or Rounds/Cup modes.
+- **Proximity assists** — least-priority assists for cops within 8 metres of a thief (a quarter of a Stadium block).
+- Gamepad support for the vehicle selection and map selection screens.
+- Scoreboard now counts assists scored by each player.
+- **Active and Passive thieves system** — thieves actively driving gain more survival points, while campers' points are capped.
+- Test mode in the map editor (avoid for now — impossible to return to the editor).
+- Speedometer now fakes the first 1k RPM to reflect idle engine sounds of TMU vehicles, plus other cosmetic speedometer changes.
+- Platform soundtrack, an easter egg related to drifting, and an easter egg played when capturing or being captured by a specific player.
+- **TrackMania² Galaxy Canary** — development branch of the Stadium title for testing.
+- Discord advertisement under the scoreboard.
+
+### New Ranking Page in Detail
+
+Fully rewritten by Dommy, no longer relying on the outdated ManiaPlanet 3 scripts — it no longer randomly crashes upon joining.
+
+- **Gamepad navigation** — D-Pad or Right Stick up/down moves a page up or down; D-Pad left/right switches between tabs.
+- **Header** — information about the ongoing match plus the logo of the played game mode, for easier recognition in channels.
+- **Footer** — your stats (or the spectated player's): survival score, captures, assists, total points and current placement.
+- **Vehicle icons** instead of cryptic 1-letter abbreviations — hover for the full car name, click to switch to it (if you can respawn).
+- **Best players page** remade — previously only under Left Alt, now available under Tab and through the gamepad.
+- More room for player names, with badges shown next to nicknames.
+
+### Exclusive Player Badges
+
+Prestigious rewards for players important to the development and upkeep of the Galaxy packs, shown next to the player name in the scoreboard and nametags (more locations planned).
+
+{: .note }
+> Badges cannot be bought — they are earned by contributing models or translations, being a long-time mapper, or winning official competitions. Most Nadeo members have one.
+
+### Minor Design Tweaks & Canary
+
+- Some interface elements were refreshed, with animations applied for a more polished feel.
+- **Canary** is the pack where all pre-release tests happen; it is only for people interested in testing new features, with information posted on the official Discord.
+
+### Changes
+
+- Both titles officially renamed to TrackMania² Galaxy and made free of Planets payment.
+- Hunters mode updated and playable again.
+- Most files reorganized and converted to WebP, JSON and OGG.
+- Tweaked UI placement/effects internals, resulting in fewer frame drops.
+- Assists optimized — checked twice a second instead of every frame (100 frames → 2 frames).
+- Capture detection optimized with smarter distance calculation.
+- Speedometer RPM gauge slightly interpolated to reduce jitter in TMU cars.
+- More split-screen compatibility.
+- Fixed: Thief Zone timer appearing for cops; on-screen messages with links staying after the message disappears; faulty detection of random chase assists; incorrect visibility of player names during the preparation phase ("random" disappearances).
+
+### Deletions
+
+- Removed discontinued server manager ("Players list").
+- Removed obsolete code.
+- Removed obsolete buttons from the pause menu.
 
 ---
 
@@ -251,6 +468,8 @@ Dommy envisions the indication as something similar to NFS barrier arrows, but w
 > 2. Map types / editor plugins can place items.
 
 Manual placement has an advantage — the mapper marks only the entrance, while a script would place items inside walls or overlap with them.
+
+Dommy added that OffZone is an old mechanic players already expect in obvious places (outside the map, deep pits, water), so its border item should be used in less obvious scenarios — the ledge of a floating platform or the top of a tall building. At the time (July 2018) only 4 maps took advantage of Danger Zone and Police Zone.
 
 ---
 

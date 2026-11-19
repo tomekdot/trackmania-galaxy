@@ -31,6 +31,23 @@ Before jumping in, make sure you have the following:
 
 ---
 
+## Choosing a Galaxy Pack
+
+All Galaxy titles are found in the in-game store:
+
+| Pack | What it is |
+|------|------------|
+| **TrackMania² Galaxy Multienvironment** | The multi-environment pack made for the TrackMania channel (Canyon, Stadium, Valley, Lagoon) |
+| **TrackMania² Galaxy Stadium** | Stadium-only variant for the core Pursuit community, with its own dedicated server running 24/7 |
+| **TrackMania² Galaxy Canary** | Development branch where pre-release tests happen — only needed if you want to help test new features |
+
+Maps built for Galaxy are on [ManiaExchange](https://tm.mania.exchange) under Pursuit, Goal Hunt and Hunters.
+
+{: .note }
+> Before Title Update 1.6 the packs were not free: players could wait for Pursuit Multienvironment to appear for free in the TrackMania channel timetable, play the Stadium pack on its 24/7 server, or buy the game. Since 1.6 all Galaxy titles are free — no Planets required.
+
+---
+
 ## Creating an Account
 
 1. Visit [ManiaPlanet website](https://www.maniaplanet.com) and create a free account.
