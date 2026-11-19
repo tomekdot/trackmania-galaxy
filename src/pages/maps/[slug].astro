@@ -20,14 +20,34 @@ const memories = m.memories || [];
 const fullStars = Math.round(m.stars_avg || 0);
 const starRow = '★'.repeat(fullStars) + '☆'.repeat(Math.max(0, 5 - fullStars));
 
-// Example data used only by the "Preview" toggle to show how a section looks
-// once a player submits content. Clearly labelled, never mixed with real data.
-const demoShot = { url: m.thumbnail, caption: 'Preview example — start area', author: 'Example', date: '2026-11-19' };
-const demoRecord = { player: 'ExamplePlayer', time: '0:42.123', date: '2026-11-19', replay: m.mx_url, clip: '', note: 'Preview example' };
-const demoEvent = { date: '2026-11-19', text: 'Preview example — a community match on this map', author: 'Example', link: m.mx_url };
-const demoMemory = { date: '2026-11-19', text: 'Preview example — a funny moment everyone on the server remembers.', author: 'Example', url: m.mx_url };
+// Recognize video links and return an inline embed (iframe or <video>).
+// Anything unrecognized returns null and stays a plain clickable link.
+const HOST = 'tomekdot.github.io';
+function videoEmbed(url) {
+  if (!url || typeof url !== 'string') return null;
+  const u = url.trim();
+  let mt;
+  mt = u.match(/(?:youtube\.com\/(?:watch\?(?:.*&)?v=|shorts\/|embed\/|live\/)|youtu\.be\/)([A-Za-z0-9_-]{6,})/);
+  if (mt) return { kind: 'iframe', src: 'https://www.youtube-nocookie.com/embed/' + mt[1], label: 'YouTube' };
+  mt = u.match(/medal\.tv\/(?:[^\s]*\/)?clips?\/([A-Za-z0-9_-]+)/);
+  if (mt) return { kind: 'iframe', src: 'https://medal.tv/embed/' + mt[1], label: 'Medal.tv' };
+  mt = u.match(/clips\.twitch\.tv\/([A-Za-z0-9_-]+)/);
+  if (mt) return { kind: 'iframe', src: 'https://clips.twitch.tv/embed?clip=' + mt[1] + '&parent=' + HOST, label: 'Twitch' };
+  mt = u.match(/twitch\.tv\/videos\/(\d+)/);
+  if (mt) return { kind: 'iframe', src: 'https://player.twitch.tv/?video=' + mt[1] + '&parent=' + HOST, label: 'Twitch' };
+  mt = u.match(/streamable\.com\/(?:e\/)?([A-Za-z0-9]+)/);
+  if (mt) return { kind: 'iframe', src: 'https://streamable.com/e/' + mt[1], label: 'Streamable' };
+  if (/\.(mp4|webm|mov|m4v)(\?.*)?$/i.test(u)) return { kind: 'video', src: u, label: 'Video' };
+  return null;
+}
 
-// Mode-aware copy — grounded in the actual Galaxy game modes, not generic filler.
+// Example data for the "Preview" toggle only — clearly labelled, never real data.
+const sampleVideo = 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4';
+const demoShot = { url: m.thumbnail, caption: 'Preview example — start area', author: 'Example', date: '2026-11-19' };
+const demoRecord = { player: 'ExamplePlayer', time: '0:42.123', date: '2026-11-19', replay: m.mx_url, clip: sampleVideo, note: 'Preview example' };
+const demoEvent = { date: '2026-11-19', text: 'Preview example — a community match on this map', author: 'Example', link: m.mx_url };
+const demoMemory = { date: '2026-11-19', text: 'Preview example — a funny moment everyone on the server remembers.', author: 'Example', url: sampleVideo };
+
 const MODES = {
   'Pursuit': {
     tagline: 'Cops vs thieves — survive the longest, capture thieves, rack up assists.',
@@ -162,23 +182,39 @@ const mapJsonLd = {
   <section class="panel">
     <h2>Record history</h2>
     {m.records.length > 0 ? (
-      <table>
-        <thead>
-          <tr><th>Player</th><th>Time</th><th>Date</th><th>Replay</th><th>Clip</th><th>Note</th></tr>
-        </thead>
-        <tbody>
-          {m.records.map((r) => (
-            <tr>
-              <td>{r.player}</td>
-              <td><code>{r.time}</code></td>
-              <td>{r.date}</td>
-              <td>{r.replay ? <a href={r.replay} target="_blank" rel="noopener">replay</a> : '—'}</td>
-              <td>{r.clip ? <a href={r.clip} target="_blank" rel="noopener">clip</a> : '—'}</td>
-              <td>{r.note || ''}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <>
+        <table>
+          <thead>
+            <tr><th>Player</th><th>Time</th><th>Date</th><th>Replay</th><th>Clip</th><th>Note</th></tr>
+          </thead>
+          <tbody>
+            {m.records.map((r) => (
+              <tr>
+                <td>{r.player}</td>
+                <td><code>{r.time}</code></td>
+                <td>{r.date}</td>
+                <td>{r.replay ? <a href={r.replay} target="_blank" rel="noopener">replay</a> : '—'}</td>
+                <td>{r.clip ? <a href={r.clip} target="_blank" rel="noopener">clip</a> : '—'}</td>
+                <td>{r.note || ''}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        {m.records.filter((r) => videoEmbed(r.clip)).map((r) => {
+          const emb = videoEmbed(r.clip);
+          return (
+            <div class="record-clip">
+              <div class="rc-label">{r.player} — <code>{r.time}</code> · {emb.label}</div>
+              <div class="video-embed">
+                {emb.kind === 'iframe'
+                  ? <iframe src={emb.src} title={`${emb.label} clip by ${r.player}`} loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen frameborder="0"></iframe>
+                  : <video src={emb.src} controls preload="metadata" playsinline></video>}
+              </div>
+              <a class="embed-fallback" href={r.clip} target="_blank" rel="noopener">Open original ↗</a>
+            </div>
+          );
+        })}
+      </>
     ) : (
       <>
         <div id="rec-empty"><p class="muted">{mc.recordHint}</p></div>
@@ -190,10 +226,15 @@ const mapJsonLd = {
               <tr>
                 <td>{demoRecord.player}</td><td><code>{demoRecord.time}</code></td><td>{demoRecord.date}</td>
                 <td>{demoRecord.replay ? <a href={demoRecord.replay} target="_blank" rel="noopener">replay</a> : '—'}</td>
-                <td>—</td><td>{demoRecord.note}</td>
+                <td><a href={demoRecord.clip} target="_blank" rel="noopener">clip</a></td><td>{demoRecord.note}</td>
               </tr>
             </tbody>
           </table>
+          <div class="record-clip">
+            <div class="rc-label">{demoRecord.player} — <code>{demoRecord.time}</code> · Video</div>
+            <div class="video-embed"><video src={demoRecord.clip} controls preload="metadata" playsinline></video></div>
+            <a class="embed-fallback" href={demoRecord.clip} target="_blank" rel="noopener">Open original ↗</a>
+          </div>
         </div>
         <button class="preview-toggle" type="button" data-target="rec-demo" data-empty="rec-empty">Preview how it looks</button>
       </>
@@ -204,12 +245,22 @@ const mapJsonLd = {
     <h2>Map history</h2>
     {events.length > 0 ? (
       <ol class="timeline">
-        {events.map((e) => (
-          <li>
-            <span class="tl-date">{e.date}</span>
-            <span class="tl-text">{e.text}{e.author ? <em> — {e.author}</em> : null}{e.link ? <> · <a href={e.link} target="_blank" rel="noopener">link</a></> : null}</span>
-          </li>
-        ))}
+        {events.map((e) => {
+          const emb = videoEmbed(e.link);
+          return (
+            <li>
+              <span class="tl-date">{e.date}</span>
+              <span class="tl-text">{e.text}{e.author ? <em> — {e.author}</em> : null}{e.link ? <> · <a href={e.link} target="_blank" rel="noopener">link</a></> : null}</span>
+              {emb && (
+                <div class="video-embed">
+                  {emb.kind === 'iframe'
+                    ? <iframe src={emb.src} title={emb.label} loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen frameborder="0"></iframe>
+                    : <video src={emb.src} controls preload="metadata" playsinline></video>}
+                </div>
+              )}
+            </li>
+          );
+        })}
       </ol>
     ) : (
       <>
@@ -232,22 +283,33 @@ const mapJsonLd = {
     <h2>Memories</h2>
     {memories.length > 0 ? (
       <div class="memories">
-        {memories.map((mem) => (
-          <blockquote class="memory">
-            <p>{mem.text}</p>
-            <div class="mem-meta">{mem.author ? `— ${mem.author}` : ''}{mem.date ? ` (${mem.date})` : ''}{mem.url ? <> · <a href={mem.url} target="_blank" rel="noopener">link</a></> : null}</div>
-          </blockquote>
-        ))}
+        {memories.map((mem) => {
+          const emb = videoEmbed(mem.url);
+          return (
+            <blockquote class="memory">
+              <p>{mem.text}</p>
+              {emb && (
+                <div class="video-embed">
+                  {emb.kind === 'iframe'
+                    ? <iframe src={emb.src} title={`${emb.label} — memory by ${mem.author || 'player'}`} loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen frameborder="0"></iframe>
+                    : <video src={emb.src} controls preload="metadata" playsinline></video>}
+                </div>
+              )}
+              <div class="mem-meta">{mem.author ? `— ${mem.author}` : ''}{mem.date ? ` (${mem.date})` : ''}{mem.url ? <> · <a href={mem.url} target="_blank" rel="noopener">{emb ? 'open original ↗' : 'link'}</a></> : null}</div>
+            </blockquote>
+          );
+        })}
       </div>
     ) : (
       <>
-        <div id="mem-empty"><p class="muted">No memories yet. Share a story, screenshot or meme from this map — what happened, and who was there.</p></div>
+        <div id="mem-empty"><p class="muted">No memories yet. Share a story, screenshot or meme from this map — what happened, and who was there. Video links (Medal.tv, Discord, YouTube) play inline.</p></div>
         <div id="mem-demo" class="preview-block" hidden>
           <span class="preview-badge">Preview — example data</span>
           <div class="memories">
             <blockquote class="memory">
               <p>{demoMemory.text}</p>
-              <div class="mem-meta">— {demoMemory.author} ({demoMemory.date}) · <a href={demoMemory.url} target="_blank" rel="noopener">link</a></div>
+              <div class="video-embed"><video src={demoMemory.url} controls preload="metadata" playsinline></video></div>
+              <div class="mem-meta">— {demoMemory.author} ({demoMemory.date}) · <a href={demoMemory.url} target="_blank" rel="noopener">open original ↗</a></div>
             </blockquote>
           </div>
         </div>
@@ -264,7 +326,6 @@ const mapJsonLd = {
 
   <script is:inline>
     (function () {
-      // "Preview how it looks" toggles: swap empty state <-> example demo block.
       document.querySelectorAll('.preview-toggle').forEach(function (btn) {
         btn.addEventListener('click', function () {
           var demo = document.getElementById(btn.dataset.target);
@@ -276,7 +337,6 @@ const mapJsonLd = {
         });
       });
 
-      // Screenshot lightbox (works for real and preview screenshots).
       var lb = document.getElementById('lightbox');
       if (!lb) return;
       var img = lb.querySelector('.lb-img');
