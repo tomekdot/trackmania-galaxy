@@ -437,6 +437,27 @@ footer {
 .shot-btn:hover img { box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.45); }
 .shot figcaption { font-size: 0.78rem; color: var(--muted); margin-top: 6px; }
 
+/* Empty-state screenshot placeholder: previews the gallery slot, click to submit */
+.shot-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  aspect-ratio: 16 / 9;
+  padding: 16px;
+  text-align: center;
+  text-decoration: none;
+  color: var(--muted);
+  background: rgba(255, 255, 255, 0.03);
+  border: 2px dashed rgba(174, 184, 204, 0.4);
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+}
+.shot-placeholder:hover { border-color: var(--gold); color: var(--text); background: rgba(255, 191, 0, 0.06); }
+.ph-icon { opacity: 0.7; }
+.ph-title { font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; font-size: 0.85rem; }
+.ph-sub { font-size: 0.76rem; opacity: 0.85; }
+
 .lightbox { position: fixed; inset: 0; z-index: 200; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; padding: 40px; background: rgba(4, 8, 20, 0.92); backdrop-filter: blur(4px); }
 .lightbox[hidden] { display: none; }
 .lb-img { max-width: 90vw; max-height: 78vh; object-fit: contain; border: 1px solid var(--border); box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6); }
