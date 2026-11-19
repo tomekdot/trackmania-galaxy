@@ -15,10 +15,41 @@
   "stars_total": 27,
   "yn_rating": null,
   "yn_votes": null,
-  "screenshots": [],
-  "records": [],
-  "events": [],
-  "memories": []
+  "screenshots": [
+   {
+    "url": "https://files-v4.live.maniaplanet.com/maps/0c442c3c4a/vCqoFAEA_5HtD4dV2i_Yep7KSz7.jpg",
+    "caption": "Example — start area overview",
+    "author": "Example",
+    "date": "2026-11-19"
+   }
+  ],
+  "records": [
+   {
+    "player": "ExamplePlayer",
+    "time": "0:42.123",
+    "date": "2026-11-19",
+    "mode": "Pursuit",
+    "replay": "https://tm.mania.exchange/maps/250063",
+    "clip": "",
+    "note": "Example entry — submit your real time!"
+   }
+  ],
+  "events": [
+   {
+    "date": "2026-11-19",
+    "text": "Example — first community match recorded on this map",
+    "author": "Example",
+    "link": "https://tm.mania.exchange/maps/250063"
+   }
+  ],
+  "memories": [
+   {
+    "date": "2026-11-19",
+    "text": "Example — the whole server hid in the same corner for one round, nobody caught anyone for a full minute.",
+    "author": "Example",
+    "url": "https://tm.mania.exchange/maps/250063"
+   }
+  ]
  },
  {
   "slug": "a-r-e-n-a-b-y-z-i-y-x",
