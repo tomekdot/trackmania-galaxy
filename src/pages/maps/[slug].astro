@@ -1,0 +1,142 @@
+---
+import Layout from '../../components/Layout.astro';
+import maps from '../../data/maps.json';
+
+export function getStaticPaths() {
+  return maps.map((m) => ({ params: { slug: m.slug }, props: { m } }));
+}
+
+const { m } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const issueUrl =
+  'https://github.com/tomekdot/trackmania-galaxy/issues/new?template=map-record.yml&labels=map-record&title=' +
+  encodeURIComponent(`[Map] ${m.name}`);
+const fullStars = Math.round(m.stars_avg || 0);
+const starRow = '★'.repeat(fullStars) + '☆'.repeat(Math.max(0, 5 - fullStars));
+
+// Mode-aware copy — grounded in the actual Galaxy game modes, not generic filler.
+const MODES = {
+  'Pursuit': {
+    tagline: 'Cops vs thieves — survive the longest, capture thieves, rack up assists.',
+    aboutHint: 'No description yet. Add the spawn & podium layout, the zones used (OffZone, Danger, Police, Thief, Speedbomb), available vehicles, escape routes and camping spots.',
+    recordHint: 'No records yet. Be the first to submit a survival time, capture count or assist score — a replay or clip link makes it verifiable.',
+  },
+  'Goal Hunt': {
+    tagline: 'Checkpoint hunting — reach the targets first, highest score wins the map.',
+    aboutHint: 'No description yet. Add the checkpoint layout, arena flow, target routes, respawn points and the fastest lines between goals.',
+    recordHint: 'No records yet. Be the first to submit a score or goals-reached run — a replay or clip link makes it verifiable.',
+  },
+  'Hunters': {
+    tagline: 'Everyone chases everyone — catch your target, avoid being caught.',
+    aboutHint: 'No description yet. Add the arena size, target spawn points, chase routes and hiding spots.',
+    recordHint: 'No records yet. Be the first to submit a catch count or points run — a replay or clip link makes it verifiable.',
+  },
+};
+const fallbackCopy = {
+  tagline: 'A Trackmania Galaxy map — layout, routes and community records.',
+  aboutHint: 'No description yet. Add layout notes, routes, surface types, zones and tactics.',
+  recordHint: 'No records yet. Be the first to submit a time — a replay or clip link makes it verifiable.',
+};
+const mc = MODES[m.mode] || fallbackCopy;
+
+const mapJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'CreativeWork',
+  name: m.name,
+  headline: `${m.name} — ${m.mode || 'Trackmania'} map`,
+  url: new URL(`${base}/maps/${m.slug}/`, Astro.site).href,
+  image: m.thumbnail,
+  genre: m.mode || 'Trackmania',
+  ...(m.mapper ? { creator: { '@type': 'Person', name: m.mapper } } : {}),
+  isPartOf: { '@type': 'WebSite', name: 'Trackmania Galaxy', url: new URL(`${base}/`, Astro.site).href },
+  ...(m.stars_avg != null
+    ? { aggregateRating: { '@type': 'AggregateRating', ratingValue: m.stars_avg, bestRating: 5, ratingCount: m.stars_total || 1 } }
+    : {}),
+};
+---
+<Layout title={`${m.name} — Trackmania Galaxy`} description={`${m.name} by ${m.mapper} — ${m.mode} map in ${m.environment}. Records, screenshots and community content.`} image={m.thumbnail} jsonLd={mapJsonLd}>
+  <a class="back" href={`${base}/`}>← All maps</a>
+
+  <div class="map-hero">
+    <div class="hero-thumb">
+      <img src={m.thumbnail} alt={`${m.name} thumbnail`} />
+    </div>
+    <div class="hero-info">
+      <h1>{m.name}</h1>
+      <div class="badges">
+        <span class="badge">{m.mode || 'map'}</span>
+        <span class="badge env">{m.environment}</span>
+        {m.map_type && <span class="badge">{m.map_type}</span>}
+        {m.titlepack && <span class="badge env">{m.titlepack}</span>}
+      </div>
+      <p class="mode-tagline">{mc.tagline}</p>
+      <dl class="facts">
+        <dt>Mapper</dt><dd>{m.mapper || 'unknown'}</dd>
+        {m.uploaded && (<><dt>Uploaded</dt><dd>{m.uploaded}</dd></>)}
+        {m.mx_url && (<><dt>ManiaExchange</dt><dd><a href={m.mx_url}>map #{m.mx_id}</a></dd></>)}
+        {m.stars_avg != null && (
+          <>
+            <dt>Community rating</dt>
+            <dd><span class="rating-big">{starRow}</span> {m.stars_avg.toFixed(1)}/5 ({m.stars_total} votes)</dd>
+          </>
+        )}
+        {m.yn_rating != null && (
+          <>
+            <dt>YES/NO rating</dt>
+            <dd>{m.yn_rating}/5 ({m.yn_votes} votes)</dd>
+          </>
+        )}
+      </dl>
+      <div class="cta">
+        {m.mx_url && <a class="btn primary" href={m.mx_url}>View on ManiaExchange</a>}
+        <a class="btn" href={issueUrl}>Submit record / screenshot</a>
+      </div>
+    </div>
+  </div>
+
+  <section class="panel">
+    <h2>About the map</h2>
+    <p class="muted">{mc.aboutHint}</p>
+  </section>
+
+  <section class="panel">
+    <h2>Screenshots</h2>
+    {m.screenshots.length > 0 ? (
+      <div class="shot-grid">
+        {m.screenshots.map((s) => (
+          <figure>
+            <img src={s.url} alt={s.caption || m.name} loading="lazy" />
+            <figcaption>{s.caption}{s.author ? ` — ${s.author}` : ''}</figcaption>
+          </figure>
+        ))}
+      </div>
+    ) : (
+      <p class="muted">No screenshots yet. Add yours with the button above — a link to an image is enough.</p>
+    )}
+  </section>
+
+  <section class="panel">
+    <h2>Record history</h2>
+    {m.records.length > 0 ? (
+      <table>
+        <thead>
+          <tr><th>Player</th><th>Time</th><th>Date</th><th>Replay</th><th>Clip</th><th>Note</th></tr>
+        </thead>
+        <tbody>
+          {m.records.map((r) => (
+            <tr>
+              <td>{r.player}</td>
+              <td><code>{r.time}</code></td>
+              <td>{r.date}</td>
+              <td>{r.replay ? <a href={r.replay}>link</a> : '—'}</td>
+              <td>{r.clip ? <a href={r.clip}>clip</a> : '—'}</td>
+              <td>{r.note || ''}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    ) : (
+      <p class="muted">{mc.recordHint}</p>
+    )}
+  </section>
+</Layout>

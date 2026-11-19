@@ -1,0 +1,168 @@
+---
+import Layout from '../components/Layout.astro';
+import maps from '../data/maps.json';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const envs = [...new Set(maps.map((m) => m.environment))].filter(Boolean).sort();
+const pursuitCount = maps.filter((m) => m.mode === 'Pursuit').length;
+// Maps render in batches of 10 — never all 262 at once.
+const BATCH = 10;
+const json = JSON.stringify(maps).replace(/</g, '\\u003c');
+---
+<Layout title="Trackmania Galaxy — 262 Pursuit & Goal Hunt maps" description="Community wiki for TrackMania² Galaxy: 262 Pursuit and Goal Hunt maps with thumbnails, ratings, records and screenshots. Search, filter by environment, submit your own.">
+  <section class="hero">
+    <span class="hero-tm">TRACKMANIA<sup>2</sup></span>
+    <h1>GALAXY</h1>
+    <p class="tagline">Pursuit · Goal Hunt — every map, every record</p>
+    <div class="stats">
+      <div><b>{maps.length}</b><span>maps</span></div>
+      <div><b>{pursuitCount}</b><span>pursuit</span></div>
+    </div>
+  </section>
+
+  <section class="controls">
+    <input id="q" type="search" placeholder="Search maps or mappers…" autocomplete="off" />
+    <div class="chips" id="chips">
+      <button class="chip active" data-env="">All</button>
+      {envs.map((e) => <button class="chip" data-env={e}>{e}</button>)}
+      <button class="chip" data-mode="Pursuit">Pursuit only</button>
+      <button class="chip" data-mode="Goal Hunt">Goal Hunt only</button>
+    </div>
+  </section>
+
+  <section class="grid" id="grid"></section>
+
+  <div class="load-row">
+    <p id="counter" class="counter"></p>
+    <button id="more" class="btn" type="button">Load more</button>
+  </div>
+  <div id="sentinel"></div>
+  <p id="empty" hidden>No maps match your search.</p>
+
+  <script type="application/json" id="map-data" set:html={json} />
+
+  <script is:inline define:vars={{ base, BATCH }}>
+    const DATA = JSON.parse(document.getElementById('map-data').textContent);
+    const grid = document.getElementById('grid');
+    const q = document.getElementById('q');
+    const chips = [...document.querySelectorAll('.chip')];
+    const more = document.getElementById('more');
+    const counter = document.getElementById('counter');
+    const sentinel = document.getElementById('sentinel');
+    const empty = document.getElementById('empty');
+
+    let env = '';
+    let mode = '';
+    let filtered = DATA;
+    let shown = 0;
+
+    function el(tag, cls, text) {
+      const n = document.createElement(tag);
+      if (cls) n.className = cls;
+      if (text != null) n.textContent = text;
+      return n;
+    }
+
+    function cardEl(m) {
+      const a = el('a', 'card');
+      a.href = base + '/maps/' + m.slug + '/';
+      a.dataset.env = m.environment || '';
+      a.dataset.mode = m.mode || '';
+
+      const thumb = el('div', 'thumb');
+      const img = el('img');
+      img.src = m.thumbnail;
+      img.alt = m.name + ' thumbnail';
+      img.loading = 'lazy';
+      thumb.appendChild(img);
+
+      const body = el('div', 'card-body');
+      // Voting-screen caption: "Mode - Map name" + creator, centered italic.
+      // If the map name already starts with the mode, don't duplicate it.
+      const modeLabel = m.mode || 'Map';
+      const rawName = m.name || '';
+      let displayName = rawName;
+      let showMode = true;
+      if (rawName.toLowerCase().startsWith(modeLabel.toLowerCase())) {
+        const rest = rawName.slice(modeLabel.length).replace(/^\s*[-–—:]\s*/, '').trim();
+        if (rest) { displayName = rest; } else { showMode = false; }
+      }
+      const title = el('h3', 'card-title');
+      if (showMode) {
+        title.appendChild(el('span', 'mode', modeLabel));
+        title.appendChild(document.createTextNode(' - '));
+      }
+      title.appendChild(el('span', 'name', displayName));
+      body.appendChild(title);
+      body.appendChild(el('p', 'mapper', m.mapper || 'unknown'));
+
+      a.appendChild(thumb);
+      a.appendChild(body);
+      return a;
+    }
+
+    function renderBatch() {
+      const next = filtered.slice(shown, shown + BATCH);
+      const frag = document.createDocumentFragment();
+      next.forEach((m) => frag.appendChild(cardEl(m)));
+      grid.appendChild(frag);
+      shown += next.length;
+      counter.textContent = 'Showing ' + shown + ' / ' + filtered.length;
+      more.hidden = shown >= filtered.length;
+      empty.hidden = filtered.length > 0;
+    }
+
+    function apply() {
+      const t = q.value.trim().toLowerCase();
+      filtered = DATA.filter((m) =>
+        (!t || m.name.toLowerCase().includes(t) || (m.mapper || '').toLowerCase().includes(t)) &&
+        (!env || m.environment === env) &&
+        (!mode || m.mode === mode)
+      );
+      grid.innerHTML = ''; // safe: clearing only; all card content is built via textContent below
+      shown = 0;
+      renderBatch();
+    }
+
+    let debounce;
+    q.addEventListener('input', () => {
+      clearTimeout(debounce);
+      debounce = setTimeout(apply, 150);
+    });
+
+    const modeChips = chips.filter((c) => c.dataset.mode !== undefined);
+    const envChips = chips.filter((c) => c.dataset.mode === undefined);
+    for (const chip of chips) {
+      chip.addEventListener('click', () => {
+        if (chip.dataset.mode !== undefined) {
+          // Mode chip: toggle off if already active, otherwise switch to it.
+          const wasActive = chip.classList.contains('active');
+          modeChips.forEach((c) => c.classList.remove('active'));
+          mode = wasActive ? '' : chip.dataset.mode;
+          if (!wasActive) chip.classList.add('active');
+        } else {
+          env = chip.dataset.env;
+          envChips.forEach((c) => c.classList.remove('active'));
+          chip.classList.add('active');
+        }
+        apply();
+      });
+    }
+
+    more.addEventListener('click', renderBatch);
+
+    // Infinite scroll: load the next batch when the sentinel approaches.
+    new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting && shown < filtered.length) renderBatch();
+    }, { rootMargin: '500px' }).observe(sentinel);
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === '/' && document.activeElement !== q) {
+        e.preventDefault();
+        q.focus();
+      }
+    });
+
+    apply();
+  </script>
+</Layout>

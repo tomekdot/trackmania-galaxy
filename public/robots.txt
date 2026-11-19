@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://tomekdot.github.io/trackmania-galaxy/sitemap-index.xml

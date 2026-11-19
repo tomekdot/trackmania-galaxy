@@ -1,0 +1,42 @@
+/* TM² Galaxy blue palette for Starlight — matches the map gallery. */
+
+:root,
+:root[data-theme='light'],
+:root[data-theme='dark'] {
+  --sl-color-accent-low: #1a2a6c;
+  --sl-color-accent: #6f86ff;
+  --sl-color-accent-high: #c3cbff;
+  --sl-color-white: #ffffff;
+  --sl-color-gray-1: #e8ecf4;
+  --sl-color-gray-2: #c8cfdc;
+  --sl-color-gray-3: #aeb8cc;
+  --sl-color-gray-4: #5a6480;
+  --sl-color-gray-5: #2a3352;
+  --sl-color-gray-6: #141d3d;
+  --sl-color-black: #0a1430;
+  --sl-color-bg: #0a1430;
+  --sl-color-bg-nav: rgba(10, 20, 48, 0.85);
+  --sl-color-bg-sidebar: rgba(13, 17, 24, 0.92);
+  --sl-color-hairline-light: rgba(174, 184, 204, 0.22);
+  --sl-color-hairline: rgba(174, 184, 204, 0.22);
+  --sl-color-text: #e8ecf4;
+  --sl-color-text-accent: #9db0ff;
+  --sl-color-banner-bg: #141d3d;
+  color-scheme: dark;
+}
+
+/* Radial blue glow backdrop, same as the gallery (no rotating rays) */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 55% 42%, rgba(58, 91, 168, 0.55) 0%, rgba(30, 63, 149, 0.35) 30%, transparent 70%),
+    radial-gradient(ellipse 55% 48% at 6% 96%, rgba(176, 48, 96, 0.35), transparent 65%);
+}
+
+/* Sharp, game-menu-like chrome */
+.sl-markdown-content a { text-underline-offset: 3px; }
+.sidebar { border-right: 1px solid rgba(174, 184, 204, 0.18); }
