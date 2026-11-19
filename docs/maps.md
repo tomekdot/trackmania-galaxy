@@ -34,15 +34,44 @@ Per-map pages with a community screenshot gallery and a record history. Every ma
 ## Map pages
 
 {% assign map_pages = site.html_pages | where_exp: "p", "p.map == true" | sort: "title" %}
+{% assign pursuit_maps = map_pages | where: "mode", "Pursuit" %}
+{% assign goalhunt_maps = map_pages | where: "mode", "Goal Hunt" %}
+{% assign hunters_maps = map_pages | where: "mode", "Hunters" %}
 {% if map_pages.size > 0 %}
-| Map | Mode | Environment | Records | Screenshots |
-|-----|------|-------------|---------|-------------|
-{% for p in map_pages %}| [{{ p.map_name | default: p.title }}]({{ p.url | relative_url }}) | {{ p.mode | default: "—" }} | {{ p.environment | default: "—" }} | {{ p.records.size | default: 0 }} | {{ p.screenshots.size | default: 0 }} |
+**{{ map_pages.size }} maps** — Pursuit {{ pursuit_maps.size }} · Goal Hunt {{ goalhunt_maps.size }} · Hunters {{ hunters_maps.size }} · unclassified {{ map_pages.size | minus: pursuit_maps.size | minus: goalhunt_maps.size | minus: hunters_maps.size }}
+
+{: .note }
+> Use the search box (shortcut `k`) to find a map by name, mapper or environment.
+
+| Map | Mode | Environment | Mapper | Records | Screenshots |
+|-----|------|-------------|--------|---------|-------------|
+{% for p in map_pages %}| [{{ p.map_name | default: p.title | escape }}]({{ p.url | relative_url }}) | {{ p.mode | default: "—" }} | {{ p.environment | default: "—" }} | {{ p.mapper | default: "—" | escape }} | {{ p.records.size | default: 0 }} | {{ p.screenshots.size | default: 0 }} |
 {% endfor %}
 {% else %}
 {: .highlight }
 > No map pages yet. Create the first one with the button below — the template takes about two minutes to fill in.
 {% endif %}
+
+---
+
+## How the map list is generated
+
+Map pages are generated from two public sources, then enriched by the community:
+
+1. **ManiaPlanet Feedback** — the official episode page for the Pursuit Multienvironment playlist (`votes/display/106`) provides the map names, UIDs, thumbnails and community ratings.
+2. **ManiaExchange API** — adds mapper, environment, map type, upload date and the MX map link. Maps that are not indexed on MX keep their name, thumbnail and ratings, with the remaining fields marked unknown.
+
+```bash
+python3 scripts/generate_map_pages.py            # fetch sources, create missing pages
+python3 scripts/generate_map_pages.py --offline  # regenerate from data/maps.json
+```
+
+- Source data and the UID → page slug mapping are cached in `data/maps.json`.
+- A re-run **never overwrites existing pages**: community screenshots, records and descriptions stay intact. New maps from the playlist get new pages.
+- `--refresh` updates only the generated metadata of existing pages (requires PyYAML) and still preserves community content.
+
+{: .warning }
+> Coverage: the pages currently mirror the official feedback episode (262 maps). If the server playlist contains maps that are missing here, report them with the issue form — a maintainer adds them to the cache and regenerates.
 
 ---
 

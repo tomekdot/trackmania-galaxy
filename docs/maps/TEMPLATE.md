@@ -30,7 +30,7 @@ records: []
 #    note: "Lagoon Car, no shortcuts"
 ---
 
-# {{ page.map_name }}
+# {{ page.map_name | escape }}
 {: .no_toc }
 
 | | |

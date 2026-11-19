@@ -60,6 +60,8 @@ callouts:
 
 # Exclude from build
 exclude:
+  - scripts
+  - data
   - Gemfile
   - Gemfile.lock
   - node_modules
