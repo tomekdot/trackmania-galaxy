@@ -40,13 +40,90 @@ Per-map pages with a community screenshot gallery and a record history. Every ma
 {% if map_pages.size > 0 %}
 **{{ map_pages.size }} maps** — Pursuit {{ pursuit_maps.size }} · Goal Hunt {{ goalhunt_maps.size }} · Hunters {{ hunters_maps.size }} · unclassified {{ map_pages.size | minus: pursuit_maps.size | minus: goalhunt_maps.size | minus: hunters_maps.size }}
 
-{: .note }
-> Use the search box (shortcut `k`) to find a map by name, mapper or environment.
+<style>
+.map-tools { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 12px 0; }
+.map-tools input[type="search"] { padding: 6px 10px; border-radius: 6px; border: 1px solid rgba(167,139,250,.35); background: rgba(255,255,255,.06); color: inherit; min-width: 220px; }
+.map-filter { padding: 5px 12px; border-radius: 999px; border: 1px solid rgba(167,139,250,.35); background: transparent; color: inherit; cursor: pointer; font-size: .85rem; }
+.map-filter.active { background: linear-gradient(135deg,#7c3aed,#4f46e5); border-color: transparent; color: #fff; }
+.map-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 14px; margin-top: 14px; }
+.map-card { display: flex; flex-direction: column; gap: 4px; padding: 8px; border-radius: 10px; border: 1px solid rgba(167,139,250,.18); background: rgba(16,18,40,.55); text-decoration: none !important; color: inherit; }
+.map-card:hover { border-color: rgba(125,211,252,.6); box-shadow: 0 0 14px rgba(124,58,237,.25); }
+.map-card img { width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 6px; background: rgba(255,255,255,.05); }
+.map-card-title { font-weight: 600; font-size: .9rem; line-height: 1.25; }
+.map-card-meta { font-size: .75rem; opacity: .75; }
+.map-card-counts { font-size: .72rem; opacity: .6; }
+.map-empty { display: none; margin-top: 12px; }
+</style>
+
+<div class="map-tools">
+  <input type="search" id="map-search" placeholder="Filter by name or mapper…" aria-label="Filter maps">
+  <button class="map-filter active" data-mode="all">All</button>
+  <button class="map-filter" data-mode="Pursuit">Pursuit</button>
+  <button class="map-filter" data-mode="Goal Hunt">Goal Hunt</button>
+  <button class="map-filter" data-mode="Hunters">Hunters</button>
+  <button class="map-filter" data-mode="unclassified">Unclassified</button>
+  <select id="map-env" class="map-filter" aria-label="Filter by environment">
+    <option value="all">All environments</option>
+    <option>Canyon</option><option>Stadium</option><option>Valley</option><option>Lagoon</option><option value="unknown">Unknown</option>
+  </select>
+  <span id="map-count" class="map-card-meta"></span>
+</div>
+
+<div class="map-grid" id="map-grid">
+{% for p in map_pages %}
+  <a class="map-card" href="{{ p.url | relative_url }}" data-mode="{{ p.mode | default: 'unclassified' }}" data-env="{{ p.environment | default: 'unknown' }}" data-text="{{ p.map_name | default: p.title | escape | downcase }} {{ p.mapper | default: '' | escape | downcase }}">
+    <img loading="lazy" src="{{ p.thumbnail }}" alt="{{ p.map_name | default: p.title | escape }} thumbnail">
+    <span class="map-card-title">{{ p.map_name | default: p.title | escape }}</span>
+    <span class="map-card-meta">{{ p.mode | default: "unclassified" }} · {{ p.environment | default: "unknown" }}</span>
+    <span class="map-card-meta">{{ p.mapper | default: "unknown mapper" | escape }}</span>
+    <span class="map-card-counts">{{ p.records.size | default: 0 }} records · {{ p.screenshots.size | default: 0 }} screenshots · {{ p.events.size | default: 0 }} events</span>
+  </a>
+{% endfor %}
+</div>
+<p class="map-empty" id="map-empty">No maps match this filter.</p>
+
+<script>
+(function () {
+  var cards = Array.prototype.slice.call(document.querySelectorAll('#map-grid .map-card'));
+  var mode = 'all', env = 'all', q = '';
+  var count = document.getElementById('map-count');
+  var empty = document.getElementById('map-empty');
+  function apply() {
+    var shown = 0;
+    cards.forEach(function (c) {
+      var ok = (mode === 'all' || c.dataset.mode === mode)
+            && (env === 'all' || c.dataset.env === env)
+            && (!q || c.dataset.text.indexOf(q) !== -1);
+      c.style.display = ok ? '' : 'none';
+      if (ok) shown++;
+    });
+    count.textContent = shown + ' / ' + cards.length + ' maps';
+    empty.style.display = shown ? 'none' : 'block';
+  }
+  document.querySelectorAll('.map-filter[data-mode]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      document.querySelectorAll('.map-filter[data-mode]').forEach(function (x) { x.classList.remove('active'); });
+      b.classList.add('active'); mode = b.dataset.mode; apply();
+    });
+  });
+  document.getElementById('map-env').addEventListener('change', function (e) { env = e.target.value; apply(); });
+  document.getElementById('map-search').addEventListener('input', function (e) { q = e.target.value.trim().toLowerCase(); apply(); });
+  apply();
+})();
+</script>
+
+<details markdown="1">
+<summary>Table view (sortable columns, copy-friendly)</summary>
 
 | Map | Mode | Environment | Mapper | Records | Screenshots |
 |-----|------|-------------|--------|---------|-------------|
 {% for p in map_pages %}| [{{ p.map_name | default: p.title | escape }}]({{ p.url | relative_url }}) | {{ p.mode | default: "—" }} | {{ p.environment | default: "—" }} | {{ p.mapper | default: "—" | escape }} | {{ p.records.size | default: 0 }} | {{ p.screenshots.size | default: 0 }} |
 {% endfor %}
+
+</details>
+
+{: .note }
+> Each card opens a dedicated map page with its description, screenshots, record history, timestamped map history and memories. The site search (shortcut `k`) also covers every map page.
 {% else %}
 {: .highlight }
 > No map pages yet. Create the first one with the button below — the template takes about two minutes to fill in.
