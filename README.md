@@ -5,9 +5,12 @@
 
 **Live site:** https://tomekdot.github.io/trackmania-galaxy/
 
-Community wiki for the **TrackMania² Galaxy** title pack — a galaxy-styled map gallery (262 Pursuit & Goal Hunt maps with thumbnails, ratings, search and filters) plus documentation (guides, title-update history, contributing).
+Community wiki for the **TrackMania² Galaxy** title pack:
 
-Built with **Astro 7 + Starlight**, hosted free on GitHub Pages. This repository was migrated from the previous Jekyll / Just the Docs site; the full Jekyll version is preserved in git history (tag `jekyll-final`).
+- a galaxy-styled map gallery with 262 Pursuit & Goal Hunt maps, thumbnails, ratings, search and filters
+- documentation: guides, title-update history and contributing rules
+
+Built with **Astro 7 + Starlight** and hosted free on GitHub Pages. This repository was migrated from the previous Jekyll / Just the Docs site; the full Jekyll version is preserved in git history (tag `jekyll-final`).
 
 ## Stack
 
@@ -48,15 +51,30 @@ npm run preview   # serve the production build
 
 ## Deploy
 
-Every push to `main` triggers `.github/workflows/deploy.yml`, which builds with [`withastro/action`](https://github.com/withastro/action) and publishes to GitHub Pages (Pages source: **GitHub Actions**). No server, no database, nothing to pay for.
+Every push to `main` triggers `.github/workflows/deploy.yml`. It builds with [`withastro/action`](https://github.com/withastro/action) and publishes to GitHub Pages (Pages source: **GitHub Actions**).
+
+No server, no database, nothing to pay for.
 
 ## Contributing
 
-Anyone can add a map screenshot or record - open a pre-filled [issue](https://github.com/tomekdot/trackmania-galaxy/issues/new/choose) (no Git knowledge needed) or edit the map data and send a pull request. See the [Contributing guide](https://tomekdot.github.io/trackmania-galaxy/docs/contributing/) on the live site.
+Anyone can add a map screenshot or record:
+
+- open a pre-filled [issue](https://github.com/tomekdot/trackmania-galaxy/issues/new/choose) — no Git knowledge needed
+- or edit the map data and send a pull request
+
+See the [Contributing guide](https://tomekdot.github.io/trackmania-galaxy/docs/contributing/) on the live site.
 
 ### Commit conventions
 
-Development commits use lowercase Conventional Commits: a lowercase type (`feat`, `fix`, `docs`, `style`, `refactor`, `perf`, `test`, `build`, `ci`, `chore`, `revert`, `demo`) followed by a short lowercase description, e.g. `fix: repair Medal.tv clip detection`. An optional scope is fine, e.g. `feat(maps): generate map pages`. New commits are signed with the SSH signing key, so they appear as Verified on GitHub.
+Development commits use lowercase Conventional Commits: `type: description`, with a lowercase type and a lowercase first word — for example `fix: repair Medal.tv clip detection`. An optional scope is fine, e.g. `feat(maps): generate map pages`.
+
+Allowed types: `feat`, `fix`, `docs`, `style`, `refactor`, `perf`, `test`, `build`, `ci`, `chore`, `revert`, `demo`.
+
+New commits are signed with the SSH signing key, so they appear as Verified on GitHub.
+
+## Contact
+
+Questions or corrections: tomekdot@users.noreply.github.com
 
 ## License
 
