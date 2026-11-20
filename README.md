@@ -52,7 +52,11 @@ Every push to `main` triggers `.github/workflows/deploy.yml`, which builds with 
 
 ## Contributing
 
-Anyone can add a map screenshot or record — open a pre-filled [issue](https://github.com/tomekdot/trackmania-galaxy/issues/new/choose) (no Git knowledge needed) or edit the map data and send a pull request. See the [Contributing guide](https://tomekdot.github.io/trackmania-galaxy/docs/contributing/) on the live site.
+Anyone can add a map screenshot or record - open a pre-filled [issue](https://github.com/tomekdot/trackmania-galaxy/issues/new/choose) (no Git knowledge needed) or edit the map data and send a pull request. See the [Contributing guide](https://tomekdot.github.io/trackmania-galaxy/docs/contributing/) on the live site.
+
+### Commit conventions
+
+Development commits use lowercase Conventional Commits: a lowercase type (`feat`, `fix`, `docs`, `style`, `refactor`, `perf`, `test`, `build`, `ci`, `chore`, `revert`, `demo`) followed by a short lowercase description, e.g. `fix: repair Medal.tv clip detection`. An optional scope is fine, e.g. `feat(maps): generate map pages`. New commits are signed with the SSH signing key, so they appear as Verified on GitHub.
 
 ## License
 
