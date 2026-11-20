@@ -1,6 +1,7 @@
 ---
 import Layout from '../../components/Layout.astro';
 import maps from '../../data/maps.json';
+import { videoEmbed } from '../../lib/video-embed.js';
 
 export function getStaticPaths() {
   return maps.map((m) => ({ params: { slug: m.slug }, props: { m } }));
@@ -19,27 +20,6 @@ const events = m.events || [];
 const memories = m.memories || [];
 const fullStars = Math.round(m.stars_avg || 0);
 const starRow = '★'.repeat(fullStars) + '☆'.repeat(Math.max(0, 5 - fullStars));
-
-// Recognize video links and return an inline embed (iframe or <video>).
-// Anything unrecognized returns null and stays a plain clickable link.
-const HOST = 'tomekdot.github.io';
-function videoEmbed(url) {
-  if (!url || typeof url !== 'string') return null;
-  const u = url.trim();
-  let mt;
-  mt = u.match(/(?:youtube\.com\/(?:watch\?(?:.*&)?v=|shorts\/|embed\/|live\/)|youtu\.be\/)([A-Za-z0-9_-]{6,})/);
-  if (mt) return { kind: 'iframe', src: 'https://www.youtube-nocookie.com/embed/' + mt[1], label: 'YouTube' };
-  mt = u.match(/medal\.tv\/(?:[^\s]*\/)?clips?\/([A-Za-z0-9_-]+)/);
-  if (mt) return { kind: 'iframe', src: 'https://medal.tv/embed/' + mt[1], label: 'Medal.tv' };
-  mt = u.match(/clips\.twitch\.tv\/([A-Za-z0-9_-]+)/);
-  if (mt) return { kind: 'iframe', src: 'https://clips.twitch.tv/embed?clip=' + mt[1] + '&parent=' + HOST, label: 'Twitch' };
-  mt = u.match(/twitch\.tv\/videos\/(\d+)/);
-  if (mt) return { kind: 'iframe', src: 'https://player.twitch.tv/?video=' + mt[1] + '&parent=' + HOST, label: 'Twitch' };
-  mt = u.match(/streamable\.com\/(?:e\/)?([A-Za-z0-9]+)/);
-  if (mt) return { kind: 'iframe', src: 'https://streamable.com/e/' + mt[1], label: 'Streamable' };
-  if (/\.(mp4|webm|mov|m4v)(\?.*)?$/i.test(u)) return { kind: 'video', src: u, label: 'Video' };
-  return null;
-}
 
 // Example data for the "Preview" toggle only — clearly labelled, never real data.
 const sampleVideo = 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4';
@@ -98,7 +78,7 @@ const mapJsonLd = {
       <h1>{m.name}</h1>
       <div class="badges">
         <span class="badge">{m.mode || 'map'}</span>
-        <span class="badge env">{m.environment}</span>
+        {m.environment && <span class="badge env">{m.environment}</span>}
         {m.map_type && <span class="badge">{m.map_type}</span>}
         {m.titlepack && <span class="badge env">{m.titlepack}</span>}
       </div>
