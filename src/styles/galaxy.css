@@ -526,6 +526,43 @@ footer {
 .embed-fallback { font-size: 0.78rem; color: var(--cyan); text-decoration: none; border-bottom: 1px solid rgba(77, 208, 225, 0.4); }
 .embed-fallback:hover { color: #fff; border-bottom-color: #fff; }
 
+/* ── Mobile (<=640px): record table -> stacked label/value cards, no overflow ── */
+@media (max-width: 640px) {
+  .panel { padding: 16px; }
+  .panel table, .panel tbody, .panel tr, .panel td { display: block; width: 100%; }
+  .panel thead { display: none; }
+  .panel tr {
+    border: 1px solid var(--border);
+    border-right: 4px solid var(--pink);
+    background: rgba(255, 255, 255, 0.03);
+    padding: 8px 12px;
+    margin-bottom: 10px;
+  }
+  .panel td {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 14px;
+    padding: 4px 0;
+    border: none;
+    text-align: right;
+    overflow-wrap: anywhere;
+  }
+  .panel td::before {
+    content: attr(data-label);
+    color: var(--muted);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-align: left;
+    flex-shrink: 0;
+  }
+  .video-embed { max-width: 100%; }
+  .cta .btn { flex: 1 1 auto; text-align: center; }
+  .lb-card { max-width: 94vw; padding: 10px; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; }
 }

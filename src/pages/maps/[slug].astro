@@ -190,12 +190,12 @@ const mapJsonLd = {
           <tbody>
             {m.records.map((r) => (
               <tr>
-                <td>{r.player}</td>
-                <td><code>{r.time}</code></td>
-                <td>{r.date}</td>
-                <td>{r.replay ? <a href={r.replay} target="_blank" rel="noopener">replay</a> : '—'}</td>
-                <td>{r.clip ? <a href={r.clip} target="_blank" rel="noopener">clip</a> : '—'}</td>
-                <td>{r.note || ''}</td>
+                <td data-label="Player">{r.player}</td>
+                <td data-label="Time"><code>{r.time}</code></td>
+                <td data-label="Date">{r.date}</td>
+                <td data-label="Replay">{r.replay ? <a href={r.replay} target="_blank" rel="noopener">replay</a> : '—'}</td>
+                <td data-label="Clip">{r.clip ? <a href={r.clip} target="_blank" rel="noopener">clip</a> : '—'}</td>
+                <td data-label="Note">{r.note || ''}</td>
               </tr>
             ))}
           </tbody>
@@ -224,9 +224,9 @@ const mapJsonLd = {
             <thead><tr><th>Player</th><th>Time</th><th>Date</th><th>Replay</th><th>Clip</th><th>Note</th></tr></thead>
             <tbody>
               <tr>
-                <td>{demoRecord.player}</td><td><code>{demoRecord.time}</code></td><td>{demoRecord.date}</td>
-                <td>{demoRecord.replay ? <a href={demoRecord.replay} target="_blank" rel="noopener">replay</a> : '—'}</td>
-                <td><a href={demoRecord.clip} target="_blank" rel="noopener">clip</a></td><td>{demoRecord.note}</td>
+                <td data-label="Player">{demoRecord.player}</td><td data-label="Time"><code>{demoRecord.time}</code></td><td data-label="Date">{demoRecord.date}</td>
+                <td data-label="Replay">{demoRecord.replay ? <a href={demoRecord.replay} target="_blank" rel="noopener">replay</a> : '—'}</td>
+                <td data-label="Clip"><a href={demoRecord.clip} target="_blank" rel="noopener">clip</a></td><td data-label="Note">{demoRecord.note}</td>
               </tr>
             </tbody>
           </table>
