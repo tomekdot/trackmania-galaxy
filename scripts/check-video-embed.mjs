@@ -14,10 +14,12 @@ const cases = [
   ['https://www.dropbox.com/s/abc123def/run.mp4?dl=0', { kind: 'video', label: 'Dropbox' }],
   ['https://mega.nz/file/AbCdEfGh#IjKlMnOp', { kind: 'iframe', label: 'MEGA' }],
   ['https://streamable.com/e/abc123', { kind: 'iframe', label: 'Streamable' }],
+  ['https://streamable.com/o/abc123', { kind: 'iframe', label: 'Streamable' }],
   // Existing hosts must keep working
   ['https://youtu.be/dQw4w9WgXcQ', { kind: 'iframe', label: 'YouTube' }],
   ['https://www.youtube.com/watch?v=dQw4w9WgXcQ&t=3', { kind: 'iframe', label: 'YouTube' }],
   ['https://medal.tv/clips/12345', { kind: 'iframe', label: 'Medal.tv' }],
+  ['https://www.medal.tv/games/trackmania/clips/abc123def', { kind: 'iframe', label: 'Medal.tv' }],
   ['https://clips.twitch.tv/AmazingClipName', { kind: 'iframe', label: 'Twitch' }],
   ['https://www.twitch.tv/videos/123456789', { kind: 'iframe', label: 'Twitch' }],
   ['https://example.com/some/direct-video.webm?token=1', { kind: 'video', label: 'Video' }],
@@ -45,4 +47,9 @@ assert.match(dropbox.src, /raw=1/);
 assert.doesNotMatch(dropbox.src, /dl=0/);
 console.log(`ok  dropbox source rewritten to ${dropbox.src}`);
 
-console.log(`\n${cases.length + 1} checks passed.`);
+assert.equal(videoEmbed('https://medal.tv/clips/4954893').src, 'https://medal.tv/clip/4954893');
+assert.equal(videoEmbed('https://streamable.com/o/abc123').src, 'https://streamable.com/e/abc123');
+console.log('ok  Medal.tv normalised to the frameable /clip/<id> URL');
+console.log('ok  Streamable /o/<id> normalised to /e/<id>');
+
+console.log(`\n${cases.length + 3} checks passed.`);

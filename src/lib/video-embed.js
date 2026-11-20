@@ -24,9 +24,10 @@ export function videoEmbed(rawUrl) {
   m = u.match(/^https?:\/\/(?:www\.|m\.)?(?:youtube\.com\/(?:watch\?(?:[^#\s]*&)?v=|shorts\/|embed\/|live\/)|youtu\.be\/)([A-Za-z0-9_-]{6,})/i);
   if (m) return { kind: 'iframe', src: 'https://www.youtube-nocookie.com/embed/' + m[1], label: 'YouTube' };
 
-  // Medal.tv clips
-  m = u.match(/^https?:\/\/(?:www\.)?medal\.tv\/(?:[^\s]*\/)?clips?\/([A-Za-z0-9_-]+)/i);
-  if (m) return { kind: 'iframe', src: 'https://medal.tv/embed/' + m[1], label: 'Medal.tv' };
+  // Medal.tv clips. /embed/<id> is gone (404); /clip/<id> redirects to the
+  // canonical /games/<game>/clip/<id> page, which allows being framed.
+  m = u.match(/^https?:\/\/(?:www\.)?medal\.tv\/(?:[^\s]*\/)?(?:clips?|c)\/([A-Za-z0-9_-]+)/i);
+  if (m) return { kind: 'iframe', src: 'https://medal.tv/clip/' + m[1], label: 'Medal.tv' };
 
   // Twitch clips and VODs (parent is required by Twitch)
   m = u.match(/^https?:\/\/clips\.twitch\.tv\/([A-Za-z0-9_-]+)/i);
@@ -34,8 +35,8 @@ export function videoEmbed(rawUrl) {
   m = u.match(/^https?:\/\/(?:www\.)?twitch\.tv\/videos\/(\d+)/i);
   if (m) return { kind: 'iframe', src: 'https://player.twitch.tv/?video=' + m[1] + '&parent=' + PARENT, label: 'Twitch' };
 
-  // Streamable
-  m = u.match(/^https?:\/\/(?:www\.)?streamable\.com\/(?:e\/)?([A-Za-z0-9]+)/i);
+  // Streamable — share (/<id>), embed (/e/<id>) and /o/<id> all map to /e/<id>.
+  m = u.match(/^https?:\/\/(?:www\.)?streamable\.com\/(?:[eo]\/)?([A-Za-z0-9]{3,16})(?:[/?#]|$)/i);
   if (m) return { kind: 'iframe', src: 'https://streamable.com/e/' + m[1], label: 'Streamable' };
 
   // Google Drive — file page -> preview iframe
