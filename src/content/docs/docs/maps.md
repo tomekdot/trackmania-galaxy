@@ -58,7 +58,7 @@ The form asks for:
 A maintainer then adds the entry to the map data and it goes live with the next deploy.
 
 :::caution
-Keep uploads small: replay files (`.replay.gbx`, usually tens of kB) belong in `assets/replays/`, screenshots (under ~1 MB, prefer WebP/JPG) in the images folder. Long videos stay as links (YouTube/Twitch) — never commit video files.
+Keep uploads small: replay files (`.replay.gbx`, usually tens of kB) belong in `assets/replays/`, screenshots (under ~1 MB, prefer WebP/JPG) in the images folder. Keep long videos as links (YouTube/Twitch/Streamable); a short clip (well under 100 MB) can be committed to `public/replays/` and linked with an absolute site URL.
 :::
 
 ---
