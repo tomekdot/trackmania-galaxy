@@ -55,6 +55,7 @@ Two ways to contribute:
 Rules:
 
 - Replays can be **linked or attached** (ManiaExchange page, video clip, or the `.replay.gbx` file). Committed replay files go to `assets/replays/`; videos stay as links.
+- **Videos are links only — never upload the video file.** Paste a URL and it plays inline on the map page. Supported inline sources: YouTube, Medal.tv, Twitch clips/VODs, Streamable, Discord CDN attachments (`cdn.discordapp.com`, `media.discordapp.net`), Google Drive, Dropbox, MEGA, and any direct `.mp4`/`.webm`/`.mov` URL. Anything else stays a plain clickable link.
 - Screenshots go to the images folder in a PR, or stay as external URLs.
 - Records need a player name, a time in `m:ss.mmm` format and a date; a replay **or clip** link (or an attached replay file) makes them verifiable.
 

@@ -1,1 +1,1 @@
-{"dependencies":{"@astrojs/starlight":"^0.43.1","astro":"^7.4.13"},"name":"trackmania-galaxy-astro","private":true,"scripts":{"build":"astro build","dev":"astro dev","preview":"astro preview"},"type":"module"}
+{"dependencies":{"@astrojs/starlight":"^0.43.1","astro":"^7.4.13"},"name":"trackmania-galaxy-astro","private":true,"scripts":{"build":"astro build","dev":"astro dev","preview":"astro preview","test":"node scripts/check-video-embed.mjs"},"type":"module"}

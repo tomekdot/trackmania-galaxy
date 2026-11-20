@@ -7,7 +7,7 @@ body:
     attributes:
       value: |
         Thanks for contributing! Entries are added to the map page by a maintainer.
-        Paste links (ManiaExchange, YouTube/Twitch clips) **or attach files** — drag a `.replay.gbx` replay or a screenshot into any field below; GitHub hosts the attachment.
+        Paste links (ManiaExchange, YouTube/Twitch clips, Discord, file hosts) **or attach files** — drag a `.replay.gbx` replay or a screenshot into any field below; GitHub hosts the attachment. Videos stay as links and play inline; do not upload video files.
   - type: input
     id: map-name
     attributes:
@@ -83,8 +83,8 @@ body:
     id: clip-links
     attributes:
       label: Video / clip link
-      description: YouTube, Twitch clip, Medal, Discord attachment link — anything that shows the run. A clip is enough to verify a record.
-      placeholder: https://youtu.be/... or https://clips.twitch.tv/...
+      description: Link only — videos are embedded, never uploaded. YouTube, Twitch, Medal.tv, Streamable, Discord (cdn.discordapp.com / media.discordapp.net), Google Drive, Dropbox, MEGA or any direct .mp4/.webm URL. A clip is enough to verify a record.
+      placeholder: https://cdn.discordapp.com/attachments/.../run.mp4 or https://youtu.be/...
     validations:
       required: false
   - type: textarea

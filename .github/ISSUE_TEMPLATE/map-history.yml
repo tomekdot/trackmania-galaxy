@@ -55,7 +55,7 @@ body:
     id: links
     attributes:
       label: Links, screenshots, clips, memes
-      description: URLs or drag files into this field (screenshots, clips, meme images). One per line, optional caption after a comma.
+      description: URLs or drag files into this field (screenshots, meme images). Video links (Discord, YouTube, Medal.tv, Google Drive, Dropbox, MEGA, direct .mp4/.webm) play inline — paste the link, do not upload the video file. One per line, optional caption after a comma.
       placeholder: |
         https://... , the winning capture
     validations:
